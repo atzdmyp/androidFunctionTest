@@ -15,8 +15,10 @@ from time import sleep
 class Log:
 
     def __init__(self):
-        global resultPath
+        global resultPath, step, checkPointNo
         resultPath = readConfig.logDir+"//result"
+        step = 0
+        checkPointNo = 0
 
 # =================================================================
 # Function Name   : buildStartLine
@@ -28,17 +30,15 @@ class Log:
         timePart = time.strftime('%Y-%m-%d %H:%M', time.localtime())
         startLine = "----  " + caseNo + "   " + "START" + "   " + timePart +\
         "  ----"
-        self.outputLogFile(startLine)
+        self.writeLog(startLine)
 
 # =================================================================
-# Function Name   : outputLogFile
-# Function        : output info write to output.log
+# Function Name   : writeLog
+# Function        : write output.log
 # Input Parameters: logInfo
 # Return Value    : -
 # =================================================================
-    def outputLogFile(self, logInfo):
-
-        print(logInfo)
+    def writeLog(self,logInfo):
 
         if os.path.exists(resultPath) == False:
             os.makedirs(resultPath)
@@ -52,6 +52,20 @@ class Log:
 
 
 # =================================================================
+# Function Name   : outputLogFile
+# Function        : output info write to output.log
+# Input Parameters: logInfo
+# Return Value    : -
+# =================================================================
+    def outputLogFile(self, logInfo):
+
+        step += 1
+        print("Step:"+step+" "+logInfo)
+
+        self.writeLog("Step:"+step+" "+logInfo)
+
+
+# =================================================================
 # Function Name   : buildEndLine
 # Function        : create end line
 # Input Parameters: caseNo
@@ -61,7 +75,7 @@ class Log:
         timePart = time.strftime('%Y-%m-%d %H:%M', time.localtime())
         endLine = "----  " + caseNo + "    " + "END" + "    " + timePart +\
         "  ----"+ "\n"
-        self.outputLogFile(endLine)
+        self.writeLog(endLine)
 
 # =================================================================
 # Function Name   : resultOK
@@ -70,7 +84,7 @@ class Log:
 # Return Value    :
 # =================================================================
     def resultOK(self, caseNo):
-        self.outputLogFile(caseNo+" :OK")
+        self.writeLog("TEST: "+caseNo+" :OK")
 
 # =================================================================
 # Function Name   : resultNG
@@ -79,7 +93,7 @@ class Log:
 # Return Value    :
 # =================================================================
     def resultNG(self, caseNo):
-        self.outputLogFile(caseNo+" :NG")
+        self.writeLog("TEST: "+caseNo+" :NG")
 
 # =================================================================
 # Function Name   : checkPointOK
@@ -88,7 +102,10 @@ class Log:
 # Return Value    :
 # =================================================================
     def checkPointOK(self, checkPoint):
-        pass
+        checkPointNo += 1
+
+        self.writeLog("[CheckPoint "+checkPointNo+"] "+checkPoint+": OK")
+
 
 # =================================================================
 # Function Name   : checkPointNG
@@ -97,7 +114,9 @@ class Log:
 # Return Value    :
 # =================================================================
     def checkPointNG(self, checkPoint):
-        pass
+        checkPointNo += 1
+
+        self.writeLog("[CheckPoint "+checkPointNo+"] "+checkPoint+": NG")
 
 # =================================================================
 # Function Name   : checkPointNG
@@ -111,4 +130,4 @@ class Log:
 
         # wait for animations to complete before taking screenshot
         sleep(1)
-        # driver.save_screenshot(screenshotDir + "/" + screenshotName)
+        #driver.save_screenshot(screenshotDir + "/" + screenshotName)
