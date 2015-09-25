@@ -38,26 +38,30 @@ class test01(unittest.TestCase):
         while not myCommon.isExitsElement(driver, By.ID, "fmc_ll_tab"):
             sleep(1)
         else:
-            el = driver.find_element_by_id("fmc_bn_profile")
+            el = myCommon.getElement(driver, By.ID, "fmc_bn_profile")
             el.click()
 
         log.outputLogFile("Open profile : OK")
 
-        while not myCommon.isExitsElement(driver, By.ID,"profile_head"):
+        while not myCommon.isExitsElement(driver, By.ID, "profile_head"):
             sleep(1)
         else:
-            el = driver.find_element_by_id("profile_sign_in")
+            el = myCommon.getElement(driver, By.ID, "profile_sign_in")
             el.click()
         log.outputLogFile("click sign in Button : OK")
 
         while not myCommon.isExitsElement(driver, By.ID, "we_et_input"):
             sleep(1)
         else:
-            el = driver.find_element_by_id("we_et_input")
+            el = myCommon.getElements(driver, By.CLASS_NAME, "android.widget.EditText", 0)
             el.click()
             el.clear()
             el.send_keys("2ts@qq.com")
-            el = driver .find_element_by_id
+            el = myCommon.getElements(driver, By.CLASS_NAME, "android.widget.EditText", 1)
+            el.send_keys("111111")
+            el = myCommon.getElement(driver, By.ID, "al_bn_sign")
+            el.click()
+
 
 
 
