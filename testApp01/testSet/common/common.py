@@ -7,12 +7,10 @@
 # ========================================================
 
 from selenium.common.exceptions import NoSuchElementException
+from time import sleep
 import readConfig
 from selenium.webdriver.common.by import By
 readConfigLocal = readConfig.ReadConfig
-
-from time import sleep
-
 
 
 
@@ -69,8 +67,23 @@ def getElement( driver, how, what):
     i = 1
     while True:
         if isExitsElement(driver, how, what):
-            element = driver.find_element(by=how, value=what)
+            element = driver.find_elements(by=how, value=what)
             return element
+        i += 1
+        if i >= 10:
+            return None
+# =================================================================
+# Function Name   : getElement
+# Function        : get one element in Element List
+# Input Parameters: driver, how, what
+# Return Value    : element/None
+# =================================================================
+def getElements( driver, how, what,index):
+    i = 1
+    while True:
+        if isExitsElement(driver, how, what):
+            elements = driver.find_elements(by=how, value=what)
+            return elements[index]
         i += 1
         if i >= 10:
             return None
