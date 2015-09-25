@@ -53,16 +53,30 @@ class test01(unittest.TestCase):
         while not myCommon.isExitsElement(driver, By.ID, "we_et_input"):
             sleep(1)
         else:
+
+            #input email
             el = myCommon.getElements(driver, By.CLASS_NAME, "android.widget.EditText", 0)
             el.click()
             el.clear()
             el.send_keys("2ts@qq.com")
+
+            #input password
             el = myCommon.getElements(driver, By.CLASS_NAME, "android.widget.EditText", 1)
             el.send_keys("111111")
+
+            #click sign in button
             el = myCommon.getElement(driver, By.ID, "al_bn_sign")
             el.click()
 
-
+        #checkPoint:show the email and sheIn points
+        while not myCommon.isExitsElement(driver, By.ID, "profile_user"):
+            sleep(1)
+        else:
+            el = myCommon.getElement(driver, By.ID, "profile_user")
+            if el.getText() == "Hello,2ts":
+                log.checkPointOK("show the email and sheIn points")
+            else:
+                log.checkPointNG("show the email and sheIn points")
 
 
 
