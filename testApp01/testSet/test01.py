@@ -1,9 +1,5 @@
 
 import unittest
-import sys
-import os
-import inspect
-from time import sleep
 from selenium.webdriver.common.by import By
 import testSet.common.Log as Log
 import testSet.common.common as myCommon
@@ -14,77 +10,74 @@ class test01(unittest.TestCase):
 
     def setUp(self):
         global driver, log, caseNo
-        driver = myDriver.GetDriver()
+        self.driver = myDriver.GetDriver()
+        self.caseNo = "test01"
 
         #get Log
-        log = Log.Log()
+        self.log = Log.Log(self.caseNo)
 
         #get caseNo
         # filename = sys.argv[0][sys.argv[0].rfind(os.sep)+1:]
         # length = len(filename.split("/"))
-        caseNo = inspect.stack()[1][3]
+
 
         #test Start
-        log.buildStartLine(caseNo)
+        self.log.buildStartLine()
 
 
     def testCase01(self):
 
-        myCommon.openApp(driver)
+        myCommon.openApp(self.driver)
 
-        log.outputLogFile("Open app : OK")
+        self.log.outputLogFile("Open app : OK")
 
         #find the bottom Navigation bar
-        while not myCommon.isExitsElement(driver, By.ID, "fmc_ll_tab"):
-            sleep(1)
+        if myCommon.doesExitsElement(self.driver, By.ID, "fmc_ll_tab"):
+            myCommon.myClick(self.driver, By.ID, "fmc_bn_profile")
         else:
-            el = myCommon.getElement(driver, By.ID, "fmc_bn_profile")
-            el.click()
+            pass
 
-        log.outputLogFile("Open profile : OK")
+        self.log.outputLogFile("Open profile : OK")
 
-        while not myCommon.isExitsElement(driver, By.ID, "profile_head"):
-            sleep(1)
+        if myCommon.doesExitsElement(self.driver, By.ID, "profile_head"):
+            myCommon.myClick(self.driver, By.ID, "profile_sign_in")
+            myCommon.waitLoading(self.driver)
         else:
-            el = myCommon.getElement(driver, By.ID, "profile_sign_in")
-            el.click()
-        log.outputLogFile("click sign in Button : OK")
+            pass
 
-        while not myCommon.isExitsElement(driver, By.ID, "we_et_input"):
-            sleep(1)
-        else:
+        self.log.outputLogFile("click sign in Button : OK")
 
+        if myCommon.isExitsElement(self.driver, By.ID, "we_et_input"):
             #input email
-            el = myCommon.getElements(driver, By.CLASS_NAME, "android.widget.EditText", 0)
-            el.click()
-            el.clear()
-            el.send_keys("2ts@qq.com")
+            myCommon.mySendKeys(self.driver, By.CLASS_NAME, "android.widget.EditText", 0, "123456@11.com")
 
             #input password
-            el = myCommon.getElements(driver, By.CLASS_NAME, "android.widget.EditText", 1)
-            el.send_keys("111111")
+            myCommon.mySendKeys(self.driver, By.CLASS_NAME, "android.widget.EditText", 1, "123456")
 
             #click sign in button
-            el = myCommon.getElement(driver, By.ID, "al_bn_sign")
-            el.click()
+            myCommon.myClick(self.driver, By.ID, "al_bn_sign")
+
+            myCommon.waitLoading(self.driver)
+        else:
+            pass
 
         #checkPoint:show the email and sheIn points
-        while not myCommon.isExitsElement(driver, By.ID, "profile_user"):
-            sleep(1)
-        else:
-            el = myCommon.getElement(driver, By.ID, "profile_user")
-            if el.getText() == "Hello,2ts":
-                log.checkPointOK("show the email and sheIn points")
-            else:
-                log.checkPointNG("show the email and sheIn points")
+        if myCommon.doesExitsElement(self.driver, By.ID, "profile_user"):
 
+            el = myCommon.getElement(self.driver, By.ID, "profile_user")
+            if el.get_attribute("text") == "Hello,123456":
+                self.log.checkPointOK(self.driver, "show the email and sheIn points")
+            else:
+                self.log.checkPointNG(self.driver, "show the email and sheIn points")
+        else:
+            pass
 
 
     def tearDown(self):
-        driver.quit()
+        self.driver.quit()
 
         #test End
-        log.buildEndLine(caseNo)
+        self.log.buildEndLine()
 
 
 if __name__ == '__main__':
