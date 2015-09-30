@@ -12,5 +12,11 @@ class myExceotion(Exception):
         self.value = value
 
     def test(self):
+
+        #test
+        pass
+
+
+    def test01(self):
         pass
 
