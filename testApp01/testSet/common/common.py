@@ -10,6 +10,7 @@ from selenium.common.exceptions import NoSuchElementException
 from time import sleep
 import readConfig
 from selenium.webdriver.common.by import By
+from testSet.common.myError import clickError
 readConfigLocal = readConfig.ReadConfig
 
 
@@ -174,12 +175,11 @@ def mySwipeToRight(driver, during=None):
 # Return Value    : -
 # =================================================================
 def myClick(driver,how,what):
-
-    if doesExitsElement(driver, how, what):
+    try:
         el = getElement(driver, how, what)
         el.click()
-    else:
-        raise Exception("can't click the element:"+str(how)+"="+what)
+    except AttributeError:
+        raise
 
 # =================================================================
 # Function Name   : myClicks
@@ -189,11 +189,11 @@ def myClick(driver,how,what):
 # =================================================================
 def myClicks(driver,how,what,index):
 
-    if doesExitsElement(driver, how, what):
+    try:
         el = getElements(driver, how, what, index)
         el.click()
-    else:
-        raise Exception("can't click the element:"+str(how)+"="+what)
+    except AttributeError:
+        raise
 
 # =================================================================
 # Function Name   : mySendKey
@@ -203,14 +203,13 @@ def myClicks(driver,how,what,index):
 # =================================================================
 def mySendKey(driver, how, what, values):
 
-    if doesExitsElement(driver, how, what):
+    try:
         el = getElement(driver, how, what)
         el.click()
         el.clear()
         el.send_keys(values)
-    else:
-        pass
-        # raise Exception("can't click the element:"+str(how)+"="+what)
+    except AttributeError:
+        raise
 
 # =================================================================
 # Function Name   : mySendKey
@@ -220,14 +219,13 @@ def mySendKey(driver, how, what, values):
 # =================================================================
 def mySendKeys(driver, how, what,index,values):
 
-    if doesExitsElement(driver, how, what):
+    try:
         el = getElements(driver, how, what, index)
         el.click()
         el.clear()
         el.send_keys(values)
-    else:
-        pass
-        # raise Exception("can't click the element:"+str(how)+"="+what)
+    except AttributeError:
+        raise
 
 
 

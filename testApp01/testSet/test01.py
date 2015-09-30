@@ -27,50 +27,56 @@ class test01(unittest.TestCase):
 
     def testCase01(self):
 
-        myCommon.openApp(self.driver)
+        try:
 
-        self.log.outputLogFile("Open app : OK")
+            myCommon.openApp(self.driver)
 
-        #find the bottom Navigation bar
-        if myCommon.doesExitsElement(self.driver, By.ID, "fmc_ll_tab"):
-            myCommon.myClick(self.driver, By.ID, "fmc_bn_profile")
-        else:
-            pass
+            self.log.outputLogFile("Open app : OK")
 
-        self.log.outputLogFile("Open profile : OK")
-
-        if myCommon.doesExitsElement(self.driver, By.ID, "profile_head"):
-            myCommon.myClick(self.driver, By.ID, "profile_sign_in")
-            myCommon.waitLoading(self.driver)
-        else:
-            pass
-
-        self.log.outputLogFile("click sign in Button : OK")
-
-        if myCommon.isExitsElement(self.driver, By.ID, "we_et_input"):
-            #input email
-            myCommon.mySendKeys(self.driver, By.CLASS_NAME, "android.widget.EditText", 0, "123456@11.com")
-
-            #input password
-            myCommon.mySendKeys(self.driver, By.CLASS_NAME, "android.widget.EditText", 1, "123456")
-
-            #click sign in button
-            myCommon.myClick(self.driver, By.ID, "al_bn_sign")
-
-            myCommon.waitLoading(self.driver)
-        else:
-            pass
-
-        #checkPoint:show the email and sheIn points
-        if myCommon.doesExitsElement(self.driver, By.ID, "profile_user"):
-
-            el = myCommon.getElement(self.driver, By.ID, "profile_user")
-            if el.get_attribute("text") == "Hello,123456":
-                self.log.checkPointOK(self.driver, "show the email and sheIn points")
+            #find the bottom Navigation bar
+            if myCommon.doesExitsElement(self.driver, By.ID, "fmc_ll_tab"):
+                myCommon.myClick(self.driver, By.ID, "fmc_bn_profiletest")
             else:
-                self.log.checkPointNG(self.driver, "show the email and sheIn points")
-        else:
-            pass
+                pass
+
+            self.log.outputLogFile("Open profile : OK")
+
+            if myCommon.doesExitsElement(self.driver, By.ID, "profile_head"):
+                myCommon.myClick(self.driver, By.ID, "profile_sign_in")
+                myCommon.waitLoading(self.driver)
+            else:
+                pass
+
+            self.log.outputLogFile("click sign in Button : OK")
+
+            if myCommon.isExitsElement(self.driver, By.ID, "we_et_input"):
+                #input email
+                myCommon.mySendKeys(self.driver, By.CLASS_NAME, "android.widget.EditText", 0, "123456@11.com")
+
+                #input password
+                myCommon.mySendKeys(self.driver, By.CLASS_NAME, "android.widget.EditText", 1, "123456")
+
+                #click sign in button
+                myCommon.myClick(self.driver, By.ID, "al_bn_sign")
+
+                myCommon.waitLoading(self.driver)
+            else:
+                pass
+
+            #checkPoint:show the email and sheIn points
+            if myCommon.doesExitsElement(self.driver, By.ID, "profile_user"):
+
+                el = myCommon.getElement(self.driver, By.ID, "profile_user")
+                if el.get_attribute("text") == "Hello,123456":
+                    self.log.checkPointOK(self.driver, "show the email and sheIn points")
+                else:
+                    self.log.checkPointNG(self.driver, "show the email and sheIn points")
+            else:
+                pass
+
+        except Exception as ex:
+
+            self.log.outputError(self.driver, str(ex))
 
 
     def tearDown(self):
@@ -81,7 +87,6 @@ class test01(unittest.TestCase):
 
 
 if __name__ == '__main__':
-
     suite = unittest.TestLoader().loadTestsFromTestCase(test01)
     unittest.TextTestRunner(verbosity=2).run(suite)
 

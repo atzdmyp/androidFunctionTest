@@ -70,6 +70,17 @@ class Log:
 
 
 # =================================================================
+# Function Name   : outputError
+# Function        : output Error to output.log
+# Input Parameters: logInfo
+# Return Value    : -
+# =================================================================
+    def outputError(self, driver,errorInfo):
+
+        self.screenshotError(driver)
+        self.writeLog("[Error]"+errorInfo)
+
+# =================================================================
 # Function Name   : buildEndLine
 # Function        : create end line
 # Input Parameters: caseNo
@@ -158,14 +169,14 @@ class Log:
         driver.get_screenshot_as_file(self.logPath+screenshotName)
 
 # =================================================================
-# Function Name   : screenshotException
+# Function Name   : screenshotError
 # Function        : take shot
-# Input Parameters:driver,checkPoint
+# Input Parameters:driver
 # Return Value    : -
 # =================================================================
-    def screenshotException(self, driver,checkPoint):
+    def screenshotError(self, driver):
 
-        screenshotName = "[CheckPoint_"+str(self.checkPointNo) + "_NG.png"
+        screenshotName = "Error.png"
 
         # wait for animations to complete before taking screenshot
         sleep(1)
