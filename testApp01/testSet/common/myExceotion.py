@@ -11,3 +11,6 @@ class myExceotion(Exception):
     def __init__(self, value):
         self.value = value
 
+    def test(self):
+        pass
+
