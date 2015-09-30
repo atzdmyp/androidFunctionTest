@@ -10,7 +10,6 @@ from selenium.common.exceptions import NoSuchElementException
 from time import sleep
 import readConfig
 from selenium.webdriver.common.by import By
-from testSet.common.myError import clickError
 readConfigLocal = readConfig.ReadConfig
 
 
@@ -43,6 +42,16 @@ def openApp(driver):
     # update
     if doesExitsElement(driver, By.ID, "cancel_btn"):
         myClick(driver, By.ID, "cancel_btn")
+
+# =================================================================
+# Function Name   : returnIndex
+# Function        : return the app index
+# Input Parameters: driver
+# Return Value    : -
+# =================================================================
+def returnIndex(driver):
+    pass
+
 
 
 # =================================================================
