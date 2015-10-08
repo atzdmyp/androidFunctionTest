@@ -21,7 +21,7 @@ class ReadConfig:
         #remove BOM
         if data[:3] == codecs.BOM_UTF8:
             data = data[3:]
-            file = codecs.open(configfile_path,"w")
+            file = codecs.open(configfile_path, "w")
             file.write(data)
             file.close()
         fd.close()
@@ -31,4 +31,8 @@ class ReadConfig:
 
     def getConfigValue(self, name):
         value = self.cf.get("config", name)
+        return value
+
+    def getAdbValue(self, name):
+        value = self.cf.get("adb", name)
         return value
