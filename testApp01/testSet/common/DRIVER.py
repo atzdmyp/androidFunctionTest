@@ -6,39 +6,46 @@
 # Amended by     :
 # ========================================================
 
+from selenium.common.exceptions import WebDriverException
 import readConfig
 readConfigLocal = readConfig.ReadConfig()
+import testSet.common.myPhone as myPhone
 
 import threading
 from appium import webdriver
 
 class myDriver():
+
     driver = None
     mutex = threading.Lock()
+    myPhone = myPhone.myPhone()
     platformName = readConfigLocal.getConfigValue("platformName")
-    platformVersion = readConfigLocal.getConfigValue("platformVersion")
+    platformVersion = myPhone.getAndroidVersion()
     appPackage = readConfigLocal.getConfigValue("appPackage")
-    deviceName = readConfigLocal.getConfigValue("deviceName")
+    deviceName = myPhone.getDeviceName()
     baseUrl = readConfigLocal.getConfigValue("baseUrl")
-    desired_caps = {"platformName": platformName, "platformVersion": platformVersion, "appPackage": appPackage, "deviceName": deviceName}
+    desired_caps = {"platformName": platformName, "platformVersion": platformVersion, "appPackage": appPackage,
+                    "deviceName": deviceName}
+
     def _init__(self):
         pass
 
-
     @staticmethod
     def GetDriver():
-        if myDriver.driver == None :
-            myDriver.mutex.acquire()
-            if myDriver.driver==None :
 
-                myDriver.driver = webdriver.Remote(myDriver.baseUrl, myDriver.desired_caps)
-                # myDriver.driver = myDriver()
-            # else:
-            #     print('shi li hua')
-            myDriver.mutex.release()
-        # else:
-        #     print('shi li hua')
-        return myDriver.driver
+        try:
+            if myDriver.driver == None :
+                myDriver.mutex.acquire()
+                if myDriver.driver==None :
+
+                    myDriver.driver = webdriver.Remote(myDriver.baseUrl, myDriver.desired_caps)
+
+                myDriver.mutex.release()
+
+            return myDriver.driver
+        except WebDriverException:
+            raise
+
 
 if __name__ == '__main__':
     myDriver.GetDriver()

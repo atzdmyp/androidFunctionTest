@@ -35,7 +35,7 @@ class test01(unittest.TestCase):
 
             #find the bottom Navigation bar
             if myCommon.doesExitsElement(self.driver, By.ID, "fmc_ll_tab"):
-                myCommon.myClick(self.driver, By.ID, "fmc_bn_profiletest")
+                myCommon.myClick(self.driver, By.ID, "fmc_bn_profile")
             else:
                 pass
 
