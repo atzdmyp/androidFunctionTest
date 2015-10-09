@@ -22,10 +22,11 @@ class myDriver():
     platformName = readConfigLocal.getConfigValue("platformName")
     platformVersion = myPhone.getAndroidVersion()
     appPackage = readConfigLocal.getConfigValue("appPackage")
+    appActivity = readConfigLocal.getConfigValue("appActivity")
     deviceName = myPhone.getDeviceName()
     baseUrl = readConfigLocal.getConfigValue("baseUrl")
     desired_caps = {"platformName": platformName, "platformVersion": platformVersion, "appPackage": appPackage,
-                    "deviceName": deviceName}
+                    "appActivity": appActivity, "deviceName": deviceName}
 
     def _init__(self):
         pass
@@ -45,9 +46,5 @@ class myDriver():
             return myDriver.driver
         except WebDriverException:
             raise
-
-
-if __name__ == '__main__':
-    myDriver.GetDriver()
 
 

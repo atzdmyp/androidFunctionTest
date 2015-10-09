@@ -114,7 +114,7 @@ def getElements( driver, how, what,index):
 
 # =================================================================
 # Function Name   : getWindowSize
-# Function        : get current windows size
+# Function        : get current windows size mnn
 # Input Parameters: driver
 # Return Value    : windowSize
 # =================================================================
