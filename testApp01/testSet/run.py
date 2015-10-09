@@ -6,9 +6,9 @@
 # Amended by     :
 # ========================================================
 
-import readConfig as readConfig
+from testApp01 import readConfig as readConfig
 import unittest
-from testSet.common.DRIVER import myDriver
+from testApp01.testSet.common.DRIVER import myDriver
 
 
 class run():
@@ -27,6 +27,8 @@ class run():
 # Return Value    : -
 # =================================================================
     def stratAppiumServer(self):
+
+        startCMD = "node node_modules\\appium\\bin\\appium.js"
         pass
 
 # =================================================================

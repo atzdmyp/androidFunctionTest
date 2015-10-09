@@ -7,9 +7,9 @@
 # ========================================================
 
 from selenium.common.exceptions import WebDriverException
-import readConfig
+from testApp01 import readConfig
 readConfigLocal = readConfig.ReadConfig()
-import testSet.common.myPhone as myPhone
+import testApp01.testSet.common.myPhone as myPhone
 
 import threading
 from appium import webdriver

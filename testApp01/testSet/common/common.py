@@ -8,7 +8,7 @@
 
 from selenium.common.exceptions import NoSuchElementException
 from time import sleep
-import readConfig
+from testApp01 import readConfig
 from selenium.webdriver.common.by import By
 readConfigLocal = readConfig.ReadConfig
 

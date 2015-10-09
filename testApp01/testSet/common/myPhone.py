@@ -7,7 +7,7 @@
 # ========================================================
 
 import os
-import readConfig
+from testApp01 import readConfig
 readConfigLocal = readConfig.ReadConfig()
 
 class myPhone:
