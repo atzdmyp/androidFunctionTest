@@ -1,9 +1,9 @@
 
 import unittest
 from selenium.webdriver.common.by import By
-import testApp01.testSet.common.Log as Log
-import testApp01.testSet.common.common as myCommon
-from testApp01.testSet.common.DRIVER import myDriver
+import testSet.common.Log as Log
+import testSet.common.common as myCommon
+from testSet.common.DRIVER import myDriver
 
 class test01(unittest.TestCase):
 
