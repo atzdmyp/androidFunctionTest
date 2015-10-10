@@ -6,23 +6,26 @@
 # Amended by     :
 # ========================================================
 
-import readConfig
+from testApp01 import readConfig
 readConfigLocal = readConfig.ReadConfig()
 import unittest
-from testSet.common.DRIVER import myDriver
+from testApp01.testSet.common.DRIVER import myDriver
 import os
 from time import sleep
 
-import win32com.client
+from urllib.error import URLError
+from selenium.common.exceptions import WebDriverException
 import threading
 
 mylock = threading.RLock()
+num = 0
 class myServer(threading.Thread):
 
     def __init__(self):
         global appiumPath
         threading.Thread.__init__(self)
         self.appiumPath = readConfigLocal.getConfigValue("appiumPath")
+        self.stopped = False
 
     def run(self):
         rootDirectory = self.appiumPath[:2]
@@ -31,7 +34,11 @@ class myServer(threading.Thread):
         #cd root directory ;cd appiuu path; start server
         os.system(rootDirectory+"&"+"cd "+self.appiumPath+"&"+startCMD)
 
-        print("---------------------------------------------------")
+    def stop(self):
+        self.stopped = True
+
+    def isStopped(self):
+        return self.stopped
 
 class Alltest(threading.Thread):
 
@@ -44,42 +51,6 @@ class Alltest(threading.Thread):
         self.suiteList = []
         self.appiumPath = readConfigLocal.getConfigValue("appiumPath")
 
-# =================================================================
-# Function Name   : stratAppiumServer
-# Function        : start the appium Server
-# Input Parameters: -
-# Return Value    : -
-# =================================================================
-    def stratAppiumServer(self):
-
-        rootDirectory = self.appiumPath[:2]
-        startCMD = "node node_modules\\appium\\bin\\appium.js"
-
-        #cd root directory ;cd appiuu path; start server
-        os.popen(rootDirectory+"&"+"cd "+self.appiumPath+"&"+startCMD)
-
-        sleep(30)
-        print("sleep 30s ")
-
-
-# =================================================================
-# Function Name   : stopAppiumServer
-# Function        : stop the appium Server
-# Input Parameters: -
-# Return Value    : -
-# =================================================================
-    def stopAppiumServer(self):
-        pass
-
-# =================================================================
-# Function Name   : driverOn
-# Function        : open the driver
-# Input Parameters: -
-# Return Value    : -
-# =================================================================
-    def driverOn(self):
-
-        myDriver.GetDriver()
 
 # =================================================================
 # Function Name   : driverOff
@@ -148,42 +119,38 @@ class Alltest(threading.Thread):
 # =================================================================
     def run(self):
 
-
-
-        mylock.acquire()
-
-        print("locked")
-
-        print("sleep20")
-        sleep(20)
-        # else:
-
-        print("release")
-        mylock.release()
-        suit = self.createSuite()
-        if suit != None:
-
-            # self.stratAppiumServer()
-            print("stratAppiumServer")
-            # self.driverOn()
-            print("driverOn")
-            unittest.TextTestRunner(verbosity=2).run(suit)
-            self.driverOff()
-            self.stopAppiumServer()
-
+        global num
+        while not isStartServer():
+            mylock.acquire()
+            print("sleep1")
+            sleep(1)
+            mylock.release()
         else:
-            print("Have no test to run")
+            suit = self.createSuite()
+            if suit != None:
+
+                print("test========================")
+                #unittest.TextTestRunner(verbosity=2).run(suit)
+
+                # self.driverOff()
+                # self.stopAppiumServer()
+            else:
+                print("Have no test to run")
 
 
-    # def isStartServer(self):
-    #
-    #     WMI = win32com.client.GetObject('winmgmts:')
-    #     processCodeCov = WMI.ExecQuery('select * from Win32_Process where Name='')
-    #     if len(processCodeCov) > 0:
-    #         print('%s is exists' % process_name)
-    #     else:
-    #         print('%s is not exists' % process_name)
+def isStartServer():
 
+    try:
+        driver = myDriver.GetDriver()
+
+        if driver == None:
+            return False
+        else:
+            return True
+    except WebDriverException:
+        print("WebDriverException")
+        pass
+    return True
 
 
 
@@ -194,6 +161,7 @@ if __name__ == '__main__':
 
     thread2.start()
     thread1.start()
+
 
 
 

@@ -6,7 +6,7 @@
 # Amended by     :
 # ========================================================
 
-import readConfig as readConfig
+from testApp01 import readConfig as readConfig
 import os
 import time
 from time import sleep

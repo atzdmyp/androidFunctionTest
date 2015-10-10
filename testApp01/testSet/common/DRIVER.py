@@ -7,12 +7,13 @@
 # ========================================================
 
 from selenium.common.exceptions import WebDriverException
-import readConfig
+from testApp01 import readConfig
 readConfigLocal = readConfig.ReadConfig()
-import testSet.common.myPhone as myPhone
+import testApp01.testSet.common.myPhone as myPhone
 
 import threading
 from appium import webdriver
+from urllib.error import URLError
 
 class myDriver():
 
@@ -39,7 +40,10 @@ class myDriver():
                 myDriver.mutex.acquire()
                 if myDriver.driver==None :
 
-                    myDriver.driver = webdriver.Remote(myDriver.baseUrl, myDriver.desired_caps)
+                    try:
+                        myDriver.driver = webdriver.Remote(myDriver.baseUrl, myDriver.desired_caps)
+                    except URLError:
+                        myDriver.driver = None
 
                 myDriver.mutex.release()
 
