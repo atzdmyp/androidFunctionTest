@@ -6,22 +6,20 @@
 # Amended by     :
 # ========================================================
 
-from testApp01 import readConfig as readConfig
+import readConfig as readConfig
 import os
 import time
 from time import sleep
-# import sys
+import threading
 
 class Log:
 
-    def __init__(self, caseNo):
+    def __init__(self):
 
-        self.caseNo = caseNo
-        global resultPath, logPah, step, checkPointNo
+        global resultPath, logPah, checkNo
         self.resultPath = readConfig.logDir+"\\result\\"
-        self.logPath = self.resultPath+(time.strftime('%Y%m%d%H%M', time.localtime()))+"\\"+self.caseNo+"\\"
-        self.step = 0
-        self.checkPointNo = 0
+        self.logPath = self.resultPath+(time.strftime('%Y%m%d%H%M', time.localtime()))+"\\"
+        self.checkNo = 0
 
 # =================================================================
 # Function Name   : buildStartLine
@@ -29,9 +27,9 @@ class Log:
 # Input Parameters: caseNo
 # Return Value    :
 # =================================================================
-    def buildStartLine(self):
-        timePart = time.strftime('%Y-%m-%d %H:%M', time.localtime())
-        startLine = "----  " + self.caseNo + "   " + "START" + "   " + timePart +\
+    def buildStartLine(self, caseNo):
+
+        startLine = "----  " + caseNo + "   " + "START" + "   " +\
         "  ----"
         self.writeLog(startLine)
 
@@ -43,12 +41,9 @@ class Log:
 # =================================================================
     def writeLog(self,logInfo):
 
-        print(logInfo)
-
         if os.path.exists(self.logPath) == False:
             os.makedirs(self.logPath)
         flogging = open(self.logPath + "outPut.log", "a")
-        # s_utf8 = logInfo.encode('UTF-8')
         try:
             flogging.write(logInfo+"\n")
         finally:
@@ -64,10 +59,8 @@ class Log:
 # =================================================================
     def outputLogFile(self, logInfo):
 
-        self.step += 1
-
-        self.writeLog("Step"+str(self.step)+": "+logInfo)
-
+        timePart = time.strftime('%Y-%m-%d %H:%M', time.localtime())
+        self.writeLog("["+timePart+"}"+": "+logInfo)
 
 # =================================================================
 # Function Name   : outputError
@@ -86,11 +79,12 @@ class Log:
 # Input Parameters: caseNo
 # Return Value    : endLine
 # =================================================================
-    def buildEndLine(self):
-        timePart = time.strftime('%Y-%m-%d %H:%M', time.localtime())
-        endLine = "----  " + self.caseNo + "    " + "END" + "    " + timePart +\
+    def buildEndLine(self, caseNo):
+
+        endLine = "----  " + caseNo + "    " + "END" + "    " +\
         "  ----"+ "\n"
         self.writeLog(endLine)
+        self.checkNo = 0
 
 # =================================================================
 # Function Name   : resultOK
@@ -98,8 +92,8 @@ class Log:
 # Input Parameters:caseNo
 # Return Value    :
 # =================================================================
-    def resultOK(self):
-        self.writeLog("TEST: "+self.caseNo+" :OK")
+    def resultOK(self, caseNo):
+        self.writeLog("TEST: "+caseNo+" :OK")
 
 # =================================================================
 # Function Name   : resultNG
@@ -107,8 +101,8 @@ class Log:
 # Input Parameters:caseNo
 # Return Value    :
 # =================================================================
-    def resultNG(self):
-        self.writeLog("TEST: "+self.caseNo+" :NG")
+    def resultNG(self, caseNo):
+        self.writeLog("TEST: "+caseNo+" :NG")
 
 # =================================================================
 # Function Name   : checkPointOK
@@ -116,13 +110,14 @@ class Log:
 # Input Parameters:checkPoint
 # Return Value    :
 # =================================================================
-    def checkPointOK(self, driver, checkPoint):
-        self.checkPointNo += 1
+    def checkPointOK(self, driver,caseName, checkPoint):
 
-        self.writeLog("[CheckPoint "+str(self.checkPointNo)+"] "+checkPoint+": OK")
+        self.checkNo += 1
+
+        self.writeLog("[CheckPoint_"+str(self.checkNo)+"]: "+checkPoint+": OK")
 
         # take shot
-        self.screenshotOK(driver, checkPoint)
+        self.screenshotOK(driver, caseName)
 
 
 # =================================================================
@@ -131,13 +126,14 @@ class Log:
 # Input Parameters:checkPoint
 # Return Value    :
 # =================================================================
-    def checkPointNG(self, driver, checkPoint):
-        self.checkPointNo += 1
+    def checkPointNG(self, driver, caseName,checkPoint):
 
-        self.writeLog("[CheckPoint_"+str(self.checkPointNo)+"] "+checkPoint+": NG")
+        self.checkNo += 1
+
+        self.writeLog("[CheckPoint_"+str(self.checkNo)+"]: "+checkPoint+": NG")
 
         #take shot
-        self.screenshotNG(driver, checkPoint)
+        self.screenshotNG(driver, caseName)
 
 # =================================================================
 # Function Name   : screenshotOK
@@ -145,14 +141,14 @@ class Log:
 # Input Parameters:driver,checkPoint
 # Return Value    : -
 # =================================================================
-    def screenshotOK(self, driver,checkPoint):
+    def screenshotOK(self, driver, caseName):
 
-
-        screenshotName = "[CheckPoint_"+str(self.checkPointNo) +  "_OK.png"
+        screenshotPath = self.logPath+caseName+"\\"
+        screenshotName = "CheckPoint_"+str(self.checkNo)+"_OK.png"
 
         # wait for animations to complete before taking screenshot
         sleep(1)
-        driver.get_screenshot_as_file(self.logPath+screenshotName)
+        driver.get_screenshot_as_file(screenshotPath+screenshotName)
 
 # =================================================================
 # Function Name   : screenshotNG
@@ -160,13 +156,14 @@ class Log:
 # Input Parameters:driver,checkPoint
 # Return Value    : -
 # =================================================================
-    def screenshotNG(self, driver,checkPoint):
+    def screenshotNG(self, driver, caseName):
 
-        screenshotName = "[CheckPoint_"+str(self.checkPointNo) + "_NG.png"
+        screenshotPath = self.logPath+caseName+"\\"
+        screenshotName = "CheckPoint_"+str(self.checkNo)+"_NG.png"
 
         # wait for animations to complete before taking screenshot
         sleep(1)
-        driver.get_screenshot_as_file(self.logPath+screenshotName)
+        driver.get_screenshot_as_file(screenshotPath+screenshotName)
 
 # =================================================================
 # Function Name   : screenshotError
@@ -181,3 +178,23 @@ class Log:
         # wait for animations to complete before taking screenshot
         sleep(1)
         driver.get_screenshot_as_file(self.logPath+screenshotName)
+
+
+class myLog:
+
+    log = None
+    mutex = threading.Lock()
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def getLog():
+
+        if myLog.log == None:
+
+            myLog.mutex.acquire()
+            myLog.log = Log()
+            myLog.mutex.release()
+
+        return myLog.log

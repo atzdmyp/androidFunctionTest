@@ -1,9 +1,9 @@
 
 import unittest
 from selenium.webdriver.common.by import By
-import testApp01.testSet.common.Log as Log
-import testApp01.testSet.common.common as myCommon
-from testApp01.testSet.common.DRIVER import myDriver
+import testSet.common.Log as Log
+import testSet.common.common as myCommon
+from testSet.common.DRIVER import myDriver
 
 class test01(unittest.TestCase):
 
@@ -14,7 +14,7 @@ class test01(unittest.TestCase):
         self.caseNo = "test01"
 
         #get Log
-        self.log = Log.Log(self.caseNo)
+        self.log = Log.myLog().getLog()
 
         #get caseNo
         # filename = sys.argv[0][sys.argv[0].rfind(os.sep)+1:]
@@ -22,7 +22,7 @@ class test01(unittest.TestCase):
 
 
         #test Start
-        self.log.buildStartLine()
+        self.log.buildStartLine(self.caseNo)
 
 
     def testCase01(self):
@@ -82,7 +82,7 @@ class test01(unittest.TestCase):
     def tearDown(self):
 
         #test End
-        self.log.buildEndLine()
+        self.log.buildEndLine(self.caseNo)
 
 
 if __name__ == '__main__':

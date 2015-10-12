@@ -6,40 +6,50 @@
 # Amended by     :
 # ========================================================
 
-from testApp01 import readConfig
+import readConfig
 readConfigLocal = readConfig.ReadConfig()
 import unittest
-from testApp01.testSet.common.DRIVER import myDriver
+from testSet.common.DRIVER import myDriver
+import testSet.common.Log as Log
 import os
 from time import sleep
 
-from urllib.error import URLError
 from selenium.common.exceptions import WebDriverException
 import threading
 
 mylock = threading.RLock()
-num = 0
+log = Log.myLog.getLog()
+
+# ========================================================
+# Summary        :myServer
+# Author         :tong shan
+# Create Date    :2015-10-10
+# Amend History  :
+# Amended by     :
+# ========================================================
 class myServer(threading.Thread):
 
     def __init__(self):
         global appiumPath
         threading.Thread.__init__(self)
         self.appiumPath = readConfigLocal.getConfigValue("appiumPath")
-        self.stopped = False
 
     def run(self):
+
+        log.outputLogFile("start appium server")
         rootDirectory = self.appiumPath[:2]
         startCMD = "node node_modules\\appium\\bin\\appium.js"
 
         #cd root directory ;cd appiuu path; start server
         os.system(rootDirectory+"&"+"cd "+self.appiumPath+"&"+startCMD)
 
-    def stop(self):
-        self.stopped = True
-
-    def isStopped(self):
-        return self.stopped
-
+# ========================================================
+# Summary        :Alltest
+# Author         :tong shan
+# Create Date    :2015-10-10
+# Amend History  :
+# Amended by     :
+# ========================================================
 class Alltest(threading.Thread):
 
     def __init__(self):
@@ -51,6 +61,14 @@ class Alltest(threading.Thread):
         self.suiteList = []
         self.appiumPath = readConfigLocal.getConfigValue("appiumPath")
 
+# =================================================================
+# Function Name   : driverOn
+# Function        : open the driver
+# Input Parameters: -
+# Return Value    : -
+# =================================================================
+    def driverOn(self):
+        myDriver.GetDriver()
 
 # =================================================================
 # Function Name   : driverOff
@@ -88,17 +106,13 @@ class Alltest(threading.Thread):
     def createSuite(self):
 
         self.setCaseList()
-
         testSuite = unittest.TestSuite()
 
         if len(self.caseList) > 0:
 
             for caseName in self.caseList:
 
-                print("caseName="+caseName)
-
                 discover = unittest.defaultTestLoader.discover(self.casePath, pattern=caseName+'.py', top_level_dir=None)
-
                 self.suiteList.append(discover)
 
         if len(self.suiteList) > 0:
@@ -119,39 +133,42 @@ class Alltest(threading.Thread):
 # =================================================================
     def run(self):
 
-        global num
-        while not isStartServer():
-            mylock.acquire()
-            print("sleep1")
-            sleep(1)
-            mylock.release()
-        else:
-            suit = self.createSuite()
-            if suit != None:
+        try:
 
-                print("test========================")
-                #unittest.TextTestRunner(verbosity=2).run(suit)
 
-                # self.driverOff()
-                # self.stopAppiumServer()
+            while not isStartServer():
+                mylock.acquire()
+                sleep(1)
+                log.outputLogFile("wait 1s to start appium server")
+                mylock.release()
             else:
-                print("Have no test to run")
+                log.outputLogFile("start appium server success")
+                suit = self.createSuite()
+                if suit != None:
 
+                    log.outputLogFile("open Driver")
+                    self.driverOn()
+                    log.outputLogFile("Start to test")
+                    unittest.TextTestRunner(verbosity=2).run(suit)
+                    log.outputLogFile("end to test")
+                    log.outputLogFile("close to Driver")
+                    self.driverOff()
+
+                else:
+                    log.outputLogFile("Have no test to run")
+        except Exception as ex:
+            log.outputError(myDriver.GetDriver(), str(ex))
 
 def isStartServer():
 
     try:
         driver = myDriver.GetDriver()
-
         if driver == None:
             return False
         else:
             return True
     except WebDriverException:
-        print("WebDriverException")
-        pass
-    return True
-
+        raise
 
 
 if __name__ == '__main__':
@@ -161,6 +178,15 @@ if __name__ == '__main__':
 
     thread2.start()
     thread1.start()
+
+    while thread2.is_alive():
+        sleep(10)#"allTest is alive,sleep10"
+    else:
+        #kill myServer
+        os.system('taskkill /f /im node.exe')
+        log.outputLogFile("stop appium server")
+
+
 
 
 
