@@ -16,9 +16,12 @@ from time import sleep
 
 from selenium.common.exceptions import WebDriverException
 import threading
+import urllib.request
+from urllib.error import URLError
 
 mylock = threading.RLock()
 log = Log.myLog.getLog()
+baseUrl = readConfigLocal.getConfigValue("baseUrl")
 
 # ========================================================
 # Summary        :myServer
@@ -87,8 +90,6 @@ class Alltest(threading.Thread):
 # =================================================================
     def setCaseList(self):
 
-        print(self.caseListPath)
-
         fp = open(self.caseListPath)
 
         for data in fp.readlines():
@@ -134,11 +135,9 @@ class Alltest(threading.Thread):
     def run(self):
 
         try:
-
-
             while not isStartServer():
                 mylock.acquire()
-                sleep(1)
+                print("sleep1")
                 log.outputLogFile("wait 1s to start appium server")
                 mylock.release()
             else:
@@ -161,14 +160,30 @@ class Alltest(threading.Thread):
 
 def isStartServer():
 
+    response = None
+    url = baseUrl+"/status"
     try:
-        driver = myDriver.GetDriver()
-        if driver == None:
-            return False
-        else:
+        response = urllib.request.urlopen(url, timeout=5)
+
+        if str(response.getcode()).startswith("2"):
             return True
+        else:
+            return False
+    except URLError:
+        return False
     except WebDriverException:
-        raise
+         raise
+    finally:
+        if response:
+            response.close()
+    # try:
+    #     driver = myDriver.GetDriver()
+    #     if driver == None:
+    #         return False
+    #     else:
+    #         return True
+    # except WebDriverException:
+    #     raise
 
 
 if __name__ == '__main__':

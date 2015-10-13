@@ -9,9 +9,10 @@ class test01(unittest.TestCase):
 
 
     def setUp(self):
-        global driver, log, caseNo
+        global driver, log, caseNo, flag
         self.driver = myDriver.GetDriver()
         self.caseNo = "test01"
+        self.flag = False
 
         #get Log
         self.log = Log.myLog().getLog()
@@ -68,11 +69,14 @@ class test01(unittest.TestCase):
 
                 el = myCommon.getElement(self.driver, By.ID, "profile_user")
                 if el.get_attribute("text") == "Hello,123456":
-                    self.log.checkPointOK(self.driver, "show the email and sheIn points")
+                    self.flag = True
+                    self.log.checkPointOK(self.driver, self.caseNo, "show the email and sheIn points")
                 else:
-                    self.log.checkPointNG(self.driver, "show the email and sheIn points")
+                    self.log.checkPointNG(self.driver, self.caseNo, "show the email and sheIn points")
             else:
                 pass
+
+
 
         except Exception as ex:
 
@@ -80,6 +84,12 @@ class test01(unittest.TestCase):
 
 
     def tearDown(self):
+
+        #write result
+        if self.flag:
+            self.log.resultOK(self.caseNo)
+        else:
+            self.log.resultNG(self.caseNo)
 
         #test End
         self.log.buildEndLine(self.caseNo)

@@ -18,7 +18,7 @@ class Log:
 
         global resultPath, logPah, checkNo
         self.resultPath = readConfig.logDir+"\\result\\"
-        self.logPath = self.resultPath+(time.strftime('%Y%m%d%H%M', time.localtime()))+"\\"
+        self.logPath = self.resultPath+(time.strftime('%Y%m%d%H%M%S', time.localtime()))+"\\"
         self.checkNo = 0
 
 # =================================================================
@@ -50,6 +50,23 @@ class Log:
             flogging.close()
         pass
 
+# =================================================================
+# Function Name   : writeResult
+# Function        : write result.txt
+# Input Parameters: result
+# Return Value    : -
+# =================================================================
+    def writeResult(self,result):
+
+        if os.path.exists(self.logPath) == False:
+            os.makedirs(self.logPath)
+        flogging = open(self.logPath + "result.txt", "a")
+        try:
+            flogging.write(result+"\n")
+        finally:
+            flogging.close()
+        pass
+
 
 # =================================================================
 # Function Name   : outputLogFile
@@ -59,7 +76,7 @@ class Log:
 # =================================================================
     def outputLogFile(self, logInfo):
 
-        timePart = time.strftime('%Y-%m-%d %H:%M', time.localtime())
+        timePart = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
         self.writeLog("["+timePart+"}"+": "+logInfo)
 
 # =================================================================
@@ -93,7 +110,7 @@ class Log:
 # Return Value    :
 # =================================================================
     def resultOK(self, caseNo):
-        self.writeLog("TEST: "+caseNo+" :OK")
+        self.writeResult("TEST: "+caseNo+" :OK")
 
 # =================================================================
 # Function Name   : resultNG
@@ -102,7 +119,7 @@ class Log:
 # Return Value    :
 # =================================================================
     def resultNG(self, caseNo):
-        self.writeLog("TEST: "+caseNo+" :NG")
+        self.writeResult("TEST: "+caseNo+" :NG")
 
 # =================================================================
 # Function Name   : checkPointOK

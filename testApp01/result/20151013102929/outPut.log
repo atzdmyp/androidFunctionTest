@@ -1,0 +1,14 @@
+[2015-10-13 10:29:29}: start appium server
+[2015-10-13 10:30:36}: start appium server success
+[2015-10-13 10:30:36}: open Driver
+[2015-10-13 10:30:50}: Start to test
+----  test01   START     ----
+[2015-10-13 10:31:47}: Open app : OK
+[2015-10-13 10:31:49}: Open profile : OK
+[2015-10-13 10:31:53}: click sign in Button : OK
+[Error]checkPointOK() missing 1 required positional argument: 'checkPoint'
+----  test01    END      ----
+
+[2015-10-13 10:32:23}: end to test
+[2015-10-13 10:32:23}: close to Driver
+[2015-10-13 10:32:29}: stop appium server

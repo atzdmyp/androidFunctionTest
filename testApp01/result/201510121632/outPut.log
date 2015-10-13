@@ -1,0 +1,14 @@
+[201510121632}: start appium server
+[201510121632}: wait 1s to start appium server
+[201510121632}: start appium server success
+[201510121632}: open Driver
+[201510121632}: Start to test
+----  test01   START     ----
+[201510121633}: Open app : OK
+[201510121633}: Open profile : OK
+[201510121633}: click sign in Button : OK
+----  test01    END      ----
+
+[201510121633}: end to test
+[201510121633}: close to Driver
+[201510121633}: stop appium server

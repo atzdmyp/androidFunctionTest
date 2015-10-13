@@ -1,18 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/testSet/common/Log.py" line="170" />
+    <bookmark url="file://$PROJECT_DIR$/testSet/common/Log.py" line="187" />
     <bookmark url="file://$PROJECT_DIR$/testSet/common/myPhone.py" line="39" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdad5234-69ac-4721-a701-870ced4a145f" name="Default" comment="">
-      <change type="DELETED" beforePath="F:\testApp01\testSet\common\myServer.py" afterPath="" />
-      <change type="DELETED" beforePath="F:\testApp01\testSet\thread.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSet/common/DRIVER.py" afterPath="$PROJECT_DIR$/testSet/common/DRIVER.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121620/Error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151013102929/Error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151013103522/Error.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/installApp.bat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121020/test01/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121048/test01/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121052/test01/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121057/test01/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121419/test01/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121421/test01/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121422/test01/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121423/test01/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121425/test01/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121511/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121620/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121632/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510130933/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510131007/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510131009/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510131012/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510131020/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151013102210/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151013102313/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151013102739/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151013102929/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151013103522/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510130933/result.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSet/common/Log.py" afterPath="$PROJECT_DIR$/testSet/common/Log.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSet/common/common.py" afterPath="$PROJECT_DIR$/testSet/common/common.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.ini" afterPath="$PROJECT_DIR$/config.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSet/common/myPhone.py" afterPath="$PROJECT_DIR$/testSet/common/myPhone.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSet/run.py" afterPath="$PROJECT_DIR$/testSet/run.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSet/test01.py" afterPath="$PROJECT_DIR$/testSet/test01.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -32,7 +53,7 @@
     <SUITE FILE_PATH="coverage/testApp01$Unittests_in_run__5_.coverage" NAME="Unittests in run (5) Coverage Results" MODIFIED="1442389015966" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
     <SUITE FILE_PATH="coverage/testApp01$Unittests_in_test01__5_.coverage" NAME="Unittests in test01 (5) Coverage Results" MODIFIED="1444384941590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
     <SUITE FILE_PATH="coverage/testApp01$Unittest_test01_testCase01.coverage" NAME="Unittest test01.testCase01 Coverage Results" MODIFIED="1444467474425" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
-    <SUITE FILE_PATH="coverage/testApp01$run.coverage" NAME="run Coverage Results" MODIFIED="1444638722775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
+    <SUITE FILE_PATH="coverage/testApp01$run.coverage" NAME="run Coverage Results" MODIFIED="1444703722017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
     <SUITE FILE_PATH="coverage/testApp01$runner.coverage" NAME="runner Coverage Results" MODIFIED="1442383555146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/Python34/Lib/unittest" />
     <SUITE FILE_PATH="coverage/testApp01$Unittests_in_test01__1_.coverage" NAME="Unittests in test01 (1) Coverage Results" MODIFIED="1444384279336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
     <SUITE FILE_PATH="coverage/testApp01$thread.coverage" NAME="thread Coverage Results" MODIFIED="1444463817044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
@@ -41,6 +62,7 @@
     <SUITE FILE_PATH="coverage/testApp01$Unittests_in_run__2_.coverage" NAME="Unittests in run (2) Coverage Results" MODIFIED="1442482844299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
     <SUITE FILE_PATH="coverage/testApp01$myServer.coverage" NAME="myServer Coverage Results" MODIFIED="1444465888598" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet/common" />
     <SUITE FILE_PATH="coverage/testApp01$Unittests_in_test01__3_.coverage" NAME="Unittests in test01 (3) Coverage Results" MODIFIED="1444384920985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
+    <SUITE FILE_PATH="coverage/testApp01$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1444702718241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
     <SUITE FILE_PATH="coverage/testApp01$Unittests_in_run.coverage" NAME="Unittests in run Coverage Results" MODIFIED="1442800465532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
     <SUITE FILE_PATH="coverage/testApp01$readConfig.coverage" NAME="readConfig Coverage Results" MODIFIED="1444275224643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/testApp01$Unittests_in_test01__4_.coverage" NAME="Unittests in test01 (4) Coverage Results" MODIFIED="1444384901165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
@@ -71,8 +93,8 @@
       <file leaf-file-name="test01.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testSet/test01.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="70" column="37" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="37" />
+            <state vertical-scroll-proportion="-11.28125">
+              <caret line="94" column="42" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
               <folding>
                 <element signature="e#1#16#0" expanded="true" />
               </folding>
@@ -80,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DRIVER.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DRIVER.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testSet/common/DRIVER.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5979021">
-              <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="43" column="54" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
               <folding>
                 <element signature="e#238#295#0" expanded="true" />
               </folding>
@@ -92,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myError.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testSet/common/myError.py">
+      <file leaf-file-name="webdriver.py" pinned="false" current-in-tab="false">
+        <entry file="file://D:/Python34/Lib/site-packages/appium/webdriver/webdriver.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+              <caret line="449" column="41" selection-start-line="449" selection-start-column="41" selection-end-line="449" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -112,11 +134,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myPhone.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="myPhone.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testSet/common/myPhone.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.47640118">
+              <caret line="38" column="65" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="65" />
               <folding>
                 <element signature="e#240#249#0" expanded="true" />
               </folding>
@@ -127,8 +149,28 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testSet/run.py">
           <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.9375">
+              <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.ini" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.ini">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="144" column="54" selection-start-line="144" selection-start-column="48" selection-end-line="144" selection-end-column="54" />
+              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="request.py" pinned="false" current-in-tab="false">
+        <entry file="file://D:/Python34/Lib/urllib/request.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -137,8 +179,8 @@
       <file leaf-file-name="Log.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testSet/common/Log.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-117.5625">
-              <caret line="198" column="0" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="129" column="42" selection-start-line="129" selection-start-column="34" selection-end-line="129" selection-end-column="42" />
               <folding>
                 <element signature="e#236#267#0" expanded="true" />
               </folding>
@@ -154,26 +196,6 @@
               <folding>
                 <element signature="e#239#300#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://D:/Python34/Lib/site-packages/win32com/client/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="70" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="threading.py" pinned="false" current-in-tab="false">
-        <entry file="file://D:/Python34/Lib/threading.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1107" column="16" selection-start-line="1107" selection-start-column="8" selection-end-line="1107" selection-end-column="16" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -197,7 +219,6 @@
         <option value="D:/Python34/Lib/HTMLTestRunner.py" />
         <option value="$PROJECT_DIR$/testSet/readConfig.py" />
         <option value="$PROJECT_DIR$/testSet/common/myException.py" />
-        <option value="$PROJECT_DIR$/testSet/test.py" />
         <option value="$PROJECT_DIR$/testSet/common/myExceotion.py" />
         <option value="$PROJECT_DIR$/testSet/common/myError.py" />
         <option value="$PROJECT_DIR$/caseList.txt" />
@@ -209,8 +230,9 @@
         <option value="$PROJECT_DIR$/testSet/thread.py" />
         <option value="$PROJECT_DIR$/testSet/common/DRIVER.py" />
         <option value="$PROJECT_DIR$/testSet/common/test.py" />
-        <option value="$PROJECT_DIR$/testSet/test01.py" />
         <option value="$PROJECT_DIR$/testSet/common/Log.py" />
+        <option value="$PROJECT_DIR$/testSet/test01.py" />
+        <option value="$PROJECT_DIR$/testSet/test.py" />
         <option value="$PROJECT_DIR$/testSet/run.py" />
       </list>
     </option>
@@ -251,6 +273,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -308,7 +331,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -367,24 +389,6 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="myServer" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testSet/common" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="testApp01" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testSet/common/myServer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="Unittests in test01" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -440,6 +444,24 @@
       <module name="testApp01" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testSet/common/Log.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testSet" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="testApp01" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testSet/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -677,18 +699,18 @@
       <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in testApp01" />
       <item index="1" class="java.lang.String" itemvalue="Python.run" />
       <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest test01.testCase01" />
-      <item index="3" class="java.lang.String" itemvalue="Python.myServer" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in test01" />
-      <item index="5" class="java.lang.String" itemvalue="Python.test" />
-      <item index="6" class="java.lang.String" itemvalue="Python.Log" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test01" />
+      <item index="4" class="java.lang.String" itemvalue="Python.test" />
+      <item index="5" class="java.lang.String" itemvalue="Python.Log" />
+      <item index="6" class="java.lang.String" itemvalue="Python.test (1)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Log" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest test01.testCase01" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test01" />
-        <item index="4" class="java.lang.String" itemvalue="Python.myServer" />
+        <item index="0" class="java.lang.String" itemvalue="Python.test (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Log" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest test01.testCase01" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in test01" />
       </list>
     </recent_temporary>
   </component>
@@ -745,7 +767,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444387110056</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="modify the Log.py">
+      <created>1444644372390</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1444644372390</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -754,16 +782,16 @@
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24331927" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18513514" sideWeight="0.266526" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.04189189" sideWeight="0.11251758" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2958115" sideWeight="0.49444443" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18513514" sideWeight="0.73347396" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17432432" sideWeight="0.49156117" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.04189189" sideWeight="0.8874824" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43783784" sideWeight="0.4859353" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40675676" sideWeight="0.73699015" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -792,28 +820,23 @@
     <MESSAGE value="add Exception solve2" />
     <MESSAGE value="use adb to get devices Name" />
     <MESSAGE value="modify the run.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify the run.py" />
+    <MESSAGE value="modify the Log.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify the Log.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="14" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testSet/common/common.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-          <folding />
+          <folding>
+            <element signature="e#239#300#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -829,7 +852,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="e#1#16#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -837,7 +862,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#239#300#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -860,7 +887,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1#16#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -868,7 +897,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1#16#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1014,16 +1045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Python34/Lib/site-packages/appium/webdriver/webdriver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="24.9375">
-          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding>
-            <element signature="e#568#598#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Python34/Lib/unittest/loader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1055,25 +1076,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/caseList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Python34/Lib/urllib/request.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31416836">
-          <caret line="1184" column="31" selection-start-line="1184" selection-start-column="31" selection-end-line="1184" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons/os/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1050" column="4" selection-start-line="1050" selection-start-column="4" selection-end-line="1050" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1081,14 +1087,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="41" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -1113,17 +1111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1932299">
           <caret line="288" column="8" selection-start-line="288" selection-start-column="8" selection-end-line="288" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testSet/common/myPhone.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
-          <folding>
-            <element signature="e#240#249#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1153,40 +1140,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testSet/test01.py">
+    <entry file="file://D:/Python34/Lib/urllib/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="37" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="37" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Python34/Lib/urllib/request.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/caseList.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSet/test01.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.28125">
+          <caret line="94" column="42" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
           <folding>
             <element signature="e#1#16#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testSet/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="144" column="54" selection-start-line="144" selection-start-column="48" selection-end-line="144" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testSet/common/Log.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-117.5625">
-          <caret line="198" column="0" selection-start-line="198" selection-start-column="0" selection-end-line="198" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="129" column="42" selection-start-line="129" selection-start-column="34" selection-end-line="129" selection-end-column="42" />
           <folding>
             <element signature="e#236#267#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSet/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.9375">
+          <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/testSet/common/DRIVER.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5979021">
-          <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="54" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
           <folding>
             <element signature="e#238#295#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Python34/Lib/site-packages/appium/webdriver/mobilecommand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6135693">
+          <caret line="37" column="46" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Python34/Lib/site-packages/appium/webdriver/webdriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="449" column="41" selection-start-line="449" selection-start-column="41" selection-end-line="449" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSet/common/myPhone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47640118">
+          <caret line="38" column="65" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="65" />
+          <folding>
+            <element signature="e#240#249#0" expanded="true" />
           </folding>
         </state>
       </provider>

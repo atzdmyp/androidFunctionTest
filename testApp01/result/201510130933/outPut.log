@@ -1,0 +1,23 @@
+[2015-10-13 09:33}: start appium server
+[2015-10-13 09:33}: wait 1s to start appium server
+[2015-10-13 09:33}: wait 1s to start appium server
+[2015-10-13 09:33}: wait 1s to start appium server
+[2015-10-13 09:33}: wait 1s to start appium server
+[2015-10-13 09:33}: wait 1s to start appium server
+[2015-10-13 09:33}: wait 1s to start appium server
+[2015-10-13 09:33}: wait 1s to start appium server
+[2015-10-13 09:33}: wait 1s to start appium server
+[2015-10-13 09:33}: wait 1s to start appium server
+[2015-10-13 09:34}: wait 1s to start appium server
+[2015-10-13 09:34}: start appium server success
+[2015-10-13 09:34}: open Driver
+[2015-10-13 09:34}: Start to test
+----  test01   START     ----
+[2015-10-13 09:35}: Open app : OK
+[2015-10-13 09:35}: Open profile : OK
+[2015-10-13 09:35}: click sign in Button : OK
+----  test01    END      ----
+
+[2015-10-13 09:35}: end to test
+[2015-10-13 09:35}: close to Driver
+[2015-10-13 09:36}: stop appium server
