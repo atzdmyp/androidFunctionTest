@@ -17,7 +17,7 @@ class Log:
     def __init__(self):
 
         global resultPath, logPah, checkNo
-        self.resultPath = readConfig.logDir+"\\result\\"
+        self.resultPath = readConfig.prjDir+"\\result\\"
         self.logPath = self.resultPath+(time.strftime('%Y%m%d%H%M%S', time.localtime()))+"\\"
         self.checkNo = 0
 

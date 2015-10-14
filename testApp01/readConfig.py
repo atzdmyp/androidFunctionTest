@@ -3,14 +3,8 @@ import configparser
 import codecs
 global configfile_path
 
-logDir = os.path.abspath('..')
-# cwd = os.path.realpath(sys.argv[0])
-# cwd = os.path.abspath(cwd)
-# if os.path.isfile(cwd):
-#     logDir = os.path.dirname(os.path.dirname(os.path.dirname(cwd)))
-# else:
-#     logDir = os.path.dirname(os.path.dirname(cwd))
-configfile_path = logDir +"\\config.ini"
+prjDir = os.path.split(os.path.realpath(__file__))[0]
+configfile_path = prjDir +"\\config.ini"
 
 
 class ReadConfig:
@@ -33,6 +27,6 @@ class ReadConfig:
         value = self.cf.get("config", name)
         return value
 
-    def getAdbValue(self, name):
-        value = self.cf.get("adb", name)
+    def getcmdValue(self, name):
+        value = self.cf.get("cmd", name)
         return value

@@ -5,37 +5,13 @@
     <bookmark url="file://$PROJECT_DIR$/testSet/common/myPhone.py" line="39" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdad5234-69ac-4721-a701-870ced4a145f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121620/Error.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151013102929/Error.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151013103522/Error.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/installApp.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121020/test01/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121048/test01/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121052/test01/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121057/test01/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121419/test01/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121421/test01/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121422/test01/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121423/test01/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121425/test01/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121511/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121620/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510121632/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510130933/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510131007/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510131009/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510131012/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510131020/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151013102210/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151013102313/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151013102739/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151013102929/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151013103522/outPut.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/201510130933/result.txt" />
+    <list default="true" id="fdad5234-69ac-4721-a701-870ced4a145f" name="Default" comment="modify the run.py --isStartServer&#10;add installApp.bat">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/init.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSet/common/Log.py" afterPath="$PROJECT_DIR$/testSet/common/Log.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSet/run.py" afterPath="$PROJECT_DIR$/testSet/run.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSet/test01.py" afterPath="$PROJECT_DIR$/testSet/test01.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.ini" afterPath="$PROJECT_DIR$/config.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/installApp.bat" afterPath="$PROJECT_DIR$/installApp.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSet/common/myPhone.py" afterPath="$PROJECT_DIR$/testSet/common/myPhone.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readConfig.py" afterPath="$PROJECT_DIR$/readConfig.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="testApp01.iws" />
@@ -53,6 +29,7 @@
     <SUITE FILE_PATH="coverage/testApp01$Unittests_in_run__5_.coverage" NAME="Unittests in run (5) Coverage Results" MODIFIED="1442389015966" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
     <SUITE FILE_PATH="coverage/testApp01$Unittests_in_test01__5_.coverage" NAME="Unittests in test01 (5) Coverage Results" MODIFIED="1444384941590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
     <SUITE FILE_PATH="coverage/testApp01$Unittest_test01_testCase01.coverage" NAME="Unittest test01.testCase01 Coverage Results" MODIFIED="1444467474425" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
+    <SUITE FILE_PATH="coverage/testApp01$init.coverage" NAME="init Coverage Results" MODIFIED="1444802324550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/testApp01$run.coverage" NAME="run Coverage Results" MODIFIED="1444703722017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
     <SUITE FILE_PATH="coverage/testApp01$runner.coverage" NAME="runner Coverage Results" MODIFIED="1442383555146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/Python34/Lib/unittest" />
     <SUITE FILE_PATH="coverage/testApp01$Unittests_in_test01__1_.coverage" NAME="Unittests in test01 (1) Coverage Results" MODIFIED="1444384279336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testSet" />
@@ -90,55 +67,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="test01.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testSet/test01.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.28125">
-              <caret line="94" column="42" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
-              <folding>
-                <element signature="e#1#16#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DRIVER.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testSet/common/DRIVER.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="54" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
-              <folding>
-                <element signature="e#238#295#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="webdriver.py" pinned="false" current-in-tab="false">
         <entry file="file://D:/Python34/Lib/site-packages/appium/webdriver/webdriver.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="449" column="41" selection-start-line="449" selection-start-column="41" selection-end-line="449" selection-end-column="41" />
-              <folding />
+              <caret line="79" column="40" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="40" />
+              <folding>
+                <element signature="e#568#598#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myExceotion.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testSet/common/myExceotion.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="58" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="myPhone.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="myPhone.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testSet/common/myPhone.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47640118">
-              <caret line="38" column="65" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
               <folding>
                 <element signature="e#240#249#0" expanded="true" />
               </folding>
@@ -149,8 +94,40 @@
       <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testSet/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.9375">
-              <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="init.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/init.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5451197">
+              <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+              <folding>
+                <element signature="e#25#34#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="readConfig.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/readConfig.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="installApp.bat" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/installApp.bat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.866667">
+              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -160,42 +137,8 @@
         <entry file="file://$PROJECT_DIR$/config.ini">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+              <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="request.py" pinned="false" current-in-tab="false">
-        <entry file="file://D:/Python34/Lib/urllib/request.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="137" column="4" selection-start-line="137" selection-start-column="4" selection-end-line="137" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Log.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testSet/common/Log.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="129" column="42" selection-start-line="129" selection-start-column="34" selection-end-line="129" selection-end-column="42" />
-              <folding>
-                <element signature="e#236#267#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testSet/common/common.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-              <folding>
-                <element signature="e#239#300#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -223,17 +166,19 @@
         <option value="$PROJECT_DIR$/testSet/common/myError.py" />
         <option value="$PROJECT_DIR$/caseList.txt" />
         <option value="$PROJECT_DIR$/testSet/common/myServer.py" />
-        <option value="$PROJECT_DIR$/readConfig.py" />
         <option value="$PROJECT_DIR$/testSet/common/common.py" />
-        <option value="$PROJECT_DIR$/testSet/common/myPhone.py" />
-        <option value="$PROJECT_DIR$/config.ini" />
         <option value="$PROJECT_DIR$/testSet/thread.py" />
         <option value="$PROJECT_DIR$/testSet/common/DRIVER.py" />
         <option value="$PROJECT_DIR$/testSet/common/test.py" />
-        <option value="$PROJECT_DIR$/testSet/common/Log.py" />
         <option value="$PROJECT_DIR$/testSet/test01.py" />
         <option value="$PROJECT_DIR$/testSet/test.py" />
         <option value="$PROJECT_DIR$/testSet/run.py" />
+        <option value="$PROJECT_DIR$/testSet/init.py" />
+        <option value="$PROJECT_DIR$/testSet/common/myPhone.py" />
+        <option value="$PROJECT_DIR$/config.ini" />
+        <option value="$PROJECT_DIR$/readConfig.py" />
+        <option value="$PROJECT_DIR$/testSet/common/Log.py" />
+        <option value="$PROJECT_DIR$/init.py" />
       </list>
     </option>
   </component>
@@ -273,7 +218,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -330,7 +275,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -365,7 +310,7 @@
       <recent name="F:\testApp01" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.run">
+  <component name="RunManager" selected="Python.init">
     <configuration default="false" name="Unittest test01.testCase01" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -382,29 +327,6 @@
       <option name="METHOD_NAME" value="testCase01" />
       <option name="FOLDER_NAME" value="" />
       <option name="TEST_TYPE" value="TEST_METHOD" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Unittests in test01" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testSet" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="testApp01" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testSet/test01.py" />
-      <option name="CLASS_NAME" value="test01" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_CLASS" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <option name="PUREUNITTEST" value="true" />
@@ -462,6 +384,24 @@
       <module name="testApp01" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testSet/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="init" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="testApp01" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/init.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -699,18 +639,18 @@
       <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in testApp01" />
       <item index="1" class="java.lang.String" itemvalue="Python.run" />
       <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest test01.testCase01" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test01" />
-      <item index="4" class="java.lang.String" itemvalue="Python.test" />
-      <item index="5" class="java.lang.String" itemvalue="Python.Log" />
-      <item index="6" class="java.lang.String" itemvalue="Python.test (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Python.test" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Log" />
+      <item index="5" class="java.lang.String" itemvalue="Python.test (1)" />
+      <item index="6" class="java.lang.String" itemvalue="Python.init" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.test (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Log" />
-        <item index="2" class="java.lang.String" itemvalue="Python.test" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest test01.testCase01" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in test01" />
+        <item index="0" class="java.lang.String" itemvalue="Python.init" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Log" />
+        <item index="3" class="java.lang.String" itemvalue="Python.test" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest test01.testCase01" />
       </list>
     </recent_temporary>
   </component>
@@ -773,7 +713,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444644372390</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="modify the run.py --isStartServer&#10;add installApp.bat">
+      <created>1444730500528</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1444730500528</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -782,12 +728,12 @@
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24331927" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.04189189" sideWeight="0.11251758" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22432433" sideWeight="0.12236287" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17432432" sideWeight="0.49156117" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.04189189" sideWeight="0.8874824" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22432433" sideWeight="0.87763715" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -821,7 +767,8 @@
     <MESSAGE value="use adb to get devices Name" />
     <MESSAGE value="modify the run.py" />
     <MESSAGE value="modify the Log.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify the Log.py" />
+    <MESSAGE value="modify the run.py --isStartServer&#10;add installApp.bat" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify the run.py --isStartServer&#10;add installApp.bat" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -830,30 +777,12 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/testSet/common/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-          <folding>
-            <element signature="e#239#300#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testSet/test01.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
           <folding>
-            <element signature="e#1#16#0" expanded="true" />
+            <element signature="e#1#16#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -863,7 +792,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding>
-            <element signature="e#239#300#0" expanded="true" />
+            <element signature="e#239#300#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -888,7 +817,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1#16#0" expanded="true" />
+            <element signature="e#1#16#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -898,7 +827,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1#16#0" expanded="true" />
+            <element signature="e#1#16#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -942,13 +871,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.5927927">
           <caret line="78" column="34" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Python34/Lib/site-packages/selenium/webdriver/common/by.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3052464">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1053,13 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Python34/Lib/site-packages/selenium/webdriver/remote/webdriver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="116" column="76" selection-start-line="116" selection-start-column="66" selection-end-line="116" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Python34/Lib/unittest/runner.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.71218485">
@@ -1072,7 +987,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="287" column="24" selection-start-line="287" selection-start-column="8" selection-end-line="287" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1080,14 +994,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1050" column="4" selection-start-line="1050" selection-start-column="4" selection-end-line="1050" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/readConfig.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1103,7 +1009,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="59" column="70" selection-start-line="59" selection-start-column="70" selection-end-line="59" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1118,7 +1023,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1130,21 +1034,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testSet/common/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding>
-            <element signature="e#239#300#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Python34/Lib/urllib/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1160,52 +1053,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testSet/test01.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.28125">
+        <state vertical-scroll-proportion="0.0">
           <caret line="94" column="42" selection-start-line="94" selection-start-column="42" selection-end-line="94" selection-end-column="42" />
           <folding>
-            <element signature="e#1#16#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testSet/common/Log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="129" column="42" selection-start-line="129" selection-start-column="34" selection-end-line="129" selection-end-column="42" />
-          <folding>
-            <element signature="e#236#267#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testSet/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.9375">
-          <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testSet/common/DRIVER.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="54" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
-          <folding>
-            <element signature="e#238#295#0" expanded="true" />
+            <element signature="e#1#16#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1214,24 +1070,111 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6135693">
           <caret line="37" column="46" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="46" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSet/common/DRIVER.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="56" selection-start-line="43" selection-start-column="56" selection-end-line="43" selection-end-column="56" />
+          <folding>
+            <element signature="e#238#295#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSet/common/myPhone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+          <folding>
+            <element signature="e#240#249#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://D:/Python34/Lib/site-packages/appium/webdriver/webdriver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="449" column="41" selection-start-line="449" selection-start-column="41" selection-end-line="449" selection-end-column="41" />
+          <caret line="79" column="40" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="40" />
+          <folding>
+            <element signature="e#568#598#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Python34/Lib/site-packages/selenium/webdriver/remote/webdriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5975232">
+          <caret line="539" column="23" selection-start-line="539" selection-start-column="8" selection-end-line="539" selection-end-column="23" />
+          <folding>
+            <element signature="e#825#838#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSet/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testSet/common/myPhone.py">
+    <entry file="file://$PROJECT_DIR$/readConfig.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47640118">
-          <caret line="38" column="65" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSet/common/Log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5248619">
+          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSet/common/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8195212">
+          <caret line="64" column="48" selection-start-line="64" selection-start-column="48" selection-end-line="64" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Python34/Lib/site-packages/selenium/webdriver/common/by.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6887661">
+          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/installApp.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.866667">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/init.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5451197">
+          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
           <folding>
-            <element signature="e#240#249#0" expanded="true" />
+            <element signature="e#25#34#0" expanded="true" />
           </folding>
         </state>
       </provider>

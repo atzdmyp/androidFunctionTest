@@ -15,11 +15,11 @@ class myPhone:
 
     def __init__(self):
         global viewPhone,vievAndroid, openPhone, installSoftware, uninstallSoftware
-        self.viewPhone = readConfigLocal.getAdbValue("viewPhone")
-        self.viewAndroid = readConfigLocal.getAdbValue("viewAndroid")
-        self.openCmd = readConfigLocal.getAdbValue("openPhone")
-        self.installSoftware = readConfigLocal.getAdbValue("installSoftware")
-        self.uninstallSoftware = readConfigLocal.getAdbValue("uninstallSoftware")
+        self.viewPhone = readConfigLocal.getcmdValue("viewPhone")
+        self.viewAndroid = readConfigLocal.getcmdValue("viewAndroid")
+        self.openCmd = readConfigLocal.getcmdValue("openPhone")
+        self.installSoftware = readConfigLocal.getcmdValue("installSoftware")
+        self.uninstallSoftware = readConfigLocal.getcmdValue("uninstallSoftware")
 
 # =================================================================
 # Function Name   : getDeviceName
