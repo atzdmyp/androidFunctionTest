@@ -7,9 +7,11 @@
 # ========================================================
 
 from selenium.common.exceptions import WebDriverException
+
 import readConfig
+
 readConfigLocal = readConfig.ReadConfig()
-import testSet.common.myPhone as myPhone
+from testSet.common import init
 
 import threading
 from appium import webdriver
@@ -19,12 +21,12 @@ class myDriver():
 
     driver = None
     mutex = threading.Lock()
-    myPhone = myPhone.myPhone()
+    myInit = init.init()
     platformName = readConfigLocal.getConfigValue("platformName")
-    platformVersion = myPhone.getAndroidVersion()
+    platformVersion = myInit.getAndroidVersion()
     appPackage = readConfigLocal.getConfigValue("appPackage")
     appActivity = readConfigLocal.getConfigValue("appActivity")
-    deviceName = myPhone.getDeviceName()
+    deviceName = myInit.getDeviceName()
     baseUrl = readConfigLocal.getConfigValue("baseUrl")
     desired_caps = {"platformName": platformName, "platformVersion": platformVersion, "appPackage": appPackage,
                     "appActivity": appActivity, "deviceName": deviceName}

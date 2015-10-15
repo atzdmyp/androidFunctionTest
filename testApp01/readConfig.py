@@ -1,4 +1,4 @@
-import sys, os
+import os
 import configparser
 import codecs
 global configfile_path
