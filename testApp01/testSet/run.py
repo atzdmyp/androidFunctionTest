@@ -6,90 +6,49 @@
 # Amended by     :
 # ========================================================
 
+import os
 import readConfig
 readConfigLocal = readConfig.ReadConfig()
 import unittest
 from testSet.common.DRIVER import myDriver
+from testSet.common.AppiumServer import AppiumServer
 import testSet.common.Log as Log
-import os
+
 from time import sleep
 
-from selenium.common.exceptions import WebDriverException
 import threading
-import urllib.request
-from urllib.error import URLError
 
 mylock = threading.RLock()
 log = Log.myLog.getLog()
 baseUrl = readConfigLocal.getConfigValue("baseUrl")
 
-# ========================================================
-# Summary        :myServer
-# Author         :tong shan
-# Create Date    :2015-10-10
-# Amend History  :
-# Amended by     :
-# ========================================================
-class myServer(threading.Thread):
+class Alltest():
 
     def __init__(self):
-        global appiumPath
-        threading.Thread.__init__(self)
-        self.appiumPath = readConfigLocal.getConfigValue("appiumPath")
-
-    def run(self):
-
-        log.outputLogFile("start appium server")
-        rootDirectory = self.appiumPath[:2]
-        startCMD = "node node_modules\\appium\\bin\\appium.js"
-
-        #cd root directory ;cd appiuu path; start server
-        os.system(rootDirectory+"&"+"cd "+self.appiumPath+"&"+startCMD)
-
-# ========================================================
-# Summary        :Alltest
-# Author         :tong shan
-# Create Date    :2015-10-10
-# Amend History  :
-# Amended by     :
-# ========================================================
-class Alltest(threading.Thread):
-
-    def __init__(self):
-        threading.Thread.__init__(self)
         global casePath, caseListLpath, caseList, suiteList, appiumPath
-        self.caseListPath = readConfig.logDir+"\\caseList.txt"
-        self.casePath = readConfig.logDir+"\\testSet\\"
+        self.caseListPath = os.path.join(readConfig.prjDir, "caseList.txt")
+        self.casePath = os.path.join(readConfig.prjDir, "testSet\\")
         self.caseList = []
         self.suiteList = []
         self.appiumPath = readConfigLocal.getConfigValue("appiumPath")
+        self.myServer = AppiumServer()
 
-# =================================================================
-# Function Name   : driverOn
-# Function        : open the driver
-# Input Parameters: -
-# Return Value    : -
-# =================================================================
     def driverOn(self):
+        """open the driver
+        :return:
+        """
         myDriver.GetDriver()
 
-# =================================================================
-# Function Name   : driverOff
-# Function        : colse the driver
-# Input Parameters: -
-# Return Value    : -
-# =================================================================
     def driverOff(self):
+        """close the driver
+        :return:
+        """
         myDriver.GetDriver().quit()
 
-# =================================================================
-# Function Name   : setCaseList
-# Function        : read caseList.txt and set caseList
-# Input Parameters: -
-# Return Value    : -
-# =================================================================
     def setCaseList(self):
-
+        """from the caseList get the caseName,set in caseList
+        :return:
+        """
         fp = open(self.caseListPath)
 
         for data in fp.readlines():
@@ -97,15 +56,12 @@ class Alltest(threading.Thread):
             sData = str(data)
             if sData != '' and not sData.startswith("#"):
                 self.caseList.append(sData)
+        fp.close()
 
-# =================================================================
-# Function Name   : createSuite
-# Function        : get testCase in caseList
-# Input Parameters: -
-# Return Value    : testSuite
-# =================================================================
     def createSuite(self):
-
+        """from the caseList,get caseName,According to the caseName to search the testSuite
+        :return:testSuite
+        """
         self.setCaseList()
         testSuite = unittest.TestSuite()
 
@@ -126,80 +82,44 @@ class Alltest(threading.Thread):
 
         return testSuite
 
-# =================================================================
-# Function Name   : runTest
-# Function        : run test
-# Input Parameters: -
-# Return Value    : testSuite
-# =================================================================
     def run(self):
-
+        """run test
+        :return:
+        """
         try:
-            while not isStartServer():
-                mylock.acquire()
-                print("sleep1")
-                log.outputLogFile("wait 1s to start appium server")
-                mylock.release()
-            else:
-                log.outputLogFile("start appium server success")
-                suit = self.createSuite()
-                if suit != None:
+            suit = self.createSuite()
+            if suit != None:
 
+                log.outputLogFile("start Appium Server")
+
+                self.myServer.startServer()
+
+                while not self.myServer.isRunnnig():
+                    sleep(1)
+
+                else:
                     log.outputLogFile("open Driver")
                     self.driverOn()
                     log.outputLogFile("Start to test")
                     unittest.TextTestRunner(verbosity=2).run(suit)
                     log.outputLogFile("end to test")
-                    log.outputLogFile("close to Driver")
-                    self.driverOff()
 
-                else:
-                    log.outputLogFile("Have no test to run")
+            else:
+                log.outputLogFile("Have no test to run")
         except Exception as ex:
             log.outputError(myDriver.GetDriver(), str(ex))
+        finally:
+             log.outputLogFile("close to Driver")
+             self.driverOff()
+             log.outputLogFile("stop Appium Server")
+             self.myServer.stopServer()
 
-def isStartServer():
-
-    response = None
-    url = baseUrl+"/status"
-    try:
-        response = urllib.request.urlopen(url, timeout=5)
-
-        if str(response.getcode()).startswith("2"):
-            return True
-        else:
-            return False
-    except URLError:
-        return False
-    except WebDriverException:
-         raise
-    finally:
-        if response:
-            response.close()
-    # try:
-    #     driver = myDriver.GetDriver()
-    #     if driver == None:
-    #         return False
-    #     else:
-    #         return True
-    # except WebDriverException:
-    #     raise
 
 
 if __name__ == '__main__':
+    ojb = Alltest()
+    ojb.run()
 
-    thread1 = myServer()
-    thread2 = Alltest()
-
-    thread2.start()
-    thread1.start()
-
-    while thread2.is_alive():
-        sleep(10)#"allTest is alive,sleep10"
-    else:
-        #kill myServer
-        os.system('taskkill /f /im node.exe')
-        log.outputLogFile("stop appium server")
 
 
 
