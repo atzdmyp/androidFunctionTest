@@ -5,6 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdad5234-69ac-4721-a701-870ced4a145f" name="Default" comment="">
+<<<<<<< HEAD
+=======
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Shein(6).apk" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testSet/common/AppiumServer.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/autoRun.bat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testSet/common/init.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/install.bat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151015134322/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151015161409/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151015161632/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151015164425/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151015165211/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151015165317/outPut.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/result/20151015165451/outPut.log" />
+      <change type="DELETED" beforePath="F:\testApp01\init.py" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\installApp.bat" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510121020\test01\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510121048\test01\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510121052\test01\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510121057\test01\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510121419\test01\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510121421\test01\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510121422\test01\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510121423\test01\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510121425\test01\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510121511\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510121620\Error.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510121620\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510121632\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510130933\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510130933\result.txt" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510131007\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510131009\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510131012\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\201510131020\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\20151013102210\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\20151013102313\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\20151013102739\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\20151013102929\Error.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\20151013102929\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\20151013103522\Error.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\result\20151013103522\outPut.log" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\testSet\common\myExceotion.py" afterPath="" />
+      <change type="DELETED" beforePath="F:\testApp01\testSet\common\myPhone.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSet/common/DRIVER.py" afterPath="$PROJECT_DIR$/testSet/common/DRIVER.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.ini" afterPath="$PROJECT_DIR$/config.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readConfig.py" afterPath="$PROJECT_DIR$/readConfig.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testSet/run.py" afterPath="$PROJECT_DIR$/testSet/run.py" />
+>>>>>>> f5cb1be18d6a358f6a217b9ecdf6dc84bdefc7aa
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="testApp01.iws" />
@@ -85,6 +134,7 @@
       </file>
       <file leaf-file-name="builtins.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/814085081/builtins.py">
+<<<<<<< HEAD
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="370" column="49" selection-start-line="370" selection-start-column="42" selection-end-line="370" selection-end-column="49" />
@@ -97,6 +147,20 @@
         <entry file="file://$PROJECT_DIR$/testSet/common/init.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
+=======
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="370" column="49" selection-start-line="370" selection-start-column="42" selection-end-line="370" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="init.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testSet/common/init.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+>>>>>>> f5cb1be18d6a358f6a217b9ecdf6dc84bdefc7aa
               <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
               <folding>
                 <element signature="e#25#34#0" expanded="true" />
@@ -762,6 +826,7 @@
       <option name="project" value="LOCAL" />
       <updated>1444817757018</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00011" summary="modify init.py&#10;add autoTest.bat ,install.bat,AppiumServer.py">
       <created>1444902999908</created>
       <option name="number" value="00011" />
@@ -769,6 +834,9 @@
       <updated>1444902999909</updated>
     </task>
     <option name="localTasksCounter" value="12" />
+=======
+    <option name="localTasksCounter" value="11" />
+>>>>>>> f5cb1be18d6a358f6a217b9ecdf6dc84bdefc7aa
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -776,7 +844,10 @@
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+=======
+>>>>>>> f5cb1be18d6a358f6a217b9ecdf6dc84bdefc7aa
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23952879" sideWeight="0.16041666" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -818,8 +889,12 @@
     <MESSAGE value="modify the Log.py" />
     <MESSAGE value="modify the run.py --isStartServer&#10;add installApp.bat" />
     <MESSAGE value="add init.py" />
+<<<<<<< HEAD
     <MESSAGE value="modify init.py&#10;add autoTest.bat ,install.bat,AppiumServer.py" />
     <option name="LAST_COMMIT_MESSAGE" value="modify init.py&#10;add autoTest.bat ,install.bat,AppiumServer.py" />
+=======
+    <option name="LAST_COMMIT_MESSAGE" value="add init.py" />
+>>>>>>> f5cb1be18d6a358f6a217b9ecdf6dc84bdefc7aa
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1076,6 +1151,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5975232">
           <caret line="539" column="23" selection-start-line="539" selection-start-column="8" selection-end-line="539" selection-end-column="23" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -1094,6 +1170,26 @@
         </state>
       </provider>
     </entry>
+=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Python34/Lib/site-packages/selenium/webdriver/common/by.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6887661">
+          <caret line="31" column="25" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/python-skeletons/os/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36832413">
+          <caret line="713" column="31" selection-start-line="713" selection-start-column="21" selection-end-line="713" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> f5cb1be18d6a358f6a217b9ecdf6dc84bdefc7aa
     <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/814085081/nt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15837938">
