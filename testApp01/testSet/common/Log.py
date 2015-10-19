@@ -1,14 +1,9 @@
-# ========================================================
-# Summary        :Log
-# Author         :tong shan
-# Create Date    :2015-09-16
-# Amend History  :
-# Amended by     :
-# ========================================================
+__author__ = 'tongshan'
 
+import logging
 import readConfig as readConfig
-import os
 import time
+import os
 from time import sleep
 import threading
 
@@ -16,188 +11,134 @@ class Log:
 
     def __init__(self):
 
-        global resultPath, logPah, checkNo
-        self.resultPath = readConfig.prjDir+"\\result\\"
-        self.logPath = self.resultPath+(time.strftime('%Y%m%d%H%M%S', time.localtime()))+"\\"
+        global logger, resultPath, logPath
+        resultPath = os.path.join(readConfig.prjDir, "result")
+        logPath = os.path.join(resultPath, (time.strftime('%Y%m%d%H%M%S', time.localtime())))
+        if os.path.exists(logPath) == False:
+            os.makedirs(logPath)
         self.checkNo = 0
+        self.logger = logging.getLogger()
+        self.logger.setLevel(logging.DEBUG)
 
-# =================================================================
-# Function Name   : buildStartLine
-# Function        : create start line
-# Input Parameters: caseNo
-# Return Value    :
-# =================================================================
+        #create handler,write log
+        fh = logging.FileHandler(os.path.join(logPath, "outPut.log" ))
+        #Define the output format of formatter handler
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        fh.setFormatter(formatter)
+
+        self.logger.addHandler(fh)
+
+    def getMyLogger(self):
+        """get the logger
+        :return:logger
+        """
+        return self.logger
+
     def buildStartLine(self, caseNo):
+        """build the start log
+        :param caseNo:
+        :return:
+        """
 
         startLine = "----  " + caseNo + "   " + "START" + "   " +\
         "  ----"
-        self.writeLog(startLine)
+        logger.info(startLine)
 
-# =================================================================
-# Function Name   : writeLog
-# Function        : write output.log
-# Input Parameters: logInfo
-# Return Value    : -
-# =================================================================
-    def writeLog(self,logInfo):
+    def buildEndLine(self, caseNo):
+        """build the end log
+        :param caseNo:
+        :return:
+        """
+        endLine = "----  " + caseNo + "   " + "END" + "   " +\
+        "  ----"
+        logger.info(endLine)
+        self.checkNo = 0
 
-        if os.path.exists(self.logPath) == False:
-            os.makedirs(self.logPath)
-        flogging = open(self.logPath + "outPut.log", "a")
-        try:
-            flogging.write(logInfo+"\n")
-        finally:
-            flogging.close()
-        pass
-
-# =================================================================
-# Function Name   : writeResult
-# Function        : write result.txt
-# Input Parameters: result
-# Return Value    : -
-# =================================================================
-    def writeResult(self,result):
-
-        if os.path.exists(self.logPath) == False:
-            os.makedirs(self.logPath)
-        flogging = open(self.logPath + "result.txt", "a")
+    def writeResult(self, result):
+        """write the case result(OK or NG)
+        :param result:
+        :return:
+        """
+        reportPath = os.path.join(logPath, "report.txt")
+        flogging = open(reportPath, "a")
         try:
             flogging.write(result+"\n")
         finally:
             flogging.close()
         pass
 
-
-# =================================================================
-# Function Name   : outputLogFile
-# Function        : output info write to output.log
-# Input Parameters: logInfo
-# Return Value    : -
-# =================================================================
-    def outputLogFile(self, logInfo):
-
-        timePart = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
-        self.writeLog("["+timePart+"}"+": "+logInfo)
-
-# =================================================================
-# Function Name   : outputError
-# Function        : output Error to output.log
-# Input Parameters: logInfo
-# Return Value    : -
-# =================================================================
-    def outputError(self, driver,errorInfo):
-
-        self.screenshotError(driver)
-        self.writeLog("[Error]"+errorInfo)
-
-# =================================================================
-# Function Name   : buildEndLine
-# Function        : create end line
-# Input Parameters: caseNo
-# Return Value    : endLine
-# =================================================================
-    def buildEndLine(self, caseNo):
-
-        endLine = "----  " + caseNo + "    " + "END" + "    " +\
-        "  ----"+ "\n"
-        self.writeLog(endLine)
-        self.checkNo = 0
-
-# =================================================================
-# Function Name   : resultOK
-# Function        : write the result(OK)
-# Input Parameters:caseNo
-# Return Value    :
-# =================================================================
-    def resultOK(self, caseNo):
-        self.writeResult("TEST: "+caseNo+" :OK")
-
-# =================================================================
-# Function Name   : resultNG
-# Function        : write the result(NG)
-# Input Parameters:caseNo
-# Return Value    :
-# =================================================================
-    def resultNG(self, caseNo):
-        self.writeResult("TEST: "+caseNo+" :NG")
-
-# =================================================================
-# Function Name   : checkPointOK
-# Function        : write the checkPoint(OK)
-# Input Parameters:checkPoint
-# Return Value    :
-# =================================================================
     def checkPointOK(self, driver,caseName, checkPoint):
-
+        """write the case's checkPoint(OK)
+        :param driver:
+        :param caseName:
+        :param checkPoint:
+        :return:
+        """
         self.checkNo += 1
 
-        self.writeLog("[CheckPoint_"+str(self.checkNo)+"]: "+checkPoint+": OK")
+        self.logger.info("[CheckPoint_"+str(self.checkNo)+"]: "+checkPoint+": OK")
 
         # take shot
         self.screenshotOK(driver, caseName)
 
-
-# =================================================================
-# Function Name   : checkPointNG
-# Function        : write the checkPoint(NG)
-# Input Parameters:checkPoint
-# Return Value    :
-# =================================================================
-    def checkPointNG(self, driver, caseName,checkPoint):
-
+    def checkPointNG(self, driver,caseName, checkPoint):
+        """write the case's checkPoint(NG)
+        :param driver:
+        :param caseName:
+        :param checkPoint:
+        :return:
+        """
         self.checkNo += 1
 
-        self.writeLog("[CheckPoint_"+str(self.checkNo)+"]: "+checkPoint+": NG")
+        self.logger.info("[CheckPoint_"+str(self.checkNo)+"]: "+checkPoint+": NG")
 
-        #take shot
-        self.screenshotNG(driver, caseName)
+        # take shot
+        self.screenshotOK(driver, caseName)
 
-# =================================================================
-# Function Name   : screenshotOK
-# Function        : take shot
-# Input Parameters:driver,checkPoint
-# Return Value    : -
-# =================================================================
     def screenshotOK(self, driver, caseName):
-
-        screenshotPath = self.logPath+caseName+"\\"
+        """screen shot
+        :param driver:
+        :param caseName:
+        :return:
+        """
+        screenshotPath = os.path.join(logPath, caseName)
         screenshotName = "CheckPoint_"+str(self.checkNo)+"_OK.png"
 
         # wait for animations to complete before taking screenshot
         sleep(1)
-        driver.get_screenshot_as_file(screenshotPath+screenshotName)
+        driver.get_screenshot_as_file(os.path.join(screenshotPath,screenshotName))
 
-# =================================================================
-# Function Name   : screenshotNG
-# Function        : take shot
-# Input Parameters:driver,checkPoint
-# Return Value    : -
-# =================================================================
     def screenshotNG(self, driver, caseName):
-
-        screenshotPath = self.logPath+caseName+"\\"
+        """screen shot
+        :param driver:
+        :param caseName:
+        :return:
+        """
+        screenshotPath = os.path.join(logPath, caseName)
         screenshotName = "CheckPoint_"+str(self.checkNo)+"_NG.png"
 
         # wait for animations to complete before taking screenshot
         sleep(1)
-        driver.get_screenshot_as_file(screenshotPath+screenshotName)
+        driver.get_screenshot_as_file(os.path.join(screenshotPath,screenshotName))
 
-# =================================================================
-# Function Name   : screenshotError
-# Function        : take shot
-# Input Parameters:driver
-# Return Value    : -
-# =================================================================
-    def screenshotError(self, driver):
-
-        screenshotName = "Error.png"
+    def screenshotERROR(self, driver, caseName):
+        """screen shot
+        :param driver:
+        :param caseName:
+        :return:
+        """
+        screenshotPath = os.path.join(logPath, caseName)
+        screenshotName = "ERROR.png"
 
         # wait for animations to complete before taking screenshot
         sleep(1)
-        driver.get_screenshot_as_file(self.logPath+screenshotName)
+        driver.get_screenshot_as_file(os.path.join(screenshotPath, screenshotName))
 
 
 class myLog:
+    """
+    This class is used to get log
+    """
 
     log = None
     mutex = threading.Lock()
@@ -215,3 +156,10 @@ class myLog:
             myLog.mutex.release()
 
         return myLog.log
+
+
+
+
+
+
+

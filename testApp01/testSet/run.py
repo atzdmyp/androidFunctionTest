@@ -1,10 +1,4 @@
-# ========================================================
-# Summary        :run
-# Author         :tong shan
-# Create Date    :2015-10-09
-# Amend History  :
-# Amended by     :
-# ========================================================
+__author__ = 'tongshan'
 
 import os
 import readConfig
@@ -20,6 +14,7 @@ import threading
 
 mylock = threading.RLock()
 log = Log.myLog.getLog()
+logger = log.getMyLogger()
 baseUrl = readConfigLocal.getConfigValue("baseUrl")
 
 class Alltest():
@@ -90,7 +85,7 @@ class Alltest():
             suit = self.createSuite()
             if suit != None:
 
-                log.outputLogFile("start Appium Server")
+                logger.info("begin to start Appium Server")
 
                 self.myServer.startServer()
 
@@ -98,21 +93,23 @@ class Alltest():
                     sleep(1)
 
                 else:
-                    log.outputLogFile("open Driver")
+                    logger.info("end to start Appium Server")
+                    logger.info("open Driver")
                     self.driverOn()
-                    log.outputLogFile("Start to test")
-                    unittest.TextTestRunner(verbosity=2).run(suit)
-                    log.outputLogFile("end to test")
+                    logger.info("Start to test")
+                    # unittest.TextTestRunner(verbosity=2).run(suit)
+                    logger.info("end to test")
 
             else:
-                log.outputLogFile("Have no test to run")
+                logger.info("Have no test to run")
         except Exception as ex:
             log.outputError(myDriver.GetDriver(), str(ex))
         finally:
-             log.outputLogFile("close to Driver")
+             logger.info("close to Driver")
              self.driverOff()
-             log.outputLogFile("stop Appium Server")
+             logger.info("begin stop Appium Server")
              self.myServer.stopServer()
+             logger.info("end stop Appium Server")
 
 
 

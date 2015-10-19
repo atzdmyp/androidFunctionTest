@@ -16,6 +16,7 @@ class test01(unittest.TestCase):
 
         #get Log
         self.log = Log.myLog().getLog()
+        self.logger = self.log.getMyLogger()
 
         #get caseNo
         # filename = sys.argv[0][sys.argv[0].rfind(os.sep)+1:]
@@ -32,7 +33,7 @@ class test01(unittest.TestCase):
 
             myCommon.openApp(self.driver)
 
-            self.log.outputLogFile("Open app : OK")
+            self.logger.debug("Open app : OK")
 
             #find the bottom Navigation bar
             if myCommon.doesExitsElement(self.driver, By.ID, "fmc_ll_tab"):
@@ -40,7 +41,7 @@ class test01(unittest.TestCase):
             else:
                 pass
 
-            self.log.outputLogFile("Open profile : OK")
+            self.logger.debug("Open profile : OK")
 
             if myCommon.doesExitsElement(self.driver, By.ID, "profile_head"):
                 myCommon.myClick(self.driver, By.ID, "profile_sign_in")
@@ -48,7 +49,7 @@ class test01(unittest.TestCase):
             else:
                 pass
 
-            self.log.outputLogFile("click sign in Button : OK")
+            self.logger.debug("click sign in Button : OK")
 
             if myCommon.isExitsElement(self.driver, By.ID, "we_et_input"):
                 #input email
@@ -80,7 +81,7 @@ class test01(unittest.TestCase):
 
         except Exception as ex:
 
-            self.log.outputError(self.driver, str(ex))
+            self.logger.error(self.driver, str(ex))
 
 
     def tearDown(self):

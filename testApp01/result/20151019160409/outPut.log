@@ -1,0 +1,6 @@
+2015-10-19 16:04:09,211 - root - INFO - begin to start Appium Server
+2015-10-19 16:04:26,025 - root - INFO - end to start Appium Server
+2015-10-19 16:04:26,025 - root - INFO - open Driver
+2015-10-19 16:04:26,026 - selenium.webdriver.remote.remote_connection - DEBUG - POST http://127.0.0.1:4723/wd/hub/session {"desiredCapabilities": {"appActivity": ".module.GuideActivity", "platformName": "Android", "deviceName": "", "appPackage": "com.sheinside", "platformVersion": ""}}
+2015-10-19 16:04:54,373 - selenium.webdriver.remote.remote_connection - DEBUG - Finished Request
+2015-10-19 16:04:54,373 - root - INFO - close to Driver

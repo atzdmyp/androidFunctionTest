@@ -31,7 +31,9 @@ class init:
         return False
 
     def getDeviceName(self):
-
+        """get deviceName
+        :return:deviceName
+        """
         deviceList = []
 
         returnValue = os.popen(self.viewPhone)
@@ -46,6 +48,9 @@ class init:
             return None
 
     def getAndroidVersion(self):
+        """get androidVersion
+        :return:androidVersion
+        """
         returnValue = str(os.popen(self.viewAndroid).read())
 
         if returnValue != None:
@@ -55,15 +60,21 @@ class init:
             return None
 
     def stratServer(self):
-
+        """start the adb server
+        :return:
+        """
         os.system(self.startServer)
 
     def closeServer(self):
-
+        """close the adb server
+        :return:
+        """
         os.system(self.closeServer)
 
     def reStart(self):
-
+        """reStart the adb server
+        :return:
+        """
         self.closeServer()
         self.startServer()
 
@@ -86,7 +97,10 @@ class init:
             return False
 
     def unInstall(self):
+        """uninstall software in mobile
 
+        :return: True or False
+        """
         os.system(self.uninstallSoftware)
 
 
