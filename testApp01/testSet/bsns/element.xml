@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+
+    <activity name = "GuideActivity"><!--activity名称-->
+
+        <element name="Guide">
+            <name>Guide</name>
+            <type>RelativeLayout</type>
+            <pathtype>ID</pathtype>
+            <pathvalue>guideLayout</pathvalue>
+        </element>
+
+        <element name="skip"> <!-- 元素对象 -->
+            <name>Skin</name><!-- 元素名称 -->
+            <type>button</type><!-- 元素类型 input/button -->
+            <pathtype>ID</pathtype><!-- 获取元素的模式 ID/XPATH/CLASSNAME/NAME-->
+            <pathvalue>skipBtn</pathvalue><!-- 元素定位路径 -->
+        </element>
+    </activity>
+
+    <activity name=".module.MainActivity">
+        <element name="">
+
+        </element>
+    </activity>
+    <activity>
+        aaaa
+    </activity>
+</page>

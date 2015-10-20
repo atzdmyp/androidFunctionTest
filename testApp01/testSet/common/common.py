@@ -2,243 +2,246 @@ __author__ = 'tongshan'
 from selenium.common.exceptions import NoSuchElementException
 from time import sleep
 import readConfig
-from selenium.webdriver.common.by import By
+import os
 readConfigLocal = readConfig.ReadConfig
+from testSet.common.DRIVER import myDriver
 
+driver = myDriver.GetDriver()
 
-def openApp(driver):
+def returnIndex():
     """
-    open the app,enter the index
-    :param driver:
-    :return:
-    """
-
-    # skip
-    if doesExitsElement(driver, By.ID, "guideLayout"):
-        myClick(driver, By.ID, "skipBtn")
-
-    # welcom
-    if doesExitsElement(driver, By.ID, "ag_ll_dotlayout"):
-
-        while not isExitsElement(driver, By.ID, "agi_bn_goshop"):
-
-            # swip right
-            mySwipeToRight(driver)
-            sleep(1)
-        else:
-            myClick(driver, By.ID, "agi_bn_goshop")
-
-    #loading
-    waitLoading(driver)
-
-    # update
-    if doesExitsElement(driver, By.ID, "cancel_btn"):
-        myClick(driver, By.ID, "cancel_btn")
-
-def returnIndex(driver):
-    """
-    :return the index
-    :param driver:
+    return the index
     :return:
     """
     pass
 
-def doesExitsElement(driver, how, what):
-    """
-    To determine whether an element is exits
-    :param driver:
-    :param how:
-    :param what:
-    :return:True/False
-    """
-    i = 1
-    while not isExitsElement(driver, how, what):
-        sleep(1)
-        i = i+1
-        if i >= 10:
-            return False
-    else:
-        return True
-
-def isExitsElement( driver, how, what):
-    """
-     To determine whether an element is exits
-    :param driver:
-    :param how:
-    :param what:
-    :return:True/False
-    """
-    try:
-        driver.find_element(by=how, value=what)
-    except NoSuchElementException:
-        return False
-    return True
-
-def getElement( driver, how, what):
-    """
-     get one element
-    :param driver:
-    :param how:
-    :param what:
-    :return:element/None
-    """
-    if doesExitsElement(driver, how, what):
-        element = driver.find_element(by=how, value=what)
-        return element
-    else:
-        return None
-
-def getElements( driver, how, what,index):
-    """
-    get one element in Element List
-    :param driver:
-    :param how:
-    :param what:
-    :param index:
-    :return:element/None
-    """
-    if doesExitsElement(driver, how, what):
-        elements = driver.find_elements(by=how, value=what)
-        return elements[index]
-    else:
-        return None
-
-def getWindowSize( driver):
+def getWindowSize():
     """
     get current windows size mnn
-    :param driver:
     :return:windowSize
     """
     global windowSize
     windowSize = driver.get_window_size()
     return windowSize
 
-def mySwipeToUP(driver, during=None):
+def mySwipeToUP(during=None):
     """
     swipe UP
-    :param driver:
     :param during:
     :return:
     """
     # if windowSize == None:
-    windowSize = getWindowSize(driver)
+    windowSize = getWindowSize()
 
     width = windowSize.get("width")
     height = windowSize.get("height")
     driver.swipe(width/2, height*3/4, width/2, height/4, during)
 
-def mySwipeToDown(driver, during=None):
+def mySwipeToDown(during=None):
     """
     swipe down
-    :param driver:
     :param during:
     :return:
     """
-    windowSize = getWindowSize(driver)
+    windowSize = getWindowSize()
     width = windowSize.get("width")
     height = windowSize.get("height")
     driver.swipe(width/2, height/4, width/2, height*3/4, during)
 
-def mySwipeToLeft(driver, during=None):
+def mySwipeToLeft(during=None):
     """
     swipe left
-    :param driver:
     :param during:
     :return:
     """
-    windowSize = getWindowSize(driver)
+    windowSize = getWindowSize()
     width = windowSize.get("width")
     height = windowSize.get("height")
     driver.swipe(width/4, height/2, width*3/4, height/2, during)
 
-def mySwipeToRight(driver, during=None):
+def mySwipeToRight(during=None):
     """
     swipe right
-    :param driver:
     :param during:
     :return:
     """
-    windowSize = getWindowSize(driver)
+    windowSize = getWindowSize()
     width = windowSize.get("width")
     height = windowSize.get("height")
     driver.swipe(width*4/5, height/2, width/5, height/2, during)
 
-def myClick(driver,how,what):
-    """
-    click element
-    :param driver:
-    :param how:
-    :param what:
-    :return:
-    """
-    try:
-        el = getElement(driver, how, what)
-        el.click()
-    except AttributeError:
-        raise
+from xml.etree import ElementTree as ET
 
-def myClicks(driver,how,what,index):
+activity = {}
+def setXml():
     """
-    click element
-    :param driver:
-    :param how:
-    :param what:
-    :param index:
-    :return:
-    """
-    try:
-        el = getElements(driver, how, what, index)
-        el.click()
-    except AttributeError:
-        raise
+    get the xml file's value
+    :use:
+    a = getXml(path)
 
-def mySendKey(driver, how, what, values):
+    print(a.get(".module.GuideActivity").get("skip").get("type"))
+    :param: xmlPath
+    :return:activity
     """
-    sendKeys
-    :param driver:
-    :param how:
-    :param what:
-    :param values:
-    :return:
-    """
-    try:
-        el = getElement(driver, how, what)
-        el.click()
-        el.clear()
-        el.send_keys(values)
-    except AttributeError:
-        raise
+    if len(activity) == 0:
+        xmlPath = os.path.join(readConfig.prjDir, "testSet\\bsns", "element.xml")
+        # open the xml file
+        per = ET.parse(xmlPath)
+        allElement = per.findall('activity')
+        element = {}
+        elementChild = {}
 
-def mySendKeys(driver, how, what,index,values):
-    """
-    sendKeys
-    :param driver:
-    :param how:
-    :param what:
-    :param index:
-    :param values:
-    :return:
-    """
-    try:
-        el = getElements(driver, how, what, index)
-        el.click()
-        el.clear()
-        el.send_keys(values)
-    except AttributeError:
-        raise
+        for firstElement in allElement:
+            activityName = firstElement.get("name")
+            for secondElement in firstElement.getchildren():
 
-def waitLoading(driver):
+                elementName = secondElement.get("name")
+                for thirdElement in secondElement.getchildren():
+
+                    elementChild.setdefault(thirdElement.tag, thirdElement.text)
+                element.setdefault(elementName, elementChild)
+            activity.setdefault(activityName, element)
+
+def getElDict(activutyNmae, elementName):
     """
-    Waiting for the end of the page load
-    :param driver:
+    According to the activutyNmae and elementName get element
+    :param activutyNmae:
+    :param elementName:
     :return:
     """
-    #loading img
-    while isExitsElement(driver, By.CLASS_NAME, "android.widget.ProgressBar"):
-        sleep(1)
-    else:
-        # time out
-        if isExitsElement(driver, By.ID, "confirm_btn"):
-            myClick(driver, By.ID, "confirm_btn")
+    setXml()
+    elementDict = activity.get(activutyNmae).get(elementName)
+    return elementDict
+
+class element:
+
+    def __init__(self, activutyNmae, elementName):
+        self.activutyNmae = activutyNmae
+        self.elementName = elementName
+        elementDict = getElDict(self.activutyNmae, self.elementName)
+        self.pathtype = elementDict.get("pathtype")
+        self.pathvalue = elementDict.get("pathvalue")
+
+    def isExist(self):
+        """
+        To determine whether an element is exits
+        :return: TRUE or FALSE
+        """
+        try:
+            if self.pathtype == "ID":
+                driver.find_element_by_id(self.pathvalue)
+            if self.pathtype == "CLASSNAME":
+                driver.find_element_by_class_name(self.pathvalue)
+            if self.pathtype == "XPATH":
+                driver.find_element_by_xpath(self.pathvalue)
+            if self.pathtype == "NAME":
+                driver.find_element_by_name(self.pathvalue)
+        except NoSuchElementException:
+            return False
+        return True
+
+    def doesExist(self):
+        """
+        To determine whether an element is exits
+        :return:
+        """
+        i = 1
+        while not self.isExist():
+            sleep(1)
+            i = i+1
+            if i >= 10:
+                return False
+            else:
+                return True
+
+    def get(self):
+        """
+        get one element
+        :return:
+        """
+        if self.doesExist():
+            if self.pathtype == "ID":
+                element = driver.find_element_by_id(self.pathvalue)
+                return element
+            if self.pathtype == "CLASSNAME":
+                element = driver.find_element_by_class_name(self.pathvalue)
+                return element
+            if self.pathtype == "XPATH":
+                element = driver.find_element_by_xpath(self.pathvalue)
+                return element
+            if self.pathtype == "NAME":
+                element = driver.find_element_by_name(self.pathvalue)
+                return element
+            return None
         else:
-            pass
+            return None
+
+    def gets(self, index):
+        """
+        get one element in elementList
+        :return:
+        """
+        if self.doesExist():
+            if self.pathtype == "ID":
+                elements = driver.find_elements_by_id(self.pathvalue)
+                return elements[index]
+            if self.pathtype == "CLASSNAME":
+                elements = driver.find_elements_by_class_name(self.pathvalue)
+                return elements[index]
+            if self.pathtype == "XPATH":
+                elements = driver.find_elements_by_xpath(self.pathvalue)
+                return elements[index]
+            if self.pathtype == "NAME":
+                elements = driver.find_elements_by_name(self.pathvalue)
+                return elements[index]
+            return None
+        else:
+            return None
+
+    def click(self):
+        """
+        click element
+        :return:
+        """
+        try:
+            el = self.get()
+            el.click()
+        except AttributeError:
+            raise
+
+    def clicks(self, index):
+        """
+        click element
+        :return:
+        """
+        try:
+            el = self.gets(index)
+            el.click()
+        except AttributeError:
+            raise
+
+    def sendKey(self,values):
+        """
+        input the key
+        :return:
+        """
+        try:
+            el = self.get()
+            el.clear()
+            el.send_keys(values)
+        except AttributeError:
+            raise
+
+    def sendKeys(self, index, values):
+        """
+        input the key
+        :return:
+        """
+        try:
+            el = self.gets(index)
+            el.clear()
+            el.send_keys(values)
+        except AttributeError:
+            raise
+
+

@@ -1,9 +1,9 @@
-
 import unittest
-from selenium.webdriver.common.by import By
+
 import testSet.common.Log as Log
-import testSet.common.common as myCommon
+from testSet.bsns.bsnsCommon import *
 from testSet.common.DRIVER import myDriver
+
 
 class test01(unittest.TestCase):
 
@@ -30,45 +30,44 @@ class test01(unittest.TestCase):
     def testCase01(self):
 
         try:
-
-            myCommon.openApp(self.driver)
+            openApp()
 
             self.logger.debug("Open app : OK")
 
             #find the bottom Navigation bar
-            if myCommon.doesExitsElement(self.driver, By.ID, "fmc_ll_tab"):
-                myCommon.myClick(self.driver, By.ID, "fmc_bn_profile")
+            if doesExitsElement(By.ID, "fmc_ll_tab"):
+                myClick(By.ID, "fmc_bn_profile")
             else:
                 pass
 
             self.logger.debug("Open profile : OK")
 
-            if myCommon.doesExitsElement(self.driver, By.ID, "profile_head"):
-                myCommon.myClick(self.driver, By.ID, "profile_sign_in")
-                myCommon.waitLoading(self.driver)
+            if doesExitsElement(By.ID, "profile_head"):
+                myClick(By.ID, "profile_sign_in")
+                waitLoading()
             else:
                 pass
 
             self.logger.debug("click sign in Button : OK")
 
-            if myCommon.isExitsElement(self.driver, By.ID, "we_et_input"):
+            if isExitsElement(By.ID, "we_et_input"):
                 #input email
-                myCommon.mySendKeys(self.driver, By.CLASS_NAME, "android.widget.EditText", 0, "123456@11.com")
+                mySendKeys(By.CLASS_NAME, "android.widget.EditText", 0, "123456@11.com")
 
                 #input password
-                myCommon.mySendKeys(self.driver, By.CLASS_NAME, "android.widget.EditText", 1, "123456")
+                mySendKeys(By.CLASS_NAME, "android.widget.EditText", 1, "123456")
 
                 #click sign in button
-                myCommon.myClick(self.driver, By.ID, "al_bn_sign")
+                myClick(By.ID, "al_bn_sign")
 
-                myCommon.waitLoading(self.driver)
+                waitLoading()
             else:
                 pass
 
             #checkPoint:show the email and sheIn points
-            if myCommon.doesExitsElement(self.driver, By.ID, "profile_user"):
+            if doesExitsElement(By.ID, "profile_user"):
 
-                el = myCommon.getElement(self.driver, By.ID, "profile_user")
+                el = getElement(By.ID, "profile_user")
                 if el.get_attribute("text") == "Hello,123456":
                     self.flag = True
                     self.log.checkPointOK(self.driver, self.caseNo, "show the email and sheIn points")
