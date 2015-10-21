@@ -1,8 +1,6 @@
 __author__ = 'tongshan'
 
 from testSet.common.common import *
-from selenium.webdriver.common.by import By
-
 
 def openApp():
     """
@@ -11,26 +9,27 @@ def openApp():
     """
 
     # skip
-    if element("GuideActivity", "Guide").doesExist():
+    if element("GuideActivity", "Guide").isExist():
+        print("skipjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
         element("GuideActivity", "skip").click()
 
-    # # welcom
-    # if doesExitsElement(By.ID, "ag_ll_dotlayout"):
-    #
-    #     while not isExitsElement(By.ID, "agi_bn_goshop"):
-    #
-    #         # swip right
-    #         mySwipeToRight()
-    #         sleep(1)
-    #     else:
-    #         myClick(By.ID, "agi_bn_goshop")
-    #
-    # #loading
-    # waitLoading()
+    # welcome
+    if element("GuideActivity", "welcome").isExist():
+
+        while not element("GuideActivity", "goShop").isExist():
+
+            # swip right
+            mySwipeToRight()
+            sleep(1)
+        else:
+            element("GuideActivity", "goShop").click()
+
+    #loading
+    waitLoading()
 
     # update
-    if doesExitsElement(By.ID, "cancel_btn"):
-        myClick(By.ID, "cancel_btn")
+    if element("Alert", "cancel").isExist():
+        element("Alert", "cancel").click()
 
 def waitLoading():
     """
@@ -38,11 +37,11 @@ def waitLoading():
     :return:
     """
     #loading img
-    while isExitsElement(By.CLASS_NAME, "android.widget.ProgressBar"):
+    while element("Alert", "loading").isExist():
         sleep(1)
     else:
         # time out
-        if isExitsElement(By.ID, "confirm_btn"):
-            myClick(By.ID, "confirm_btn")
+        if element("Alert", "confirm").isExist():
+            element("Alert", "confirm").click()
         else:
             pass

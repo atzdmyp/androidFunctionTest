@@ -88,34 +88,38 @@ def setXml():
         # open the xml file
         per = ET.parse(xmlPath)
         allElement = per.findall('activity')
-        element = {}
-        elementChild = {}
 
         for firstElement in allElement:
             activityName = firstElement.get("name")
-            for secondElement in firstElement.getchildren():
 
+            element = {}
+            for secondElement in firstElement.getchildren():
                 elementName = secondElement.get("name")
+
+                elementChild = {}
                 for thirdElement in secondElement.getchildren():
 
-                    elementChild.setdefault(thirdElement.tag, thirdElement.text)
-                element.setdefault(elementName, elementChild)
-            activity.setdefault(activityName, element)
+                    elementChild[thirdElement.tag] = thirdElement.text
 
-def getElDict(activutyNmae, elementName):
+                element[elementName] = elementChild
+            activity[activityName] = element
+
+def getElDict(activityNmae, elementName):
     """
-    According to the activutyNmae and elementName get element
-    :param activutyNmae:
+    According to the activityName and elementName get element
+    :param activityNmae:
     :param elementName:
     :return:
     """
     setXml()
-    elementDict = activity.get(activutyNmae).get(elementName)
+    elementDict = activity.get(activityNmae).get(elementName)
     return elementDict
 
 class element:
 
     def __init__(self, activutyNmae, elementName):
+        global driver
+        driver = myDriver.GetDriver()
         self.activutyNmae = activutyNmae
         self.elementName = elementName
         elementDict = getElDict(self.activutyNmae, self.elementName)
@@ -151,8 +155,8 @@ class element:
             i = i+1
             if i >= 10:
                 return False
-            else:
-                return True
+        else:
+            return True
 
     def get(self):
         """
@@ -172,7 +176,6 @@ class element:
             if self.pathtype == "NAME":
                 element = driver.find_element_by_name(self.pathvalue)
                 return element
-            return None
         else:
             return None
 
@@ -243,5 +246,16 @@ class element:
             el.send_keys(values)
         except AttributeError:
             raise
+
+    def getAttribute(self, attribute):
+        """
+        get the element attribute
+        :param attribute:
+        :return:value
+        """
+        el = self.get()
+        value = el.get_attribute(attribute)
+        return value
+
 
 

@@ -32,51 +32,49 @@ class test01(unittest.TestCase):
         try:
             openApp()
 
-            self.logger.debug("Open app : OK")
+            self.logger.info("Open app : OK")
 
             #find the bottom Navigation bar
-            if doesExitsElement(By.ID, "fmc_ll_tab"):
-                myClick(By.ID, "fmc_bn_profile")
+            if element("BottomNavigation", "BottomNavigation").doesExist():
+                element("BottomNavigation", "profile").click()
             else:
                 pass
 
-            self.logger.debug("Open profile : OK")
+            self.logger.info("Open profile : OK")
 
-            if doesExitsElement(By.ID, "profile_head"):
-                myClick(By.ID, "profile_sign_in")
+            if element("profile", "title").doesExist():
+                element("profile", "SignIn").click()
                 waitLoading()
             else:
                 pass
 
-            self.logger.debug("click sign in Button : OK")
+            self.logger.info("click sign in Button : OK")
 
-            if isExitsElement(By.ID, "we_et_input"):
+            if element("login", "title").doesExist():
                 #input email
-                mySendKeys(By.CLASS_NAME, "android.widget.EditText", 0, "123456@11.com")
+                element("login", "mailAndPass").sendKeys(0, "123456@11.com")
 
                 #input password
-                mySendKeys(By.CLASS_NAME, "android.widget.EditText", 1, "123456")
+                element("login", "mailAndPass").sendKeys(1, "123456")
 
                 #click sign in button
-                myClick(By.ID, "al_bn_sign")
+                element("login", "signIn").click()
 
                 waitLoading()
             else:
                 pass
 
             #checkPoint:show the email and sheIn points
-            if doesExitsElement(By.ID, "profile_user"):
+            if element("profile", "user").doesExist():
 
-                el = getElement(By.ID, "profile_user")
-                if el.get_attribute("text") == "Hello,123456":
+                value = element("profile", "user").getAttribute("text")
+                if value == "Hello,123456":
                     self.flag = True
                     self.log.checkPointOK(self.driver, self.caseNo, "show the email and sheIn points")
                 else:
                     self.log.checkPointNG(self.driver, self.caseNo, "show the email and sheIn points")
             else:
-                pass
-
-
+                self.log.checkPointNG(self.driver, self.caseNo, "show the email and sheIn points")
 
         except Exception as ex:
 

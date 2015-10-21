@@ -18,7 +18,7 @@ class Log:
             os.makedirs(logPath)
         self.checkNo = 0
         self.logger = logging.getLogger()
-        self.logger.setLevel(logging.DEBUG)
+        self.logger.setLevel(logging.INFO)
 
         #create handler,write log
         fh = logging.FileHandler(os.path.join(logPath, "outPut.log" ))
@@ -42,7 +42,7 @@ class Log:
 
         startLine = "----  " + caseNo + "   " + "START" + "   " +\
         "  ----"
-        logger.info(startLine)
+        self.logger.info(startLine)
 
     def buildEndLine(self, caseNo):
         """build the end log
@@ -51,7 +51,7 @@ class Log:
         """
         endLine = "----  " + caseNo + "   " + "END" + "   " +\
         "  ----"
-        logger.info(endLine)
+        self.logger.info(endLine)
         self.checkNo = 0
 
     def writeResult(self, result):
@@ -66,6 +66,12 @@ class Log:
         finally:
             flogging.close()
         pass
+
+    def resultOK(self, caseNo):
+        self.writeResult(caseNo+": OK")
+
+    def resultNG(self, caseNo):
+        self.writeResult(caseNo+": NG")
 
     def checkPointOK(self, driver,caseName, checkPoint):
         """write the case's checkPoint(OK)
@@ -93,7 +99,7 @@ class Log:
         self.logger.info("[CheckPoint_"+str(self.checkNo)+"]: "+checkPoint+": NG")
 
         # take shot
-        self.screenshotOK(driver, caseName)
+        self.screenshotNG(driver, caseName)
 
     def screenshotOK(self, driver, caseName):
         """screen shot
@@ -119,7 +125,7 @@ class Log:
 
         # wait for animations to complete before taking screenshot
         sleep(1)
-        driver.get_screenshot_as_file(os.path.join(screenshotPath,screenshotName))
+        driver.get_screenshot_as_file(os.path.join(screenshotPath, screenshotName))
 
     def screenshotERROR(self, driver, caseName):
         """screen shot
@@ -157,6 +163,11 @@ class myLog:
 
         return myLog.log
 
+if __name__ == "__main__":
+    logTest = myLog.getLog()
+    logger = logTest.getMyLogger()
+    logger.debug("1111")
+    logTest.buildStartLine("test")
 
 
 

@@ -13,20 +13,20 @@ from time import sleep
 import threading
 
 mylock = threading.RLock()
-log = Log.myLog.getLog()
-logger = log.getMyLogger()
 baseUrl = readConfigLocal.getConfigValue("baseUrl")
 
 class Alltest():
 
     def __init__(self):
-        global casePath, caseListLpath, caseList, suiteList, appiumPath
+        global casePath, caseListLpath, caseList, suiteList, appiumPath,log,logger
         self.caseListPath = os.path.join(readConfig.prjDir, "caseList.txt")
         self.casePath = os.path.join(readConfig.prjDir, "testSet\\")
         self.caseList = []
         self.suiteList = []
         self.appiumPath = readConfigLocal.getConfigValue("appiumPath")
         self.myServer = AppiumServer()
+        log = Log.myLog.getLog()
+        logger = log.getMyLogger()
 
     def driverOn(self):
         """open the driver
@@ -97,7 +97,7 @@ class Alltest():
                     logger.info("open Driver")
                     self.driverOn()
                     logger.info("Start to test")
-                    # unittest.TextTestRunner(verbosity=2).run(suit)
+                    unittest.TextTestRunner(verbosity=2).run(suit)
                     logger.info("end to test")
 
             else:
