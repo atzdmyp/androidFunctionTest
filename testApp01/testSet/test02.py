@@ -5,8 +5,7 @@ from testSet.bsns.bsnsCommon import *
 loginCls = getLoginCls()
 
 @paramunittest.parametrized(
-        loginCls[0],
-        loginCls[1]
+        *loginCls
     )
 
 class TestBar(paramunittest.ParametrizedTestCase):
