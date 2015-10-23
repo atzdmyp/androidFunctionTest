@@ -10,7 +10,6 @@ def openApp():
 
     # skip
     if element("GuideActivity", "Guide").isExist():
-        print("skipjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
         element("GuideActivity", "skip").click()
 
     # welcome
@@ -45,3 +44,12 @@ def waitLoading():
             element("Alert", "confirm").click()
         else:
             pass
+
+
+def getLoginCls():
+
+    loginCls = getXLS("login")
+
+    return loginCls
+
+

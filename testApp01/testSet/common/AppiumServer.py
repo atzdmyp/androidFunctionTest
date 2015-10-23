@@ -29,7 +29,6 @@ class AppiumServer:
         """
         #kill myServer
         os.system('taskkill /f /im node.exe')
-        # log.outputLogFile("stop appium server")
 
     def reStartServer(self):
         """reStart the appium server
@@ -70,6 +69,8 @@ class AppiumServer:
         return cmd
 
 import threading
+
+
 class runServer(threading.Thread):
 
     def __init__(self, cmd):

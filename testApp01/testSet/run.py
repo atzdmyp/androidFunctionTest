@@ -1,5 +1,4 @@
 __author__ = 'tongshan'
-
 import os
 import readConfig
 readConfigLocal = readConfig.ReadConfig()
@@ -7,13 +6,12 @@ import unittest
 from testSet.common.DRIVER import myDriver
 from testSet.common.AppiumServer import AppiumServer
 import testSet.common.Log as Log
-
 from time import sleep
-
 import threading
 
 mylock = threading.RLock()
 baseUrl = readConfigLocal.getConfigValue("baseUrl")
+
 
 class Alltest():
 
@@ -84,6 +82,8 @@ class Alltest():
         try:
             suit = self.createSuite()
             if suit != None:
+
+                # unittest.TextTestRunner(verbosity=2).run(suit)
 
                 logger.info("begin to start Appium Server")
 
