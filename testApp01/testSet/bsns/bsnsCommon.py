@@ -1,6 +1,6 @@
 __author__ = 'tongshan'
 
-from testSet.common.common import *
+from testApp01.testSet.common.common import *
 
 def openApp():
     """

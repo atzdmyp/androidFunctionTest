@@ -1,6 +1,6 @@
 import paramunittest
 
-from testSet.bsns.bsnsCommon import *
+from testApp01.testSet.bsns.bsnsCommon import *
 
 loginCls = getLoginCls()
 

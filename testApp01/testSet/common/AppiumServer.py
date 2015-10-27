@@ -4,7 +4,7 @@ import os
 import urllib.request
 from urllib.error import URLError
 from multiprocessing import Process
-import readConfig
+import testApp01.readConfig as readConfig
 readConfigLocal = readConfig.ReadConfig()
 
 class AppiumServer:

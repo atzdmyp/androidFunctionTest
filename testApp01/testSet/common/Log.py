@@ -1,7 +1,7 @@
 __author__ = 'tongshan'
 
 import logging
-import readConfig as readConfig
+import testApp01.readConfig as readConfig
 import time
 import os
 from time import sleep

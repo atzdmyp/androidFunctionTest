@@ -1,11 +1,11 @@
 __author__ = 'tongshan'
 import os
-import readConfig
+import testApp01.readConfig as readConfig
 readConfigLocal = readConfig.ReadConfig()
 import unittest
-from testSet.common.DRIVER import myDriver
-from testSet.common.AppiumServer import AppiumServer
-import testSet.common.Log as Log
+from testApp01.testSet.common.DRIVER import myDriver
+from testApp01.testSet.common.AppiumServer import AppiumServer
+import testApp01.testSet.common.Log as Log
 from time import sleep
 import threading
 

@@ -1,8 +1,8 @@
 import unittest
 
-import testSet.common.Log as Log
-from testSet.bsns.bsnsCommon import *
-from testSet.common.DRIVER import myDriver
+import testApp01.testSet.common.Log as Log
+from testApp01.testSet.bsns.bsnsCommon import *
+from testApp01.testSet.common.DRIVER import myDriver
 
 
 class test01(unittest.TestCase):

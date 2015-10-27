@@ -8,10 +8,10 @@
 
 from selenium.common.exceptions import WebDriverException
 
-import readConfig
+import testApp01.readConfig as readConfig
 
 readConfigLocal = readConfig.ReadConfig()
-from testSet.common import init
+from testApp01.testSet.common import init
 
 import threading
 from appium import webdriver

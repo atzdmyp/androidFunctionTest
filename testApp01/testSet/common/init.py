@@ -1,7 +1,7 @@
 __author__ = 'tongshan'
 
 import os
-import readConfig
+import testApp01.readConfig as readConfig
 readConfigLocal = readConfig.ReadConfig()
 
 class init:

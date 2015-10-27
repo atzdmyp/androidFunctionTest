@@ -1,10 +1,10 @@
 __author__ = 'tongshan'
 from selenium.common.exceptions import NoSuchElementException
 from time import sleep
-import readConfig
+import testApp01.readConfig as readConfig
 import os
 readConfigLocal = readConfig.ReadConfig
-from testSet.common.DRIVER import myDriver
+from testApp01.testSet.common.DRIVER import myDriver
 
 driver = myDriver.GetDriver()
 
