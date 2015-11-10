@@ -28,6 +28,14 @@ class Log:
 
         self.logger.addHandler(fh)
 
+
+    def getResultPath(self):
+        """get the reultPath
+        :return:
+        """
+        reportPath = os.path.join(logPath, "report.html")
+        return reportPath
+
     def getMyLogger(self):
         """get the logger
         :return:logger

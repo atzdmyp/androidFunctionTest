@@ -88,6 +88,7 @@ class init:
 
         apk = self.getApk()
 
+        print(apk)
         if apk != None:
             value = os.popen(self.installSoftware+" "+apk)
             sValue = str(value.read())
@@ -111,12 +112,19 @@ class init:
         :return:basename
         """
         apks = os.listdir(self.prjDir)
+        print(self.prjDir)
         if len(apks) > 0:
             for apk in apks:
-                if os.path.isfile(apk):
-                    basename = os.path.basename(apk)
-                    if basename.split('.')[-1] == "apk":
-                        return basename
+
+                basename = os.path.basename(apk)
+                if basename.split('.')[-1] == "apk":
+                    return basename
+                # if os.path.isfile(apk):
+                #     basename = os.path.basename(apk)
+                #     print(basename)
+                #     if basename.split('.')[-1] == "apk":
+                #         print(basename)
+                #         return basename
         else:
             return None
 

@@ -1,0 +1,7 @@
+2015-11-10 15:53:31,609 - root - INFO - begin to start Appium Server
+2015-11-10 15:53:34,148 - root - INFO - end to start Appium Server
+2015-11-10 15:53:34,148 - root - INFO - Start to test
+2015-11-10 15:53:34,150 - root - INFO - end to test
+2015-11-10 15:53:34,150 - root - INFO - close to Driver
+2015-11-10 15:53:34,150 - root - INFO - begin stop Appium Server
+2015-11-10 15:53:34,296 - root - INFO - end stop Appium Server

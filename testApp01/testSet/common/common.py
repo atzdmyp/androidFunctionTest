@@ -161,15 +161,20 @@ class element:
         try:
             if self.pathtype == "ID":
                 driver.find_element_by_id(self.pathvalue)
+                return True
             if self.pathtype == "CLASSNAME":
                 driver.find_element_by_class_name(self.pathvalue)
+                return True
             if self.pathtype == "XPATH":
                 driver.find_element_by_xpath(self.pathvalue)
+                return True
             if self.pathtype == "NAME":
                 driver.find_element_by_name(self.pathvalue)
+                return True
+            return False
         except NoSuchElementException:
             return False
-        return True
+
 
     def doesExist(self):
         """
@@ -203,6 +208,7 @@ class element:
             if self.pathtype == "NAME":
                 element = driver.find_element_by_name(self.pathvalue)
                 return element
+            return None
         else:
             return None
 

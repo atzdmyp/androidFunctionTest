@@ -8,6 +8,7 @@ from testApp01.testSet.common.AppiumServer import AppiumServer
 import testApp01.testSet.common.Log as Log
 from time import sleep
 import threading
+import HTMLTestRunner
 
 mylock = threading.RLock()
 baseUrl = readConfigLocal.getConfigValue("baseUrl")
@@ -16,7 +17,7 @@ baseUrl = readConfigLocal.getConfigValue("baseUrl")
 class Alltest():
 
     def __init__(self):
-        global casePath, caseListLpath, caseList, suiteList, appiumPath,log,logger
+        global casePath, caseListLpath, caseList, suiteList, appiumPath,log,logger,resultPath
         self.caseListPath = os.path.join(readConfig.prjDir, "caseList.txt")
         self.casePath = os.path.join(readConfig.prjDir, "testSet\\")
         self.caseList = []
@@ -25,6 +26,7 @@ class Alltest():
         self.myServer = AppiumServer()
         log = Log.myLog.getLog()
         logger = log.getMyLogger()
+        resultPath = log.getResultPath()
 
     def driverOn(self):
         """open the driver
@@ -94,10 +96,13 @@ class Alltest():
 
                 else:
                     logger.info("end to start Appium Server")
-                    logger.info("open Driver")
-                    self.driverOn()
+                    # logger.info("open Driver")
+                    # self.driverOn()
                     logger.info("Start to test")
-                    unittest.TextTestRunner(verbosity=2).run(suit)
+                    fp = open(resultPath, 'wb')
+                    runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='testReport', description='Report_description')
+                    runner.run(suit)
+                    # unittest.TextTestRunner(verbosity=2).run(suit)
                     logger.info("end to test")
 
             else:
@@ -106,7 +111,7 @@ class Alltest():
             log.outputError(myDriver.GetDriver(), str(ex))
         finally:
              logger.info("close to Driver")
-             self.driverOff()
+             # self.driverOff()
              logger.info("begin stop Appium Server")
              self.myServer.stopServer()
              logger.info("end stop Appium Server")

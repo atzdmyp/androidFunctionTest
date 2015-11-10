@@ -18,4 +18,6 @@ class TestBar(paramunittest.ParametrizedTestCase):
 
 
     def runTest(self):
-        print(self.userName, self.password, self.result)
+
+        self.assertEqual(self.userName, self.password, self.result)
+
