@@ -12,7 +12,7 @@ class ReadConfig:
 
         fd = open(configfile_path)
         data = fd.read()
-        #remove BOM
+        # remove BOM
         if data[:3] == codecs.BOM_UTF8:
             data = data[3:]
             file = codecs.open(configfile_path, "w")

@@ -1,21 +1,25 @@
-__author__ = 'tongshan'
+
 from selenium.common.exceptions import NoSuchElementException
 from time import sleep
 import testApp01.readConfig as readConfig
 import os
+from testApp01.testSet.common.DRIVER import MyDriver
+from xml.etree import ElementTree as elementTree
+import xlrd
+
 readConfigLocal = readConfig.ReadConfig
-from testApp01.testSet.common.DRIVER import myDriver
+driver = MyDriver.get_driver()
 
-driver = myDriver.GetDriver()
 
-def returnIndex():
+def return_index():
     """
     return the index
     :return:
     """
     pass
 
-def getWindowSize():
+
+def get_window_size():
     """
     get current windows size mnn
     :return:windowSize
@@ -24,56 +28,61 @@ def getWindowSize():
     windowSize = driver.get_window_size()
     return windowSize
 
-def mySwipeToUP(during=None):
+
+def my_swipe_to_up(during=None):
     """
     swipe UP
     :param during:
     :return:
     """
     # if windowSize == None:
-    windowSize = getWindowSize()
+    window_size = get_window_size()
 
-    width = windowSize.get("width")
-    height = windowSize.get("height")
+    width = window_size.get("width")
+    height = window_size.get("height")
     driver.swipe(width/2, height*3/4, width/2, height/4, during)
 
-def mySwipeToDown(during=None):
+
+def my_swipe_to_down(during=None):
     """
     swipe down
     :param during:
     :return:
     """
-    windowSize = getWindowSize()
-    width = windowSize.get("width")
-    height = windowSize.get("height")
+    window_size = get_window_size()
+    width = window_size.get("width")
+    height = window_size.get("height")
     driver.swipe(width/2, height/4, width/2, height*3/4, during)
 
-def mySwipeToLeft(during=None):
+
+def my_swipe_to_left(during=None):
     """
     swipe left
     :param during:
     :return:
     """
-    windowSize = getWindowSize()
-    width = windowSize.get("width")
-    height = windowSize.get("height")
+    window_size = get_window_size()
+    width = window_size.get("width")
+    height = window_size.get("height")
     driver.swipe(width/4, height/2, width*3/4, height/2, during)
 
-def mySwipeToRight(during=None):
+
+def my_swipe_to_right(during=None):
     """
     swipe right
     :param during:
     :return:
     """
-    windowSize = getWindowSize()
-    width = windowSize.get("width")
-    height = windowSize.get("height")
+    window_size = get_window_size()
+    width = window_size.get("width")
+    height = window_size.get("height")
     driver.swipe(width*4/5, height/2, width/5, height/2, during)
 
-from xml.etree import ElementTree as ET
 
 activity = {}
-def setXml():
+
+
+def set_xml():
     """
     get the xml file's value
     :use:
@@ -84,54 +93,58 @@ def setXml():
     :return:activity
     """
     if len(activity) == 0:
-        xmlPath = os.path.join(readConfig.prjDir, "testSet\\bsns", "element.xml")
+        xml_path = os.path.join(readConfig.prjDir, "testSet\\bsns", "element.xml")
         # open the xml file
-        per = ET.parse(xmlPath)
-        allElement = per.findall('activity')
+        per = elementTree.parse(xml_path)
+        all_element = per.findall('activity')
 
-        for firstElement in allElement:
-            activityName = firstElement.get("name")
+        for firstElement in all_element:
+            activity_name = firstElement.get("name")
 
             element = {}
-            for secondElement in firstElement.getchildren():
-                elementName = secondElement.get("name")
 
-                elementChild = {}
+            for secondElement in firstElement.getchildren():
+                element_name = secondElement.get("name")
+
+                element_child = {}
                 for thirdElement in secondElement.getchildren():
 
-                    elementChild[thirdElement.tag] = thirdElement.text
+                    element_child[thirdElement.tag] = thirdElement.text
 
-                element[elementName] = elementChild
-            activity[activityName] = element
+                element[element_name] = element_child
+            activity[activity_name] = element
 
-def getElDict(activityNmae, elementName):
+
+def get_el__dict(activity_name, element_name):
     """
     According to the activityName and elementName get element
-    :param activityNmae:
-    :param elementName:
+    :param activity_name:
+    :param element_name:
     :return:
     """
-    setXml()
-    elementDict = activity.get(activityNmae).get(elementName)
-    return elementDict
+    set_xml()
+    element_dict = activity.get(activity_name).get(element_name)
+    return element_dict
 
-import xlrd
+
 cls = []
-def getXLS(sheetName):
+
+
+def get_xls(sheet_name):
     """
     get the value in excel
-    :param sheetName
+    :param sheet_name
     :return:cls
     """
 
     if len(cls) == 0:
-        xlsPath = os.path.join(readConfig.prjDir, "testSet\\bsns", "TestCase.xls")
+        xls_path = os.path.join(readConfig.prjDir, "testSet\\bsns", "TestCase.xls")
 
-        #read the excel
-        data = xlrd.open_workbook(xlsPath)
+        # read the excel
+        data = xlrd.open_workbook(xls_path)
 
-        #get the sheet
-        table = data.sheet_by_name(sheetName)
+        # get the sheet
+        table = data.sheet_by_name(sheet_name)
 
         nrows = table.nrows
 
@@ -142,49 +155,48 @@ def getXLS(sheetName):
     return cls
 
 
-class element:
+class Element:
 
-    def __init__(self, activutyNmae, elementName):
+    def __init__(self, activity_name, element_name):
         global driver
-        driver = myDriver.GetDriver()
-        self.activutyNmae = activutyNmae
-        self.elementName = elementName
-        elementDict = getElDict(self.activutyNmae, self.elementName)
-        self.pathtype = elementDict.get("pathtype")
-        self.pathvalue = elementDict.get("pathvalue")
+        driver = MyDriver.get_driver()
+        self.activity_name = activity_name
+        self.element_name = element_name
+        element_dict = get_el__dict(self.activity_name, self.element_name)
+        self.path_type = element_dict.get("pathtype")
+        self.path_value = element_dict.get("pathvalue")
 
-    def isExist(self):
+    def is_exist(self):
         """
         To determine whether an element is exits
         :return: TRUE or FALSE
         """
         try:
-            if self.pathtype == "ID":
-                driver.find_element_by_id(self.pathvalue)
+            if self.path_type == "ID":
+                driver.find_element_by_id(self.path_value)
                 return True
-            if self.pathtype == "CLASSNAME":
-                driver.find_element_by_class_name(self.pathvalue)
+            if self.path_type == "CLASSNAME":
+                driver.find_element_by_class_name(self.path_value)
                 return True
-            if self.pathtype == "XPATH":
-                driver.find_element_by_xpath(self.pathvalue)
+            if self.path_type == "XPATH":
+                driver.find_element_by_xpath(self.path_value)
                 return True
-            if self.pathtype == "NAME":
-                driver.find_element_by_name(self.pathvalue)
+            if self.path_type == "NAME":
+                driver.find_element_by_name(self.path_value)
                 return True
             return False
         except NoSuchElementException:
             return False
 
-
-    def doesExist(self):
+    def does_exist(self):
         """
         To determine whether an element is exits
         :return:
         """
         i = 1
-        while not self.isExist():
+        while not self.is_exist():
             sleep(1)
-            i = i+1
+            i += 1
             if i >= 10:
                 return False
         else:
@@ -195,18 +207,18 @@ class element:
         get one element
         :return:
         """
-        if self.doesExist():
-            if self.pathtype == "ID":
-                element = driver.find_element_by_id(self.pathvalue)
+        if self.does_exist():
+            if self.path_type == "ID":
+                element = driver.find_element_by_id(self.path_value)
                 return element
-            if self.pathtype == "CLASSNAME":
-                element = driver.find_element_by_class_name(self.pathvalue)
+            if self.path_type == "CLASSNAME":
+                element = driver.find_element_by_class_name(self.path_value)
                 return element
-            if self.pathtype == "XPATH":
-                element = driver.find_element_by_xpath(self.pathvalue)
+            if self.path_type == "XPATH":
+                element = driver.find_element_by_xpath(self.path_value)
                 return element
-            if self.pathtype == "NAME":
-                element = driver.find_element_by_name(self.pathvalue)
+            if self.path_type == "NAME":
+                element = driver.find_element_by_name(self.path_value)
                 return element
             return None
         else:
@@ -217,18 +229,18 @@ class element:
         get one element in elementList
         :return:
         """
-        if self.doesExist():
-            if self.pathtype == "ID":
-                elements = driver.find_elements_by_id(self.pathvalue)
+        if self.does_exist():
+            if self.path_type == "ID":
+                elements = driver.find_elements_by_id(self.path_value)
                 return elements[index]
-            if self.pathtype == "CLASSNAME":
-                elements = driver.find_elements_by_class_name(self.pathvalue)
+            if self.path_type == "CLASSNAME":
+                elements = driver.find_elements_by_class_name(self.path_value)
                 return elements[index]
-            if self.pathtype == "XPATH":
-                elements = driver.find_elements_by_xpath(self.pathvalue)
+            if self.path_type == "XPATH":
+                elements = driver.find_elements_by_xpath(self.path_value)
                 return elements[index]
-            if self.pathtype == "NAME":
-                elements = driver.find_elements_by_name(self.pathvalue)
+            if self.path_type == "NAME":
+                elements = driver.find_elements_by_name(self.path_value)
                 return elements[index]
             return None
         else:
@@ -240,8 +252,8 @@ class element:
         :return:
         """
         try:
-            el = self.get()
-            el.click()
+            element = self.get()
+            element.click()
         except AttributeError:
             raise
 
@@ -251,45 +263,44 @@ class element:
         :return:
         """
         try:
-            el = self.gets(index)
-            el.click()
+            element = self.gets(index)
+            element.click()
         except AttributeError:
             raise
 
-    def sendKey(self,values):
+    def send_key(self, values):
         """
         input the key
         :return:
         """
         try:
-            el = self.get()
-            el.clear()
-            el.send_keys(values)
+            element = self.get()
+            element.clear()
+            element.send_keys(values)
         except AttributeError:
             raise
 
-    def sendKeys(self, index, values):
+    def send_keys(self, index, values):
         """
         input the key
         :return:
         """
         try:
-            el = self.gets(index)
-            el.clear()
-            el.send_keys(values)
+            element = self.gets(index)
+            element.clear()
+            element.send_keys(values)
         except AttributeError:
             raise
 
-    def getAttribute(self, attribute):
+    def get_attribute(self, attribute):
         """
         get the element attribute
         :param attribute:
         :return:value
         """
-        el = self.get()
-        value = el.get_attribute(attribute)
+        element = self.get()
+        value = element.get_attribute(attribute)
         return value
 
 if __name__ == "__main__":
-    print(getXLS("login"))
-
+    print(get_xls("login"))

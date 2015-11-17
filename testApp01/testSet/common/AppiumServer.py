@@ -1,11 +1,12 @@
-__author__ = 'tongshan'
 
 import os
 import urllib.request
 from urllib.error import URLError
 from multiprocessing import Process
 import testApp01.readConfig as readConfig
+import threading
 readConfigLocal = readConfig.ReadConfig()
+
 
 class AppiumServer:
 
@@ -14,31 +15,29 @@ class AppiumServer:
         appiumPath = readConfigLocal.getConfigValue("appiumPath")
         baseUrl = readConfigLocal.getConfigValue("baseUrl")
 
-    def startServer(self):
+    def start_server(self):
         """start the appium server
         :return:
         """
-        cmd = self.getCmd()
-        t1 = runServer(cmd)
+        cmd = self.get_cmd()
+        t1 = RunServer(cmd)
         p = Process(target=t1.start())
         p.start()
 
-    def stopServer(self):
+    def stop_server(self):
         """stop the appium server
         :return:
         """
         #kill myServer
         os.system('taskkill /f /im node.exe')
 
-    def reStartServer(self):
+    def re_start_server(self):
         """reStart the appium server
-        :arg:
-        :return:
         """
-        self.stopServer()
-        self.startServer()
+        self.stop_server()
+        self.start_server()
 
-    def isRunnnig(self):
+    def is_runnnig(self):
         """Determine whether server is running
         :return:True or False
         """
@@ -57,21 +56,19 @@ class AppiumServer:
             if response:
                 response.close()
 
-    def getCmd(self):
+    def get_cmd(self):
         """get the cmd of start appium server
         :return:cmd
         """
-        rootDirectory = appiumPath[:2]
-        startCMD = "node node_modules\\appium\\bin\\appium.js"
+        root_directory = appiumPath[:2]
+        start_cmd = "node node_modules\\appium\\bin\\appium.js"
 
-        cmd =rootDirectory+"&"+"cd "+appiumPath+"&"+startCMD
+        cmd = root_directory+"&"+"cd "+appiumPath+"&"+start_cmd
 
         return cmd
 
-import threading
 
-
-class runServer(threading.Thread):
+class RunServer(threading.Thread):
 
     def __init__(self, cmd):
         threading.Thread.__init__(self)
@@ -82,4 +79,4 @@ class runServer(threading.Thread):
 
 if __name__ == "__main__":
     oo = AppiumServer()
-    oo.startServer()
+    oo.start_server()

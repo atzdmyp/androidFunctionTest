@@ -1,6 +1,6 @@
 ECHO START INSTALL
-F:  
-cd F:\appium_python\testApp01
+%~d0  
+cd %~dp0  
 start pythonw testSet\common\init.py
 ECHO END INSTALL
 PAUSE 

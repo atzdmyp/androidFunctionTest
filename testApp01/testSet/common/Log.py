@@ -1,4 +1,3 @@
-__author__ = 'tongshan'
 
 import logging
 import testApp01.readConfig as readConfig
@@ -7,6 +6,7 @@ import os
 from time import sleep
 import threading
 
+
 class Log:
 
     def __init__(self):
@@ -14,142 +14,139 @@ class Log:
         global logger, resultPath, logPath
         resultPath = os.path.join(readConfig.prjDir, "result")
         logPath = os.path.join(resultPath, (time.strftime('%Y%m%d%H%M%S', time.localtime())))
-        if os.path.exists(logPath) == False:
+        if os.path.exists(logPath) is False:
             os.makedirs(logPath)
         self.checkNo = 0
         self.logger = logging.getLogger()
         self.logger.setLevel(logging.INFO)
 
-        #create handler,write log
-        fh = logging.FileHandler(os.path.join(logPath, "outPut.log" ))
-        #Define the output format of formatter handler
+        # create handler,write log
+        fh = logging.FileHandler(os.path.join(logPath, "outPut.log"))
+        # Define the output format of formatter handler
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         fh.setFormatter(formatter)
 
         self.logger.addHandler(fh)
 
-
-    def getResultPath(self):
+    def get_result_path(self):
         """get the reultPath
-        :return:
+        :return:report_path
         """
-        reportPath = os.path.join(logPath, "report.html")
-        return reportPath
+        report_path = os.path.join(logPath, "report.html")
+        return report_path
 
-    def getMyLogger(self):
+    def get_my_logger(self):
         """get the logger
         :return:logger
         """
         return self.logger
 
-    def buildStartLine(self, caseNo):
+    def build_start_line(self, case_no):
         """build the start log
-        :param caseNo:
+        :param case_no:
         :return:
         """
 
-        startLine = "----  " + caseNo + "   " + "START" + "   " +\
-        "  ----"
-        self.logger.info(startLine)
+        start_line = "----  " + case_no + "   START     ----"
+        self.logger.info(start_line)
 
-    def buildEndLine(self, caseNo):
+    def build_end_line(self, case_no):
         """build the end log
-        :param caseNo:
+        :param case_no:
         :return:
         """
-        endLine = "----  " + caseNo + "   " + "END" + "   " +\
-        "  ----"
-        self.logger.info(endLine)
+        end_line = "----  " + case_no + "   END     ----"
+        self.logger.info(end_line)
         self.checkNo = 0
 
-    def writeResult(self, result):
+    def write_result(self, result):
         """write the case result(OK or NG)
         :param result:
         :return:
         """
-        reportPath = os.path.join(logPath, "report.txt")
-        flogging = open(reportPath, "a")
+        report_path = os.path.join(logPath, "report.txt")
+        flogging = open(report_path, "a")
         try:
             flogging.write(result+"\n")
         finally:
             flogging.close()
         pass
 
-    def resultOK(self, caseNo):
-        self.writeResult(caseNo+": OK")
+    def result_OK(self, case_no):
+        self.write_result(case_no+": OK")
 
-    def resultNG(self, caseNo):
-        self.writeResult(caseNo+": NG")
+    def result_NG(self, case_no):
+        self.write_result(case_no+": NG")
 
-    def checkPointOK(self, driver,caseName, checkPoint):
+    def check_point_OK(self, driver, case_name, check_point):
         """write the case's checkPoint(OK)
         :param driver:
-        :param caseName:
-        :param checkPoint:
+        :param case_name:
+        :param check_point:
         :return:
         """
         self.checkNo += 1
 
-        self.logger.info("[CheckPoint_"+str(self.checkNo)+"]: "+checkPoint+": OK")
+        self.logger.info("[CheckPoint_"+str(self.checkNo)+"]: "+check_point+": OK")
 
         # take shot
-        self.screenshotOK(driver, caseName)
+        self.screenshot_OK(driver, case_name)
 
-    def checkPointNG(self, driver,caseName, checkPoint):
+    def checkPoint_NG(self, driver, case_name, check_point):
         """write the case's checkPoint(NG)
         :param driver:
-        :param caseName:
-        :param checkPoint:
+        :param case_name:
+        :param check_point:
         :return:
         """
         self.checkNo += 1
 
-        self.logger.info("[CheckPoint_"+str(self.checkNo)+"]: "+checkPoint+": NG")
+        self.logger.info("[CheckPoint_"+str(self.checkNo)+"]: "+check_point+": NG")
 
         # take shot
-        self.screenshotNG(driver, caseName)
+        self.screenshot_NG(driver, case_name)
 
-    def screenshotOK(self, driver, caseName):
+    def screenshot_OK(self, driver, case_name):
         """screen shot
         :param driver:
-        :param caseName:
+        :param case_name:
         :return:
         """
-        screenshotPath = os.path.join(logPath, caseName)
-        screenshotName = "CheckPoint_"+str(self.checkNo)+"_OK.png"
+        screenshot_path = os.path.join(logPath, case_name)
+        screenshot_name = "CheckPoint_"+str(self.checkNo)+"_OK.png"
 
         # wait for animations to complete before taking screenshot
         sleep(1)
-        driver.get_screenshot_as_file(os.path.join(screenshotPath,screenshotName))
+        driver.get_screenshot_as_file(os.path.join(screenshot_path, screenshot_name))
 
-    def screenshotNG(self, driver, caseName):
+    def screenshot_NG(self, driver, case_name):
         """screen shot
         :param driver:
-        :param caseName:
+        :param case_name:
         :return:
         """
-        screenshotPath = os.path.join(logPath, caseName)
-        screenshotName = "CheckPoint_"+str(self.checkNo)+"_NG.png"
+        screenshot_path = os.path.join(logPath, case_name)
+        screenshot_name = "CheckPoint_"+str(self.checkNo)+"_NG.png"
 
         # wait for animations to complete before taking screenshot
         sleep(1)
-        driver.get_screenshot_as_file(os.path.join(screenshotPath, screenshotName))
+        driver.get_screenshot_as_file(os.path.join(screenshot_path, screenshot_name))
 
-    def screenshotERROR(self, driver, caseName):
+    def screenshot_ERROR(self, driver, case_name):
         """screen shot
         :param driver:
-        :param caseName:
+        :param case_name:
         :return:
         """
-        screenshotPath = os.path.join(logPath, caseName)
-        screenshotName = "ERROR.png"
+        screenshot_path = os.path.join(logPath, case_name)
+        screenshot_name = "ERROR.png"
 
         # wait for animations to complete before taking screenshot
         sleep(1)
-        driver.get_screenshot_as_file(os.path.join(screenshotPath, screenshotName))
+        driver.get_screenshot_as_file(os.path.join(screenshot_path, screenshot_name))
 
 
-class myLog:
+class MyLog:
     """
     This class is used to get log
     """
@@ -161,18 +158,18 @@ class myLog:
         pass
 
     @staticmethod
-    def getLog():
+    def get_log():
 
-        if myLog.log == None:
+        if MyLog.log is None:
 
-            myLog.mutex.acquire()
-            myLog.log = Log()
-            myLog.mutex.release()
+            MyLog.mutex.acquire()
+            MyLog.log = Log()
+            MyLog.mutex.release()
 
-        return myLog.log
+        return MyLog.log
 
 if __name__ == "__main__":
-    logTest = myLog.getLog()
+    logTest = MyLog.get_log()
     logger = logTest.getMyLogger()
     logger.debug("1111")
     logTest.buildStartLine("test")

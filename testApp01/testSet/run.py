@@ -1,46 +1,45 @@
-__author__ = 'tongshan'
+
 import os
 import testApp01.readConfig as readConfig
-readConfigLocal = readConfig.ReadConfig()
 import unittest
-from testApp01.testSet.common.DRIVER import myDriver
+from testApp01.testSet.common.DRIVER import MyDriver
 from testApp01.testSet.common.AppiumServer import AppiumServer
 import testApp01.testSet.common.Log as Log
 from time import sleep
-import threading
 import HTMLTestRunner
 
-mylock = threading.RLock()
+readConfigLocal = readConfig.ReadConfig()
+
 baseUrl = readConfigLocal.getConfigValue("baseUrl")
 
 
 class Alltest():
 
     def __init__(self):
-        global casePath, caseListLpath, caseList, suiteList, appiumPath,log,logger,resultPath
+        global log, logger, resultPath
         self.caseListPath = os.path.join(readConfig.prjDir, "caseList.txt")
         self.casePath = os.path.join(readConfig.prjDir, "testSet\\")
         self.caseList = []
         self.suiteList = []
         self.appiumPath = readConfigLocal.getConfigValue("appiumPath")
         self.myServer = AppiumServer()
-        log = Log.myLog.getLog()
+        log = Log.MyLog.get_log()
         logger = log.getMyLogger()
         resultPath = log.getResultPath()
 
-    def driverOn(self):
+    def driver_on(self):
         """open the driver
         :return:
         """
-        myDriver.GetDriver()
+        MyDriver.get_driver()
 
-    def driverOff(self):
+    def driver_off(self):
         """close the driver
         :return:
         """
-        myDriver.GetDriver().quit()
+        MyDriver.get_driver().quit()
 
-    def setCaseList(self):
+    def set_case_list(self):
         """from the caseList get the caseName,set in caseList
         :return:
         """
@@ -48,17 +47,17 @@ class Alltest():
 
         for data in fp.readlines():
 
-            sData = str(data)
-            if sData != '' and not sData.startswith("#"):
-                self.caseList.append(sData)
+            s_data = str(data)
+            if s_data != '' and not s_data.startswith("#"):
+                self.caseList.append(s_data)
         fp.close()
 
-    def createSuite(self):
+    def create_suite(self):
         """from the caseList,get caseName,According to the caseName to search the testSuite
-        :return:testSuite
+        :return:test_suite
         """
-        self.setCaseList()
-        testSuite = unittest.TestSuite()
+        self.set_case_list()
+        test_suite = unittest.TestSuite()
 
         if len(self.caseList) > 0:
 
@@ -70,28 +69,26 @@ class Alltest():
         if len(self.suiteList) > 0:
 
             for test_suite in self.suiteList:
-                for casename in test_suite:
-                    testSuite.addTest(casename)
+                for case_name in test_suite:
+                    test_suite.addTest(case_name)
         else:
             return None
 
-        return testSuite
+        return test_suite
 
     def run(self):
         """run test
         :return:
         """
         try:
-            suit = self.createSuite()
-            if suit != None:
-
-                # unittest.TextTestRunner(verbosity=2).run(suit)
+            suit = self.create_suite()
+            if suit is not None:
 
                 logger.info("begin to start Appium Server")
 
-                self.myServer.startServer()
+                self.myServer.start_server()
 
-                while not self.myServer.isRunnnig():
+                while not self.myServer.is_runnnig():
                     sleep(1)
 
                 else:
@@ -108,23 +105,14 @@ class Alltest():
             else:
                 logger.info("Have no test to run")
         except Exception as ex:
-            log.outputError(myDriver.GetDriver(), str(ex))
+            log.outputError(MyDriver.get_driver(), str(ex))
         finally:
              logger.info("close to Driver")
-             # self.driverOff()
+             self.driver_off()
              logger.info("begin stop Appium Server")
-             self.myServer.stopServer()
+             self.myServer.stop_server()
              logger.info("end stop Appium Server")
-
-
 
 if __name__ == '__main__':
     ojb = Alltest()
     ojb.run()
-
-
-
-
-
-
-

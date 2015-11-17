@@ -2,20 +2,20 @@ import paramunittest
 
 from testApp01.testSet.bsns.bsnsCommon import *
 
-loginCls = getLoginCls()
+loginCls = get_login_cls()
+
 
 @paramunittest.parametrized(
         *loginCls
     )
 
+
 class TestBar(paramunittest.ParametrizedTestCase):
 
-
-    def setParameters(self, userName,password,result):
+    def setParameters(self, userName, password, result):
         self.userName = userName
         self.password = password
         self.result = result
-
 
     def runTest(self):
 

@@ -1,32 +1,23 @@
-# ========================================================
-# Summary        :DRIVER
-# Author         :tongshan
-# Create Date    :2015-09-16
-# Amend History  :
-# Amended by     :
-# ========================================================
 
 from selenium.common.exceptions import WebDriverException
-
 import testApp01.readConfig as readConfig
-
-readConfigLocal = readConfig.ReadConfig()
 from testApp01.testSet.common import init
-
 import threading
 from appium import webdriver
 from urllib.error import URLError
+readConfigLocal = readConfig.ReadConfig()
 
-class myDriver():
+
+class MyDriver:
 
     driver = None
     mutex = threading.Lock()
-    myInit = init.init()
+    myInit = init.Init()
     platformName = readConfigLocal.getConfigValue("platformName")
-    platformVersion = myInit.getAndroidVersion()
+    platformVersion = myInit.get_android_version()
     appPackage = readConfigLocal.getConfigValue("appPackage")
     appActivity = readConfigLocal.getConfigValue("appActivity")
-    deviceName = myInit.getDeviceName()
+    deviceName = myInit.get_deviceName()
     baseUrl = readConfigLocal.getConfigValue("baseUrl")
     desired_caps = {"platformName": platformName, "platformVersion": platformVersion, "appPackage": appPackage,
                     "appActivity": appActivity, "deviceName": deviceName}
@@ -35,22 +26,20 @@ class myDriver():
         pass
 
     @staticmethod
-    def GetDriver():
+    def get_driver():
 
         try:
-            if myDriver.driver == None :
-                myDriver.mutex.acquire()
-                if myDriver.driver==None :
+            if MyDriver.driver is None:
+                MyDriver.mutex.acquire()
+                if MyDriver.driver is None:
 
                     try:
-                        myDriver.driver = webdriver.Remote(myDriver.baseUrl, myDriver.desired_caps)
+                        MyDriver.driver = webdriver.Remote(MyDriver.baseUrl, MyDriver.desired_caps)
                     except URLError:
-                        myDriver.driver = None
+                        MyDriver.driver = None
 
-                myDriver.mutex.release()
+                MyDriver.mutex.release()
 
-            return myDriver.driver
+            return MyDriver.driver
         except WebDriverException:
             raise
-
-

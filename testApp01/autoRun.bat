@@ -2,9 +2,8 @@
 selocal EnableDelayedExpansion
 
 ECHO START RUN CASES
-F:  
-cd F:\testApp01  
+%~d0  
+cd %~dp0  
 start pythonw testSet\run.py
 ECHO END RUN
 PAUSE 
-

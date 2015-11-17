@@ -1,82 +1,81 @@
-__author__ = 'tongshan'
 
 import os
 import testApp01.readConfig as readConfig
 readConfigLocal = readConfig.ReadConfig()
 
-class init:
+
+class Init:
 
     def __init__(self):
-        global startServer,closeServer, checkPhone, logDir, installSoftware, uninstallSoftware,viewPhone,vievAndroid
-        self.viewPhone = readConfigLocal.getcmdValue("viewPhone")
-        self.viewAndroid = readConfigLocal.getcmdValue("viewAndroid")
-        self.startServer = readConfigLocal.getcmdValue("startServer")
-        self.closeServer = readConfigLocal.getcmdValue("closeServer")
-        self.checkPhone = readConfigLocal.getcmdValue("checkPhone")
-        self.installSoftware = readConfigLocal.getcmdValue("installSoftware")
-        self.uninstallSoftware = readConfigLocal.getcmdValue("uninstallSoftware")
-        self.prjDir = readConfig.prjDir
+        global viewPhone, viewAndroid, startServer, closeServer, checkPhone, installSoftware, uninstallSoftware, prjDir
+        viewPhone = readConfigLocal.getcmdValue("viewPhone")
+        viewAndroid = readConfigLocal.getcmdValue("viewAndroid")
+        startServer = readConfigLocal.getcmdValue("startServer")
+        closeServer = readConfigLocal.getcmdValue("closeServer")
+        checkPhone = readConfigLocal.getcmdValue("checkPhone")
+        installSoftware = readConfigLocal.getcmdValue("installSoftware")
+        uninstallSoftware = readConfigLocal.getcmdValue("uninstallSoftware")
+        prjDir = readConfig.prjDir
 
-
-    def connectPhone(self):
+    def connect_phone(self):
         """
         check the phone is connect
         """
-        value = os.popen(self.checkPhone)
+        value = os.popen(checkPhone)
 
         for data in value.readline():
-            sDate = str(data)
-            if sDate.find("device"):
+            s_date = str(data)
+            if s_date.find("device"):
                 return True
         return False
 
-    def getDeviceName(self):
+    def get_deviceName(self):
         """get deviceName
         :return:deviceName
         """
-        deviceList = []
+        device_list = []
 
-        returnValue = os.popen(self.viewPhone)
-        for value in returnValue.readlines():
-            sValue = str(value)
-            if sValue.rfind('device'):
-                if not sValue.startswith("List"):
-                    deviceList.append(sValue[:sValue.find('device')].strip())
-        if len(deviceList) != 0:
-            return deviceList[0]
+        return_value = os.popen(viewPhone)
+        for value in return_value.readlines():
+            s_value = str(value)
+            if s_value.rfind('device'):
+                if not s_value.startswith("List"):
+                    device_list.append(s_value[:s_value.find('device')].strip())
+        if len(device_list) != 0:
+            return device_list[0]
         else:
             return None
 
-    def getAndroidVersion(self):
+    def get_android_version(self):
         """get androidVersion
         :return:androidVersion
         """
-        returnValue = str(os.popen(self.viewAndroid).read())
+        return_value = str(os.popen(viewAndroid).read())
 
-        if returnValue != None:
-            pop = returnValue.rfind(str('='))
-            return returnValue[pop+1:]
+        if return_value != '':
+            pop = return_value.rfind(str('='))
+            return return_value[pop+1:]
         else:
             return None
 
-    def stratServer(self):
+    def start_server(self):
         """start the adb server
         :return:
         """
-        os.system(self.startServer)
+        os.system(startServer)
 
-    def closeServer(self):
+    def close_server(self):
         """close the adb server
         :return:
         """
-        os.system(self.closeServer)
+        os.system(closeServer)
 
-    def reStart(self):
+    def re_start(self):
         """reStart the adb server
         :return:
         """
-        self.closeServer()
-        self.startServer()
+        self.close_server()
+        self.start_server()
 
     def install(self):
 
@@ -86,33 +85,33 @@ class init:
         :return: True or False
         """
 
-        apk = self.getApk()
+        apk = self.get_apk()
 
         print(apk)
-        if apk != None:
-            value = os.popen(self.installSoftware+" "+apk)
-            sValue = str(value.read())
-            if sValue.find("Success"):
+        if apk != '':
+            value = os.popen(installSoftware+" "+apk)
+            s_value = str(value.read())
+            if s_value.find("Success"):
                 return True
         else:
             return False
 
-    def unInstall(self):
+    def uninstall(self):
         """uninstall software in mobile
 
         :return: True or False
         """
-        os.system(self.uninstallSoftware)
+        os.system(uninstallSoftware)
 
 
-    def getApk(self):
+    def get_apk(self):
         """
         get test APK in prjPath
 
         :return:basename
         """
-        apks = os.listdir(self.prjDir)
-        print(self.prjDir)
+        apks = os.listdir(prjDir)
+        print(prjDir)
         if len(apks) > 0:
             for apk in apks:
 
@@ -130,7 +129,6 @@ class init:
 
 
 if __name__ == '__main__':
-    ojb = init()
-
+    ojb = Init()
     ojb.install()
 

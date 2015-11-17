@@ -1,55 +1,54 @@
-__author__ = 'tongshan'
 
 from testApp01.testSet.common.common import *
 
-def openApp():
+
+def open_app():
     """
     open the app,enter the index
     :return:
     """
 
     # skip
-    if element("GuideActivity", "Guide").isExist():
-        element("GuideActivity", "skip").click()
+    if Element("GuideActivity", "Guide").is_exist():
+        Element("GuideActivity", "skip").click()
 
     # welcome
-    if element("GuideActivity", "welcome").isExist():
+    if Element("GuideActivity", "welcome").is_exist():
 
-        while not element("GuideActivity", "goShop").isExist():
+        while not Element("GuideActivity", "goShop").is_exist():
 
             # swip right
-            mySwipeToRight()
+            my_swipe_to_right()
             sleep(1)
         else:
-            element("GuideActivity", "goShop").click()
+            Element("GuideActivity", "goShop").click()
 
-    #loading
-    waitLoading()
+    # loading
+    wait_loading()
 
     # update
-    if element("Alert", "cancel").isExist():
-        element("Alert", "cancel").click()
+    if Element("Alert", "cancel").is_exist():
+        Element("Alert", "cancel").click()
 
-def waitLoading():
+
+def wait_loading():
     """
     Waiting for the end of the page load
     :return:
     """
-    #loading img
-    while element("Alert", "loading").isExist():
+    # loading img
+    while Element("Alert", "loading").is_exist():
         sleep(1)
     else:
         # time out
-        if element("Alert", "confirm").isExist():
-            element("Alert", "confirm").click()
+        if Element("Alert", "confirm").is_exist():
+            Element("Alert", "confirm").click()
         else:
             pass
 
 
-def getLoginCls():
+def get_login_cls():
 
-    loginCls = getXLS("login")
+    login_cls = get_xls("login")
 
-    return loginCls
-
-
+    return login_cls
