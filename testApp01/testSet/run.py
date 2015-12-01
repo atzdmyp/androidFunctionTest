@@ -1,12 +1,13 @@
 
 import os
-import testApp01.readConfig as readConfig
+import readConfig as readConfig
 import unittest
-from testApp01.testSet.common.DRIVER import MyDriver
-from testApp01.testSet.common.AppiumServer import AppiumServer
-import testApp01.testSet.common.Log as Log
+from testSet.common.DRIVER import MyDriver
+from testSet.common.AppiumServer import AppiumServer
+import testSet.common.Log as Log
 from time import sleep
-import HTMLTestRunner
+from testSet.common import HTMLTestRunner
+from urllib.error import URLError
 
 readConfigLocal = readConfig.ReadConfig()
 
@@ -18,14 +19,12 @@ class Alltest():
     def __init__(self):
         global log, logger, resultPath
         self.caseListPath = os.path.join(readConfig.prjDir, "caseList.txt")
-        self.casePath = os.path.join(readConfig.prjDir, "testSet\\")
+        self.casePath = os.path.join(readConfig.prjDir, "testSet/")
         self.caseList = []
-        self.suiteList = []
-        self.appiumPath = readConfigLocal.getConfigValue("appiumPath")
         self.myServer = AppiumServer()
         log = Log.MyLog.get_log()
-        logger = log.getMyLogger()
-        resultPath = log.getResultPath()
+        logger = log.get_my_logger()
+        resultPath = log.get_result_path()
 
     def driver_on(self):
         """open the driver
@@ -49,7 +48,7 @@ class Alltest():
 
             s_data = str(data)
             if s_data != '' and not s_data.startswith("#"):
-                self.caseList.append(s_data)
+                self.caseList.append(s_data.replace("\n", ""))
         fp.close()
 
     def create_suite(self):
@@ -58,19 +57,20 @@ class Alltest():
         """
         self.set_case_list()
         test_suite = unittest.TestSuite()
+        suite_module_list = []
 
         if len(self.caseList) > 0:
 
-            for caseName in self.caseList:
+            for case_name in self.caseList:
 
-                discover = unittest.defaultTestLoader.discover(self.casePath, pattern=caseName+'.py', top_level_dir=None)
-                self.suiteList.append(discover)
+                discover = unittest.defaultTestLoader.discover(self.casePath, pattern=case_name+'.py', top_level_dir=None)
+                suite_module_list.append(discover)
 
-        if len(self.suiteList) > 0:
+        if len(suite_module_list) > 0:
 
-            for test_suite in self.suiteList:
-                for case_name in test_suite:
-                    test_suite.addTest(case_name)
+            for suite in suite_module_list:
+                for test_name in suite:
+                    test_suite.addTest(test_name)
         else:
             return None
 
@@ -84,7 +84,7 @@ class Alltest():
             suit = self.create_suite()
             if suit is not None:
 
-                logger.info("begin to start Appium Server")
+                logger.info("Begin to start Appium Server")
 
                 self.myServer.start_server()
 
@@ -92,27 +92,33 @@ class Alltest():
                     sleep(1)
 
                 else:
-                    logger.info("end to start Appium Server")
-                    # logger.info("open Driver")
-                    # self.driverOn()
+                    logger.info("End to start Appium Server")
+                    logger.info("Open Driver")
+                    self.driver_on()
                     logger.info("Start to test")
                     fp = open(resultPath, 'wb')
                     runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='testReport', description='Report_description')
                     runner.run(suit)
-                    # unittest.TextTestRunner(verbosity=2).run(suit)
-                    logger.info("end to test")
+                    logger.info("End to test")
 
             else:
                 logger.info("Have no test to run")
         except Exception as ex:
-            log.outputError(MyDriver.get_driver(), str(ex))
+            logger.error(str(ex))
+
         finally:
-             logger.info("close to Driver")
-             self.driver_off()
-             logger.info("begin stop Appium Server")
-             self.myServer.stop_server()
-             logger.info("end stop Appium Server")
+            try:
+                logger.info("Close to Driver")
+                self.driver_off()
+                logger.info("Begin stop Appium Server")
+                self.myServer.stop_server()
+                logger.info("End stop Appium Server")
+            except URLError as ex:
+                logger.error(str(ex))
+            except ConnectionRefusedError as ex:
+                logger.error(str(ex))
 
 if __name__ == '__main__':
     ojb = Alltest()
     ojb.run()
+
