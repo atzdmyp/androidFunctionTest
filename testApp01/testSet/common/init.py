@@ -1,6 +1,6 @@
 
 import os
-import testApp01.readConfig as readConfig
+import readConfig as readConfig
 readConfigLocal = readConfig.ReadConfig()
 
 
@@ -68,7 +68,7 @@ class Init:
         """close the adb server
         :return:
         """
-        os.system(closeServer)
+        os.popen(closeServer)
 
     def re_start(self):
         """reStart the adb server
@@ -130,5 +130,5 @@ class Init:
 
 if __name__ == '__main__':
     ojb = Init()
-    ojb.install()
+    print(ojb.get_deviceName())
 

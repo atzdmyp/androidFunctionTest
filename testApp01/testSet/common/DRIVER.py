@@ -1,7 +1,7 @@
 
 from selenium.common.exceptions import WebDriverException
-import testApp01.readConfig as readConfig
-from testApp01.testSet.common import init
+import readConfig as readConfig
+from testSet.common import init
 import threading
 from appium import webdriver
 from urllib.error import URLError

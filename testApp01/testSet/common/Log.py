@@ -1,6 +1,6 @@
 
 import logging
-import testApp01.readConfig as readConfig
+import readConfig as readConfig
 import time
 import os
 from time import sleep
@@ -72,79 +72,26 @@ class Log:
             flogging.close()
         pass
 
-    def result_OK(self, case_no):
-        self.write_result(case_no+": OK")
-
-    def result_NG(self, case_no):
-        self.write_result(case_no+": NG")
-
-    def check_point_OK(self, driver, case_name, check_point):
-        """write the case's checkPoint(OK)
+    def take_shot(self, driver, case_name):
+        """
+        screen shot
         :param driver:
         :param case_name:
-        :param check_point:
         :return:
         """
+        screenshot_name = str(self.checkNo)+".png"
+        screenshot_path = os.path.join(logPath, case_name)
+
+        if not os.path.exists(screenshot_path):
+            os.makedirs(screenshot_path)
+
+        screenshot = os.path.join(screenshot_path, screenshot_name)
+
+        # wait for animations to complete before taking screenshot
+        sleep(1)
+        driver.get_screenshot_as_file(screenshot)
         self.checkNo += 1
-
-        self.logger.info("[CheckPoint_"+str(self.checkNo)+"]: "+check_point+": OK")
-
-        # take shot
-        self.screenshot_OK(driver, case_name)
-
-    def checkPoint_NG(self, driver, case_name, check_point):
-        """write the case's checkPoint(NG)
-        :param driver:
-        :param case_name:
-        :param check_point:
-        :return:
-        """
-        self.checkNo += 1
-
-        self.logger.info("[CheckPoint_"+str(self.checkNo)+"]: "+check_point+": NG")
-
-        # take shot
-        self.screenshot_NG(driver, case_name)
-
-    def screenshot_OK(self, driver, case_name):
-        """screen shot
-        :param driver:
-        :param case_name:
-        :return:
-        """
-        screenshot_path = os.path.join(logPath, case_name)
-        screenshot_name = "CheckPoint_"+str(self.checkNo)+"_OK.png"
-
-        # wait for animations to complete before taking screenshot
-        sleep(1)
-        driver.get_screenshot_as_file(os.path.join(screenshot_path, screenshot_name))
-
-    def screenshot_NG(self, driver, case_name):
-        """screen shot
-        :param driver:
-        :param case_name:
-        :return:
-        """
-        screenshot_path = os.path.join(logPath, case_name)
-        screenshot_name = "CheckPoint_"+str(self.checkNo)+"_NG.png"
-
-        # wait for animations to complete before taking screenshot
-        sleep(1)
-        driver.get_screenshot_as_file(os.path.join(screenshot_path, screenshot_name))
-
-    def screenshot_ERROR(self, driver, case_name):
-        """screen shot
-        :param driver:
-        :param case_name:
-        :return:
-        """
-        screenshot_path = os.path.join(logPath, case_name)
-        screenshot_name = "ERROR.png"
-
-        # wait for animations to complete before taking screenshot
-        sleep(1)
-        driver.get_screenshot_as_file(os.path.join(screenshot_path, screenshot_name))
-
+        return os.path.join(screenshot.replace(resultPath, "../../result"))
 
 class MyLog:
     """

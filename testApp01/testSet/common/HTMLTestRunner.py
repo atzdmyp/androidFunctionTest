@@ -193,6 +193,76 @@ class Template_mixin(object):
     %(stylesheet)s
 </head>
 <body>
+
+<script language="javascript" type="text/javascript">
+    function piechart(ctx, data, r) {
+    this.ctx = ctx;
+    this.data = data;
+    this.r = r;
+};
+piechart.prototype.draw = function () {
+    var title = this.data.title;
+    var colors = ['#05D116', '#FBD108', '#FF0F00', '#FFCC00', '#FFFF00', '#FF6666', '#CCCCFF', '#999933', '#009966'];
+    var dataTitle = this.data.datetile;
+    var dataarray = this.data.data;
+    this.ctx.canvas.height = this.r * 2 + 110;
+    this.ctx.canvas.width = this.r * 2 + 210;
+    this.ctx.font = 'bold 16px Arial';
+    this.ctx.textAlign = 'center';
+    this.ctx.fillText(title, this.ctx.canvas.width / 2, 25);
+    var circlecenter = { 'x': this.r + 50, 'y': this.r + 70 };
+    var lastendPI = 0 * Math.PI;
+    var angle = parseFloat('0.0');
+    var arc_oneend = { 'x': circlecenter.x + this.r, 'y': circlecenter.y };
+    var arc_anotherend = { 'x': circlecenter.x + this.r, 'y': circlecenter.y };
+    var remark_start = { 'x': 0, 'y': 0 };
+    var remark_end = { 'x':0, 'y':0 };
+    for (var i = 0; i < dataarray.length; i++) {
+        arc_oneend.x = arc_anotherend.x;
+        arc_oneend.y = arc_anotherend.y;
+        remark_start.x = circlecenter.x + this.r * Math.cos((angle + parseFloat(dataarray[i].persent) / 2) * 2 * Math.PI);
+        remark_start.y = circlecenter.y + this.r * Math.sin((angle + parseFloat(dataarray[i].persent) / 2) * 2 * Math.PI);
+        angle += parseFloat(dataarray[i].persent);
+        arc_anotherend.x = circlecenter.x + this.r * Math.cos(angle * 2 * Math.PI);
+        arc_anotherend.y = circlecenter.y + this.r * Math.sin(angle * 2 * Math.PI);
+        remark_end.x = remark_start.x > circlecenter.x ? remark_start.x + 20 : remark_start.x - 20;
+        remark_end.y = remark_start.y > circlecenter.y ? remark_start.y + 20 : remark_start.y - 20;
+        this.ctx.beginPath();
+        this.ctx.lineWidth = 1;
+        this.ctx.strokeStyle = 'gray';
+        this.ctx.moveTo(remark_start.x, remark_start.y);
+        this.ctx.lineTo(remark_end.x, remark_end.y);
+        this.ctx.stroke();
+        this.ctx.font = '12px Arial';
+        this.ctx.fillStyle = 'black';
+        this.ctx.fillText( dataTitle[i].num, remark_end.x, remark_end.y > circlecenter.y ? remark_end.y + 10 : remark_end.y);
+        this.ctx.beginPath();
+        this.ctx.lineWidth = 1;
+        this.ctx.moveTo(arc_oneend.x ,arc_oneend.y);
+        this.ctx.lineTo(circlecenter.x, circlecenter.y);
+        this.ctx.lineTo(arc_anotherend.x, arc_anotherend.y);
+        this.ctx.arc(circlecenter.x, circlecenter.y, this.r, lastendPI, lastendPI + dataarray[i].persent * 2 * Math.PI);
+        this.ctx.strokeStyle = colors[i];
+        this.ctx.fillStyle = colors[i];
+        this.ctx.fill();
+        this.ctx.stroke();
+        lastendPI += dataarray[i].persent * 2 * Math.PI;
+    }
+    this.ctx.lineWidth = 15;
+    for (var i = 0; i < dataarray.length; i++) {
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = colors[i];
+        this.ctx.fillStyle = 'black';
+        this.ctx.moveTo(this.ctx.canvas.width - 80, 50 + i * 17);
+        this.ctx.lineTo(this.ctx.canvas.width - 65, 50 + i * 17);
+        this.ctx.font = '12px Arial';
+        this.ctx.textAlign = 'left';
+        this.ctx.fillText(dataarray[i].title, this.ctx.canvas.width - 60, 50 + i * 17 + 4);
+        this.ctx.stroke();
+    }
+}
+</script>
+
 <script language="javascript" type="text/javascript"><!--
 output_list = Array();
 
@@ -272,6 +342,23 @@ function html_escape(s) {
     return s;
 }
 
+function picBig() {
+            var img = event.srcElement; //得到点击对象,IE下用这个
+            //var img = event.target; //得到点击对象,别的浏览器用这个
+            if (img.nodeName.toLocaleUpperCase() == "IMG") { //判断如果是<img>元素
+                var url = img.src; //得到图片的路径
+                document.getElementById("showimg").src = url; //把图片路径给浮动层里的<img>
+                //document.getElementById("spanimg").innerHTML = url; //主要是显示用，可删掉
+                var v = document.getElementById('divCenter'); //得到浮动层
+                v.style.display = "block"; //让浮动层显示（弹出）
+            }
+        }
+
+ function picClose() {
+                var v = document.getElementById('divCenter');
+                v.style.display = "none";
+            }
+
 /* obsoleted by detail in <div>
 function showOutput(id, name) {
     var w = window.open("", //url
@@ -312,13 +399,43 @@ pre         { }
 
 /* -- heading ---------------------------------------------------------------------- */
 h1 {
-	font-size: 16pt;
-	color: gray;
+	font-size: 24pt;
+	color: #222222;
 }
+
+h4 {
+	font-size: 10.5pt;
+	color: #050505;
+}
+
+h3 {
+	font-size: 13pt;
+	color: #050505;
+}
+
 .heading {
     margin-top: 0ex;
     margin-bottom: 1ex;
+    width: 606px;
+    hight:400px;
+
+    float:left;
 }
+.fl{
+    width: 20px;
+    hight:400px;
+    float:left;
+}
+
+.heading-right {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+    hight:400px;
+    background-color:#8AA45D;
+    float:left;
+}
+
+.clear{clear:both; height: 0; line-height: 0; font-size: 0}
 
 .heading .attribute {
     margin-top: 1ex;
@@ -332,6 +449,10 @@ h1 {
 
 /* -- css div popup ------------------------------------------------------------------------ */
 a.popup_link {
+    margin-left: 500px;
+    color: #c00;
+    font-size: 14pt;
+    font-weight: bold;
 }
 
 a.popup_link:hover {
@@ -349,7 +470,6 @@ a.popup_link:hover {
     font-family: "Lucida Console", "Courier New", Courier, monospace;
     text-align: left;
     font-size: 8pt;
-    width: 500px;
 }
 
 }
@@ -359,28 +479,36 @@ a.popup_link:hover {
     margin-bottom: 1ex;
 }
 #result_table {
-    width: 80%;
+    width: 100%;
     border-collapse: collapse;
-    border: 1px solid #777;
+    border: 2px solid #777;
+
 }
 #header_row {
+    text-align:center;vertical-align:middle;
     font-weight: bold;
-    color: white;
-    background-color: #777;
+    background-color: #322B21;
+    color:white;
 }
 #result_table td {
-    border: 1px solid #777;
+    border: 2px solid black;
     padding: 2px;
+
 }
-#total_row  { font-weight: bold; }
-.passClass  { background-color: #6c6; }
-.failClass  { background-color: #c60; }
-.errorClass { background-color: #c00; }
-.passCase   { color: #6c6; }
-.failCase   { color: #c60; font-weight: bold; }
-.errorCase  { color: #c00; font-weight: bold; }
+#total_row  { font-weight: bold; text-align:center;vertical-align:middle;}
+.passClass  { background-color: #6c6; text-align:center;vertical-align:middle;}
+.failClass  { background-color: #c60; text-align:center;vertical-align:middle;}
+.errorClass { background-color: #c00; text-align:center;vertical-align:middle;}
+.passCase   { color: #6c6; text-align:center;vertical-align:middle;}
+.failCase   { color: #c60; font-weight: bold; font-size: 14pt;text-align:center;vertical-align:middle;}
+.errorCase  { color: #c00; font-weight: bold; font-size: 14pt; text-align:center;vertical-align:middle;}
 .hiddenRow  { display: none; }
 .testcase   { margin-left: 2em; }
+#icon{
+    margin-right: auto;
+    height: 40px;
+    width: 40px;
+}
 
 
 /* -- ending ---------------------------------------------------------------------- */
@@ -396,13 +524,45 @@ a.popup_link:hover {
     # Heading
     #
 
-    HEADING_TMPL = """<div class='heading'>
+    HEADING_TMPL = """<div id="divCenter" align="center" style="position: absolute; z-index: 9; display: none; left:600px;top:200px; border:1px solid #222;">
+    <img style="height:750px; width:500px;" href="javascript:void(0);" onclick="picClose();" src="" id="showimg" />
+    </div>
+<div class='heading'>
 <h1>%(title)s</h1>
-%(parameters)s
-<p class='description'>%(description)s</p>
+<h4>%(parameters)s</h4>
+<p>&nbsp;</p>
+<p class='description'><h3>%(description)s</h3></p>
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
 </div>
 
-""" # variables: (title, parameters, description)
+<div class='fl'>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div class='fl'>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+<div class='heading-right'><canvas id ='%(canID)s'  style='border:1px solid #d3d3d3;' ></canvas></div>
+
+
+
+<script language="javascript" type="text/javascript">
+    var jsonData = {
+    'title': '测试结果统计图',
+    'data': [{ 'title': '成功', 'persent': '%(pp)s' }, { 'title': '失败', 'persent': '%(fp)s' },
+            { 'title': '错误', 'persent': '%(ep)s' }],
+    'datetile':[{ 'title': '成功', 'num': '%(pn)s' }, { 'title': '失败', 'num': '%(fn)s' },
+            { 'title': '错误', 'num': '%(en)s' }]
+};
+</script>
+
+<script language="javascript" type="text/javascript">
+    var c = document.getElementById('%(can)s');
+    var ctx = c.getContext('2d');
+    var v = new piechart(ctx, jsonData, 80);
+    v.draw();
+</script>
+
+""" # variables: (title, parameters, description, canID, can)
 
     HEADING_ATTRIBUTE_TMPL = """<p class='attribute'><strong>%(name)s:</strong> %(value)s</p>
 """ # variables: (name, value)
@@ -414,11 +574,7 @@ a.popup_link:hover {
     #
 
     REPORT_TMPL = """
-<p id='show_detail_line'>Show
-<a href='javascript:showCase(0)'>Summary</a>
-<a href='javascript:showCase(1)'>Failed</a>
-<a href='javascript:showCase(2)'>All</a>
-</p>
+
 <table id='result_table'>
 <colgroup>
 <col align='left' />
@@ -430,19 +586,27 @@ a.popup_link:hover {
 </colgroup>
 <tr id='header_row'>
     <td>Test Group/Test case</td>
+    <td>Description</td>
     <td>Count</td>
     <td>Pass</td>
     <td>Fail</td>
     <td>Error</td>
     <td>View</td>
+    <td>Begin</td>
+    <td>CheckPoint</td>
+    <td>End</td>
 </tr>
 %(test_list)s
 <tr id='total_row'>
     <td>Total</td>
+    <td>&nbsp;</td>
     <td>%(count)s</td>
     <td>%(Pass)s</td>
     <td>%(fail)s</td>
     <td>%(error)s</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
 </tr>
 </table>
@@ -451,11 +615,15 @@ a.popup_link:hover {
     REPORT_CLASS_TMPL = r"""
 <tr class='%(style)s'>
     <td>%(desc)s</td>
+    <td>%(description)s</td>
     <td>%(count)s</td>
     <td>%(Pass)s</td>
     <td>%(fail)s</td>
     <td>%(error)s</td>
     <td><a href="javascript:showClassDetail('%(cid)s',%(count)s)">Detail</a></td>
+    <td><a name='ScreenShot' href='javascript:void(0);' onclick='picBig();'><img id="icon" src="%(Begin)s" alt="test"/></a></td>
+    <td><a name='ScreenShot' href='javascript:void(0);' onclick='picBig();'><img id="icon" src="%(CheckPoint)s" alt="test"/></a></td>
+    <td><a name='ScreenShot' href='javascript:void(0);' onclick='picBig();'><img id="icon" src="%(End)s" alt="test"/></a></td>
 </tr>
 """ # variables: (style, desc, count, Pass, fail, error, cid)
 
@@ -463,7 +631,7 @@ a.popup_link:hover {
     REPORT_TEST_WITH_OUTPUT_TMPL = r"""
 <tr id='%(tid)s' class='%(Class)s'>
     <td class='%(style)s'><div class='testcase'>%(desc)s</div></td>
-    <td colspan='5' align='center'>
+    <td colspan='9' align='center'>
 
     <!--css div popup start-->
     <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_%(tid)s')" >
@@ -488,7 +656,7 @@ a.popup_link:hover {
     REPORT_TEST_NO_OUTPUT_TMPL = r"""
 <tr id='%(tid)s' class='%(Class)s'>
     <td class='%(style)s'><div class='testcase'>%(desc)s</div></td>
-    <td colspan='5' align='center'>%(status)s</td>
+    <td colspan='9' align='center'>%(status)s</td>
 </tr>
 """ # variables: (tid, Class, style, desc, status)
 
@@ -674,7 +842,7 @@ class HTMLTestRunner(Template_mixin):
         report_attrs = self.getReportAttributes(result)
         generator = 'HTMLTestRunner %s' % __version__
         stylesheet = self._generate_stylesheet()
-        heading = self._generate_heading(report_attrs)
+        heading = self._generate_heading(report_attrs, result)
         report = self._generate_report(result)
         ending = self._generate_ending()
         output = self.HTML_TMPL % dict(
@@ -692,7 +860,7 @@ class HTMLTestRunner(Template_mixin):
         return self.STYLESHEET_TMPL
 
 
-    def _generate_heading(self, report_attrs):
+    def _generate_heading(self, report_attrs, result):
         a_lines = []
         for name, value in report_attrs:
             line = self.HEADING_ATTRIBUTE_TMPL % dict(
@@ -700,10 +868,34 @@ class HTMLTestRunner(Template_mixin):
                     value = saxutils.escape(value),
                 )
             a_lines.append(line)
+        self.ftitle = "甜菜后台自动化测试报告"
+
+        if self.title == self.ftitle:
+            self.CanvasID = 'myCanvasB'
+        else:
+            self.CanvasID = 'myCanvasF'
+
+        count = result.success_count+result.failure_count+result.error_count
+
+        PassPer = round(result.success_count / count, 2)
+        failPer = round(result.failure_count / count, 2)
+        errorPer = round(result.error_count / count, 2)
         heading = self.HEADING_TMPL % dict(
             title = saxutils.escape(self.title),
             parameters = ''.join(a_lines),
             description = saxutils.escape(self.description),
+
+            canID = saxutils.escape(self.CanvasID),
+
+            pp = str(PassPer),
+            fp = str(failPer),
+            ep = str(errorPer),
+
+            pn = str(result.success_count),
+            fn = str(result.failure_count),
+            en = str(result.error_count),
+
+            can = saxutils.escape(self.CanvasID),
         )
         return heading
 
@@ -723,18 +915,26 @@ class HTMLTestRunner(Template_mixin):
             if cls.__module__ == "__main__":
                 name = cls.__name__
             else:
-                name = "%s.%s.%s" % (cls.__module__, cls.__name__, cls_results[0][1].case_name)
+                name = "%s.%s" % (cls.__module__, cls.__name__, )
             doc = cls.__doc__ and cls.__doc__.split("\n")[0] or ""
             desc = doc and '%s: %s' % (name, doc) or name
+            description = cls_results[0][1].case_name
+            Begin = cls_results[0][1].Begin
+            CheckPoint = cls_results[0][1].CheckPoint
+            End = cls_results[0][1].End
 
             row = self.REPORT_CLASS_TMPL % dict(
                 style = ne > 0 and 'errorClass' or nf > 0 and 'failClass' or 'passClass',
                 desc = desc,
+                description = description,
                 count = np+nf+ne,
                 Pass = np,
                 fail = nf,
                 error = ne,
                 cid = 'c%s' % (cid+1),
+                Begin = Begin,
+                CheckPoint = CheckPoint,
+                End = End,
             )
             rows.append(row)
 

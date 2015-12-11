@@ -4,7 +4,7 @@ import codecs
 global configfile_path
 
 prjDir = os.path.split(os.path.realpath(__file__))[0]
-configfile_path = prjDir +"\\config.ini"
+configfile_path = os.path.join(prjDir, "config.ini")
 
 
 class ReadConfig:

@@ -3,7 +3,7 @@ import os
 import urllib.request
 from urllib.error import URLError
 from multiprocessing import Process
-import testApp01.readConfig as readConfig
+import readConfig as readConfig
 import threading
 readConfigLocal = readConfig.ReadConfig()
 
@@ -11,16 +11,15 @@ readConfigLocal = readConfig.ReadConfig()
 class AppiumServer:
 
     def __init__(self):
-        global appiumPath, baseUrl
-        appiumPath = readConfigLocal.getConfigValue("appiumPath")
+        global openAppium, baseUrl
+        openAppium = readConfigLocal.getcmdValue("openAppium")
         baseUrl = readConfigLocal.getConfigValue("baseUrl")
 
     def start_server(self):
         """start the appium server
         :return:
         """
-        cmd = self.get_cmd()
-        t1 = RunServer(cmd)
+        t1 = RunServer(openAppium)
         p = Process(target=t1.start())
         p.start()
 
@@ -28,8 +27,8 @@ class AppiumServer:
         """stop the appium server
         :return:
         """
-        #kill myServer
-        os.system('taskkill /f /im node.exe')
+        # kill myServer
+        os.popen('pkill node')
 
     def re_start_server(self):
         """reStart the appium server
@@ -56,17 +55,6 @@ class AppiumServer:
             if response:
                 response.close()
 
-    def get_cmd(self):
-        """get the cmd of start appium server
-        :return:cmd
-        """
-        root_directory = appiumPath[:2]
-        start_cmd = "node node_modules\\appium\\bin\\appium.js"
-
-        cmd = root_directory+"&"+"cd "+appiumPath+"&"+start_cmd
-
-        return cmd
-
 
 class RunServer(threading.Thread):
 
@@ -77,6 +65,12 @@ class RunServer(threading.Thread):
     def run(self):
         os.system(self.cmd)
 
+
 if __name__ == "__main__":
+
     oo = AppiumServer()
     oo.start_server()
+    print("strart server")
+    print("running server")
+    oo.stop_server()
+    print("stop server")

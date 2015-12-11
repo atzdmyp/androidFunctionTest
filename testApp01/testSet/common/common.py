@@ -1,22 +1,18 @@
 
 from selenium.common.exceptions import NoSuchElementException
 from time import sleep
-import testApp01.readConfig as readConfig
+import readConfig as readConfig
 import os
-from testApp01.testSet.common.DRIVER import MyDriver
+from testSet.common.DRIVER import MyDriver
+import testSet.common.Log as Log
 from xml.etree import ElementTree as elementTree
 import xlrd
 
 readConfigLocal = readConfig.ReadConfig
-driver = MyDriver.get_driver()
 
 
-def return_index():
-    """
-    return the index
-    :return:
-    """
-    pass
+log = Log.MyLog.get_log()
+logger = log.get_my_logger()
 
 
 def get_window_size():
@@ -79,6 +75,10 @@ def my_swipe_to_right(during=None):
     driver.swipe(width*4/5, height/2, width/5, height/2, during)
 
 
+def back():
+    os.popen("adb shell input keyevent 4")
+
+
 activity = {}
 
 
@@ -93,7 +93,7 @@ def set_xml():
     :return:activity
     """
     if len(activity) == 0:
-        xml_path = os.path.join(readConfig.prjDir, "testSet\\bsns", "element.xml")
+        xml_path = os.path.join(readConfig.prjDir, "testSet","bsns", "element.xml")
         # open the xml file
         per = elementTree.parse(xml_path)
         all_element = per.findall('activity')
@@ -127,37 +127,36 @@ def get_el__dict(activity_name, element_name):
     return element_dict
 
 
-cls = []
-
-
 def get_xls(sheet_name):
     """
     get the value in excel
     :param sheet_name
     :return:cls
     """
+    cls = []
 
-    if len(cls) == 0:
-        xls_path = os.path.join(readConfig.prjDir, "testSet\\bsns", "TestCase.xls")
+    xls_path = os.path.join(readConfig.prjDir, "testSet", "bsns", "TestCase.xls")
 
-        # read the excel
-        data = xlrd.open_workbook(xls_path)
+    # read the excel
+    data = xlrd.open_workbook(xls_path)
 
-        # get the sheet
-        table = data.sheet_by_name(sheet_name)
+    # get the sheet
+    table = data.sheet_by_name(sheet_name)
 
-        nrows = table.nrows
+    nrows = table.nrows
 
-        for i in range(nrows):
+    for i in range(nrows):
 
-            if table.row_values(i)[0] != 'userName':
-                cls.append(table.row_values(i))
+        if table.row_values(i)[0] != u'case_name':
+            cls.append(table.row_values(i))
+
     return cls
 
 
 class Element:
 
     def __init__(self, activity_name, element_name):
+
         global driver
         driver = MyDriver.get_driver()
         self.activity_name = activity_name
@@ -227,7 +226,8 @@ class Element:
     def gets(self, index):
         """
         get one element in elementList
-        :return:
+        :param index
+        :return:elements[index]
         """
         if self.does_exist():
             if self.path_type == "ID":
@@ -242,6 +242,28 @@ class Element:
             if self.path_type == "NAME":
                 elements = driver.find_elements_by_name(self.path_value)
                 return elements[index]
+            return None
+        else:
+            return None
+
+    def get_element_list(self):
+        """
+        get elementList
+        :return:elements
+        """
+        if self.does_exist():
+            if self.path_type == "ID":
+                element_list = driver.find_elements_by_id(self.path_value)
+                return element_list
+            if self.path_type == "CLASSNAME":
+                element_list = driver.find_elements_by_class_name(self.path_value)
+                return element_list
+            if self.path_type == "XPATH":
+                element_list = driver.find_elements_by_xpath(self.path_value)
+                return element_list
+            if self.path_type == "NAME":
+                element_list = driver.find_elements_by_name(self.path_value)
+                return element_list
             return None
         else:
             return None
@@ -271,11 +293,14 @@ class Element:
     def send_key(self, values):
         """
         input the key
+        :param values
         :return:
         """
         try:
             element = self.get()
             element.clear()
+
+            logger.debug("input %s" % (values))
             element.send_keys(values)
         except AttributeError:
             raise
@@ -283,12 +308,16 @@ class Element:
     def send_keys(self, index, values):
         """
         input the key
+        :param index
+        :param values
         :return:
         """
         try:
             element = self.gets(index)
             element.clear()
+            logger.debug("input %s" % (values))
             element.send_keys(values)
+
         except AttributeError:
             raise
 
@@ -298,9 +327,12 @@ class Element:
         :param attribute:
         :return:value
         """
-        element = self.get()
-        value = element.get_attribute(attribute)
-        return value
+        try:
+            element = self.get()
+            value = element.get_attribute(attribute)
+            return value
+        except AttributeError:
+            raise
 
 if __name__ == "__main__":
     print(get_xls("login"))

@@ -117,6 +117,8 @@ class Alltest():
                 logger.error(str(ex))
             except ConnectionRefusedError as ex:
                 logger.error(str(ex))
+            except KeyError as ex:
+                logger.error(str(ex))
 
 if __name__ == '__main__':
     ojb = Alltest()
