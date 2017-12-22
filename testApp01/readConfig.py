@@ -30,3 +30,4 @@ class ReadConfig:
     def getcmdValue(self, name):
         value = self.cf.get("cmd", name)
         return value
+

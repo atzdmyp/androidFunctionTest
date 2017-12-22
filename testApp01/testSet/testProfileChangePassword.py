@@ -14,7 +14,7 @@ loginCls = bsnsCommon.get_login_cls()
 @paramunittest.parametrized(*change_password_cls)
 class TestChangePassword(unittest.TestCase):
 
-    def setParameters(self,case_name, old_password, new_password, confirm_password, result, message):
+    def setParameters(self, case_name, old_password, new_password, confirm_password, result, message):
         self.case_name = case_name
         self.new_password = new_password
         self.old_password = old_password
@@ -91,7 +91,7 @@ class TestChangePassword(unittest.TestCase):
         # return the index
         bsnsCommon.return_index()
 
-        # test Start
+        # test End
         self.log.build_end_line(self.caseNo)
 
     def input_password(self, old_password, new_password, confirm_password):

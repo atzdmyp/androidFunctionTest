@@ -1,4 +1,3 @@
-
 import logging
 import readConfig as readConfig
 import time
@@ -46,7 +45,6 @@ class Log:
         :param case_no:
         :return:
         """
-
         start_line = "----  " + case_no + "   START     ----"
         self.logger.info(start_line)
 
@@ -92,6 +90,7 @@ class Log:
         driver.get_screenshot_as_file(screenshot)
         self.checkNo += 1
         return os.path.join(screenshot.replace(resultPath, "../../result"))
+
 
 class MyLog:
     """

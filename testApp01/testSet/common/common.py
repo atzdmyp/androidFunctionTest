@@ -75,6 +75,18 @@ def my_swipe_to_right(during=None):
     driver.swipe(width*4/5, height/2, width/5, height/2, during)
 
 
+def my_swipe_to_right_2(during=None):
+    """
+    swipe right
+    :param during:
+    :return:
+    """
+    window_size = get_window_size()
+    width = window_size.get("width")
+    height = window_size.get("height")
+    driver.swipe(width*4/5, height/4, width/5, height/4, during)
+
+
 def back():
     os.popen("adb shell input keyevent 4")
 
@@ -93,7 +105,7 @@ def set_xml():
     :return:activity
     """
     if len(activity) == 0:
-        xml_path = os.path.join(readConfig.prjDir, "testSet","bsns", "element.xml")
+        xml_path = os.path.join(readConfig.prjDir, "testSet", "bsns", "element.xml")
         # open the xml file
         per = elementTree.parse(xml_path)
         all_element = per.findall('activity')
@@ -171,7 +183,7 @@ class Element:
         :return: TRUE or FALSE
         """
         try:
-            if self.path_type == "ID":
+            if self.path_type == "  ID":
                 driver.find_element_by_id(self.path_value)
                 return True
             if self.path_type == "CLASSNAME":
